@@ -42,6 +42,7 @@
 
 .footer-grid {
   display: grid;
+  margin-top:12px ;
   grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-2xl);
@@ -52,7 +53,6 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  min-height: 200px;
 }
 
 /* Footer Logo */
@@ -69,16 +69,18 @@
 }
 
 .footer-description {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--spacing-md);
-  max-width: 280px;
+  max-width: 300px;
+  font-size: var(--text-sm);
 }
 
 .footer-contact p {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-size: var(--text-sm);
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.5;
 }
 
 .footer-contact strong {
@@ -104,11 +106,13 @@
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   font-size: var(--text-sm);
   text-decoration: none;
   transition: all var(--transition-fast);
   display: inline-block;
+  padding: 2px 0;
+  line-height: 1.5;
 }
 
 .footer-links a:hover {
@@ -118,10 +122,11 @@
 
 /* Newsletter */
 .footer-newsletter-text {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-size: var(--text-sm);
   line-height: var(--leading-relaxed);
   margin-bottom: var(--spacing-md);
+  max-width: 280px;
 }
 
 .newsletter-form {
@@ -274,10 +279,23 @@
   .footer-column:first-child,
   .footer-column:last-child {
     grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .footer-column:first-child {
+    margin-bottom: var(--spacing-lg);
   }
   
   .footer-content {
     padding: var(--spacing-2xl) 0 var(--spacing-lg);
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-newsletter-text {
+    max-width: 100%;
   }
 }
 
@@ -291,9 +309,25 @@
     grid-column: 1 / -1;
     text-align: center;
   }
+
+  .footer-column:first-child {
+    text-align: center;
+    margin-bottom: var(--spacing-lg);
+  }
   
   .footer-content {
     padding: var(--spacing-xl) 0 var(--spacing-md);
+  }
+
+  .footer-description,
+  .footer-newsletter-text {
+    max-width: 100%;
+    text-align: center;
+    margin: 0 auto var(--spacing-md);
+  }
+
+  .footer-contact {
+    text-align: center;
   }
 
   .footer-bottom {
@@ -309,5 +343,9 @@
   
   .payment-methods img {
     height: 25px;
+  }
+
+  .social-links {
+    justify-content: center;
   }
 }

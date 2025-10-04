@@ -40,9 +40,7 @@ const Home = () => {
   return (
     <div className="home-page">
       <HeroSection />
-      <div ref={(el) => (sectionsRef.current[0] = el)}>
-        <CategoriesSection />
-      </div>
+
       <div ref={(el) => (sectionsRef.current[1] = el)}>
         <FeaturedProducts />
       </div>

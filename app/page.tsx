@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import HeroSection from "../src/components/home/HeroSection"
 import CategoriesSection from "../src/components/home/CategoriesSection"
+import NewArrivals from "../src/components/home/NewArrivals"
 import FeaturedProducts from "../src/components/home/FeaturedProducts"
 import ProductsByAge from "../src/components/home/ProductsByAge"
 import CharacterShop from "../src/components/home/CharacterShop"
@@ -44,27 +45,30 @@ export default function HomePage() {
         <CategoriesSection />
       </div>
       <div ref={(el) => { sectionsRef.current[1] = el }}>
-        <FeaturedProducts />
+        <NewArrivals />
       </div>
       <div ref={(el) => { sectionsRef.current[2] = el }}>
-        <ProductsByAge />
+        <FeaturedProducts />
       </div>
       <div ref={(el) => { sectionsRef.current[3] = el }}>
-        <CharacterShop />
+        <ProductsByAge />
       </div>
       <div ref={(el) => { sectionsRef.current[4] = el }}>
-        <BrandLogos />
+        <CharacterShop />
       </div>
       <div ref={(el) => { sectionsRef.current[5] = el }}>
-        <BestSelling />
+        <BrandLogos />
       </div>
       <div ref={(el) => { sectionsRef.current[6] = el }}>
-        <ImageGallery />
+        <BestSelling />
       </div>
       <div ref={(el) => { sectionsRef.current[7] = el }}>
-        <Testimonials />
+        <ImageGallery />
       </div>
       <div ref={(el) => { sectionsRef.current[8] = el }}>
+        <Testimonials />
+      </div>
+      <div ref={(el) => { sectionsRef.current[9] = el }}>
         <LatestNews />
       </div>
     </div>
