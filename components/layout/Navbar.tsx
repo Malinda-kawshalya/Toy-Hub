@@ -34,19 +34,41 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className={styles.navContainer}>
-        <Link href="/" className={styles.logo}>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            🧸 ToyLand
-          </motion.div>
-        </Link>
-
-        {/* Desktop Menu */}
-        <ul className={styles.navLinks}>
-          {navLinks.map((link, index) => (
+        {/* Left Links */}
+        <ul className={styles.navLinksLeft}>
+          {navLinks.slice(0, Math.ceil(navLinks.length / 2)).map((link, index) => (
             <motion.li
               key={link.name}
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <Link href={link.href} className={styles.navLink}>
+                {link.name}
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
+
+        {/* Center Logo */}
+        <div className={styles.logoWrapper}>
+            <Link href="/" className={styles.logo}>
+            <motion.img
+              src="/Kidz Dreams Logo png.png"
+              alt="Kidz Dreams Logo"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            />
+            </Link>
+        </div>
+
+        {/* Right Links */}
+        <ul className={styles.navLinksRight}>
+          {navLinks.slice(Math.ceil(navLinks.length / 2)).map((link, index) => (
+            <motion.li
+              key={link.name}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ delay: index * 0.1 }}
             >
               <Link href={link.href} className={styles.navLink}>
