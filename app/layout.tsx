@@ -1,14 +1,19 @@
 import type React from "react"
-import { CartProvider } from "../src/context/CartContext"
-import Header from "../src/components/layout/Header"
-import Footer from "../src/components/layout/Footer"
-import ScrollToTop from "../src/components/common/ScrollToTop"
-import "../src/styles/globals.css"
-import "../src/styles/animations.css"
+import type { Metadata } from "next"
+import { Poppins } from "next/font/google"
+import "./globals.css"
+import Navbar from "@/components/layout/Navbar"
+import Footer from "@/components/layout/Footer"
 
-export const metadata = {
-  title: "Pippo - Best Education for Kids",
-  description: "Educational toys and games for children of all ages",
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-poppins",
+})
+
+export const metadata: Metadata = {
+  title: "ToyLand - Where Fun Begins!",
+  description: "Your one-stop shop for fun, learning, and imagination. Discover amazing toys for kids of all ages.",
     generator: 'v0.app'
 }
 
@@ -18,18 +23,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
       <body>
-        <CartProvider>
-          <div className="app">
-            <Header />
-            <main>
-              {children}
-            </main>
-            <Footer />
-            <ScrollToTop />
-          </div>
-        </CartProvider>
+        <Navbar />
+        {children}
+        <Footer />
       </body>
     </html>
   )

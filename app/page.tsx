@@ -1,18 +1,17 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import HeroSection from "../src/components/home/HeroSection"
-import CategoriesSection from "../src/components/home/CategoriesSection"
-import NewArrivals from "../src/components/home/NewArrivals"
-import FeaturedProducts from "../src/components/home/FeaturedProducts"
-import ProductsByAge from "../src/components/home/ProductsByAge"
-import CharacterShop from "../src/components/home/CharacterShop"
-import BrandLogos from "../src/components/home/BrandLogos"
-import BestSelling from "../src/components/home/BestSelling"
-import ImageGallery from "../src/components/home/ImageGallery"
-import Testimonials from "../src/components/home/Testimonials"
-import LatestNews from "../src/components/home/LatestNews"
-import "../src/pages/Home.css"
+import HeroSection from "./home/HeroSection"
+import CategoriesSection from "./home/CategoriesSection"
+import FeaturedProducts from "./home/FeaturedProducts"
+import ProductsByAge from "./home/ProductsByAge"
+import CharacterShop from "./home/CharacterShop"
+import BrandLogos from "./home/BrandLogos"
+import BestSelling from "./home/BestSelling"
+import ImageGallery from "./home/ImageGallery"
+import Testimonials from "./home/Testimonials"
+import LatestNews from "./home/LatestNews"
+import styles from "./page.module.css"
 
 export default function HomePage() {
   const sectionsRef = useRef<(HTMLDivElement | null)[]>([])
@@ -39,36 +38,33 @@ export default function HomePage() {
   }, [])
 
   return (
-    <div className="home-page">
+    <div className={styles.homePage}>
       <HeroSection />
       <div ref={(el) => { sectionsRef.current[0] = el }}>
         <CategoriesSection />
       </div>
       <div ref={(el) => { sectionsRef.current[1] = el }}>
-        <NewArrivals />
-      </div>
-      <div ref={(el) => { sectionsRef.current[2] = el }}>
         <FeaturedProducts />
       </div>
-      <div ref={(el) => { sectionsRef.current[3] = el }}>
+      <div ref={(el) => { sectionsRef.current[2] = el }}>
         <ProductsByAge />
       </div>
-      <div ref={(el) => { sectionsRef.current[4] = el }}>
+      <div ref={(el) => { sectionsRef.current[3] = el }}>
         <CharacterShop />
       </div>
-      <div ref={(el) => { sectionsRef.current[5] = el }}>
+      <div ref={(el) => { sectionsRef.current[4] = el }}>
         <BrandLogos />
       </div>
-      <div ref={(el) => { sectionsRef.current[6] = el }}>
+      <div ref={(el) => { sectionsRef.current[5] = el }}>
         <BestSelling />
       </div>
-      <div ref={(el) => { sectionsRef.current[7] = el }}>
+      <div ref={(el) => { sectionsRef.current[6] = el }}>
         <ImageGallery />
       </div>
-      <div ref={(el) => { sectionsRef.current[8] = el }}>
+      <div ref={(el) => { sectionsRef.current[7] = el }}>
         <Testimonials />
       </div>
-      <div ref={(el) => { sectionsRef.current[9] = el }}>
+      <div ref={(el) => { sectionsRef.current[8] = el }}>
         <LatestNews />
       </div>
     </div>

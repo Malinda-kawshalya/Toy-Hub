@@ -1,165 +1,151 @@
 "use client"
 
-import Link from "next/link"
-import "../../src/pages/About.css"
+import { motion } from "framer-motion"
+import styles from "./about.module.css"
 
 export default function AboutPage() {
-  const values = [
+  const features = [
     {
-      id: 1,
-      icon: "🎯",
-      title: "Quality First",
-      description: "We carefully select every toy to ensure it meets the highest safety and quality standards.",
+      icon: "✅",
+      title: "Safe Toys",
+      description: "All toys are safety-tested and certified",
     },
     {
-      id: 2,
-      icon: "🧠",
-      title: "Educational Value",
-      description: "Our toys are designed to inspire learning, creativity, and cognitive development.",
+      icon: "😊",
+      title: "Friendly Staff",
+      description: "Our team loves helping kids find perfect toys",
     },
     {
-      id: 3,
-      icon: "💚",
-      title: "Safe & Eco-Friendly",
-      description: "All products are made from non-toxic, sustainable materials safe for children and the planet.",
+      icon: "🎉",
+      title: "Fun Environment",
+      description: "A magical space designed for play and discovery",
     },
     {
-      id: 4,
-      icon: "🌟",
-      title: "Customer Satisfaction",
-      description: "Your happiness is our priority. We're committed to providing exceptional service and support.",
+      icon: "💝",
+      title: "Quality Guaranteed",
+      description: "Only the best toys make it to our shelves",
     },
-  ]
-
-  const team = [
-    {
-      id: 1,
-      name: "Sarah Johnson",
-      role: "Founder & CEO",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "Passionate about early childhood education with 15+ years of experience.",
-    },
-    {
-      id: 2,
-      name: "Michael Chen",
-      role: "Product Director",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "Expert in toy safety standards and sustainable manufacturing practices.",
-    },
-    {
-      id: 3,
-      name: "Emily Rodriguez",
-      role: "Education Specialist",
-      image: "/placeholder.svg?height=300&width=300",
-      bio: "Former teacher dedicated to creating meaningful learning experiences.",
-    },
-  ]
-
-  const stats = [
-    { id: 1, number: "10,000+", label: "Happy Families" },
-    { id: 2, number: "500+", label: "Quality Products" },
-    { id: 3, number: "15+", label: "Years Experience" },
-    { id: 4, number: "98%", label: "Satisfaction Rate" },
   ]
 
   return (
-    <div className="about-page">
-      <div className="about-hero">
-        <div className="container">
-          <h1 className="about-hero-title">About Pippo</h1>
-          <p className="about-hero-subtitle">Inspiring Young Minds Through Play</p>
-        </div>
-      </div>
+    <main className={styles.main}>
+      {/* Hero Banner */}
+      <section className={styles.hero}>
+        <motion.div
+          className={styles.heroContent}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1 className={styles.heroTitle}>
+            About <span className={styles.gradient}>ToyLand</span>
+          </h1>
+          <p className={styles.heroSubtext}>Where every toy tells a story and every child finds magic</p>
+        </motion.div>
+      </section>
 
-      <section className="about-story section">
-        <div className="container">
-          <div className="story-grid">
-            <div className="story-image">
-              <img
-                src="/happy-child-playing-with-colorful-character-toys.jpg"
-                alt="Children playing with toys"
-                className="story-img"
-              />
+      {/* Our Story */}
+      <section className={styles.section}>
+        <div className={styles.storyGrid}>
+          <motion.div
+            className={styles.storyImage}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className={styles.imagePlaceholder}>
+              <img src="/colorful-toy-shop-interior-with-happy-children-pla.jpg" alt="ToyLand Shop" />
             </div>
-            <div className="story-content">
-              <h2 className="section-title">Our Story</h2>
-              <p className="story-text">
-                Founded in 2009, Pippo began with a simple mission: to provide children with toys that spark
-                imagination, encourage learning, and bring joy to families around the world.
-              </p>
-              <p className="story-text">
-                What started as a small family business has grown into a trusted name in educational toys. We believe
-                that play is essential to childhood development, and every product we offer is carefully selected to
-                support cognitive, social, and emotional growth.
-              </p>
-              <p className="story-text">
-                Today, we're proud to serve thousands of families, schools, and childcare centers with high-quality,
-                safe, and engaging toys that make learning fun.
-              </p>
-            </div>
-          </div>
+          </motion.div>
+
+          <motion.div
+            className={styles.storyContent}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className={styles.sectionTitle}>Our Story</h2>
+            <p className={styles.text}>
+              ToyLand was born from a simple dream: to create a magical place where children's imaginations could run
+              wild. Founded in 2020 by parents who understood the power of play, we've grown into a beloved community
+              hub.
+            </p>
+            <p className={styles.text}>
+              Every toy in our shop is handpicked with love, ensuring it meets our high standards for quality, safety,
+              and fun. We believe that the right toy can spark creativity, build confidence, and create memories that
+              last a lifetime.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="about-values section">
-        <div className="container">
-          <h2 className="section-title text-center">Our Values</h2>
-          <div className="values-grid">
-            {values.map((value, index) => (
-              <div key={value.id} className="value-card" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="value-icon">{value.icon}</div>
-                <h3 className="value-title">{value.title}</h3>
-                <p className="value-description">{value.description}</p>
-              </div>
-            ))}
-          </div>
+      {/* Mission & Vision */}
+      <section className={styles.section}>
+        <div className={styles.missionVision}>
+          <motion.div
+            className={styles.missionCard}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            whileHover={{ scale: 1.03 }}
+          >
+            <div className={styles.cardIcon}>🎯</div>
+            <h3 className={styles.cardTitle}>Our Mission</h3>
+            <p className={styles.cardText}>
+              To spark creativity and joy in every child through carefully curated toys that inspire learning,
+              imagination, and endless fun.
+            </p>
+          </motion.div>
+
+          <motion.div
+            className={styles.visionCard}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            whileHover={{ scale: 1.03 }}
+          >
+            <div className={styles.cardIcon}>🌟</div>
+            <h3 className={styles.cardTitle}>Our Vision</h3>
+            <p className={styles.cardText}>
+              To be the happiest toy shop in town, where families create magical memories and children discover the joy
+              of play.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      <section className="about-stats section-sm">
-        <div className="container">
-          <div className="stats-grid">
-            {stats.map((stat, index) => (
-              <div key={stat.id} className="stat-card" style={{ animationDelay: `${index * 0.1}s` }}>
-                <div className="stat-number">{stat.number}</div>
-                <div className="stat-label">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Why Choose Us */}
+      <section className={styles.section}>
+        <motion.h2
+          className={styles.sectionTitle}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          Why Choose <span className={styles.gradient}>ToyLand</span>?
+        </motion.h2>
 
-      <section className="about-team section">
-        <div className="container">
-          <h2 className="section-title text-center">Meet Our Team</h2>
-          <div className="team-grid">
-            {team.map((member, index) => (
-              <div key={member.id} className="team-card" style={{ animationDelay: `${index * 0.15}s` }}>
-                <div className="team-image">
-                  <img src={member.image || "/placeholder.svg"} alt={member.name} />
-                </div>
-                <div className="team-info">
-                  <h3 className="team-name">{member.name}</h3>
-                  <p className="team-role">{member.role}</p>
-                  <p className="team-bio">{member.bio}</p>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className={styles.featuresGrid}>
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className={styles.featureCard}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ y: -8 }}
+            >
+              <div className={styles.featureIcon}>{feature.icon}</div>
+              <h3 className={styles.featureTitle}>{feature.title}</h3>
+              <p className={styles.featureText}>{feature.description}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
-
-      <section className="about-cta section">
-        <div className="container">
-          <div className="cta-box">
-            <h2 className="cta-title">Ready to Explore?</h2>
-            <p className="cta-text">Discover our collection of educational toys designed to inspire and delight.</p>
-            <Link href="/products" className="btn btn-primary btn-lg">
-              Shop Now
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+    </main>
   )
 }
