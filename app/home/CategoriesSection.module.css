@@ -1,25 +1,261 @@
-.section {
-  padding: 6rem 0;
-  background: #f8f9fa;
+/* CategoriesSection.module.css */
+
+.categoriesSection {
+  padding: 80px 20px;
+  background-color: #ffffff;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
 }
 
-.title {
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
   text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
-  color: #333;
+  margin-bottom: 60px;
+  color: #1a1a1a;
 }
 
-.grid {
+/* Categories Grid */
+.categoriesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.categoryCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.categoryCard:hover {
+  transform: translateY(-10px);
+}
+
+.categoryImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px dashed #d0d0d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.categoryCard:hover .categoryImage {
+  border-color: #ff8a80;
+}
+
+.image {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+
+.categoryName {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+}
+
+/* Dots Indicator */
+.dotsIndicator {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 60px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #d0d0d0;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: 30px;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+}
+
+/* Promos Grid */
+.promosGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.promoCard {
+  border-radius: 20px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.promoCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.promoContent {
+  position: relative;
+  z-index: 2;
+}
+
+.promoTitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 15px;
+  line-height: 1.3;
+  max-width: 250px;
+}
+
+.promoDescription {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-bottom: 25px;
+}
+
+.shopButton {
+  background-color: #ff8a80;
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.shopButton:hover {
+  background-color: #ff6b5e;
+  transform: scale(1.05);
+}
+
+.promoImage {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 250px;
+  height: 250px;
+}
+
+.promoImage .image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .categoriesGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .promosGrid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sectionTitle {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+  
+  .categoriesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  .categoryImage {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .promosGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .promoCard {
+    padding: 30px;
+    min-height: 250px;
+  }
+  
+  .promoTitle {
+    font-size: 1.5rem;
+  }
+  
+  .promoImage {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .categoriesSection {
+    padding: 40px 15px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+  
+  .categoryImage {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .categoryName {
+    font-size: 0.95rem;
+  }
+  
+  .promoCard {
+    padding: 25px;
+  }
+  
+  .promoTitle {
+    font-size: 1.3rem;
+  }
+  
+  .promoDescription {
+    font-size: 0.9rem;
+  }
+  
+  .shopButton {
+    padding: 12px 25px;
+    font-size: 0.95rem;
+  }
 }

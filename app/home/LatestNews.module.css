@@ -1,70 +1,166 @@
 .section {
-  padding: 6rem 0;
-  background: #f8f9fa;
+  /* Remove background color to match the white background of the image */
+  padding: 5rem 0; 
+  background-color: white;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1.5rem;
+}
+
+.header {
+  text-align: left; /* Titles are left-aligned in the image */
+  margin-bottom: 2.5rem;
+  padding-left: 0.5rem; /* Slight padding to align with card content */
 }
 
 .title {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
+  /* Match the large, bold title */
+  text-align: left;
+  font-size: 2.5rem;
+  font-weight: 700; /* Bold */
+  margin-bottom: 0.5rem;
   color: #333;
 }
 
-.newsGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+.subtitle {
+  /* Match the smaller, lighter subtitle */
+  font-size: 1rem;
+  color: #6c757d;
+  font-weight: 400;
+  margin-bottom: 0;
 }
 
+.newsGrid {
+  /* Standard 3-column grid */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem; /* Reduced gap slightly */
+}
+
+/* News Card Styles:
+  - White background (default)
+  - Box shadow is subtle, not strong
+  - Border-radius is applied to the image and the card corners
+*/
 .newsCard {
   background: white;
-  padding: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  border-radius: 10px; /* Subtle rounded corners for the whole card */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  overflow: hidden; /* Crucial to clip the image's top corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
 }
 
 .newsCard:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+.imageWrapper {
+    /* Ensures the image wrapper takes up the top space */
+    width: 100%;
+    /* No explicit border radius here, we'll apply it to the content */
+}
+
+.newsImage {
+  width: 100%;
+  height: auto;
+  min-height: 200px; /* Ensure a consistent image height */
+  display: block;
+  /* Apply border-radius only to the top corners of the image */
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 1rem 1.25rem 1.5rem; /* Padding for the text content */
+  flex-grow: 1; /* Allows content to push footer down */
+  display: flex;
+  flex-direction: column;
+}
+
+.meta {
+    /* Container for author and date */
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+    color: #888; /* Light gray for meta info */
+    font-weight: 500;
+}
+
+.author {
+    /* Author name is slightly darker/bolder */
+    color: #555;
+    font-weight: 600;
+}
+
+.separator {
+    margin: 0 0.5rem;
 }
 
 .date {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
+    /* Date styling */
+    color: #888;
 }
 
 .newsTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  /* Match the dark, bold title */
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
   color: #333;
+  line-height: 1.3;
 }
 
 .excerpt {
-  color: #555;
-  line-height: 1.6;
+  /* Match the light, smaller excerpt text */
+  color: #6c757d;
+  font-size: 0.95rem;
+  line-height: 1.5;
   margin-bottom: 1.5rem;
+  flex-grow: 1; /* Allows the excerpt to take up remaining space before the button */
 }
 
 .readMore {
-  background: #667eea;
+  /* Match the pink button from the image */
+  background: #f8797f; /* Soft pink color */
   color: white;
   border: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 20px;
-  font-weight: bold;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px; /* Fully rounded pill shape */
+  font-size: 0.9rem;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.3s ease;
+  align-self: flex-start; /* Aligns button to the left */
 }
 
 .readMore:hover {
-  background: #5a6fd8;
+  background: #f65c63; /* Slightly darker pink on hover */
+}
+
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .newsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    text-align: center;
+    padding-left: 0;
+  }
+  .title {
+    text-align: center;
+    font-size: 2rem;
+  }
 }
