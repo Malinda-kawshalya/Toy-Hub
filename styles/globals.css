@@ -37,6 +37,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+    --glass-primary: rgba(5, 20, 55, 0.85);
+  --glass-secondary: rgba(10, 30, 70, 0.9);
+  --glow-blue: rgba(0, 150, 255, 0.4);
+  --glow-cyan: rgba(0, 200, 255, 0.3);
+  --text-primary: #e8f0ff;
+  --text-secondary: #b8d0ff;
+  --border-glass: rgba(100, 150, 255, 0.15);
 }
 
 .dark {
@@ -114,6 +121,24 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 }
+body {
+  background: linear-gradient(135deg, #010518, #010e2f, #0b1c47);
+  background-size: 400% 400%;
+  animation: darkLiquidFlow 20s ease infinite;
+}
+
+@keyframes darkLiquidFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 @layer base {
   * {

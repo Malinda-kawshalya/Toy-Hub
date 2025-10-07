@@ -3,20 +3,22 @@
 /* === General Navbar Styling === */
 .navbar {
   position: fixed;
-  top: 40px; /* increased top space for overlap */
-  left: 20%;
+  top: 30px;
+right: 20%;
+ 
   transform: translateX(-50%);
   width: 90%;
-  max-width: 1200px;
-  padding: 1rem 2.5rem; /* increased height */
-  border-radius: 50px; /* Capsule shape */
+  max-width: 1142px;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(255, 255, 255, 0.8); /* Light theme glass */
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
   display: flex;
   justify-content: center;
+  align-items: center;
   z-index: 999;
   transition: all 0.3s ease-in-out;
 }
@@ -37,19 +39,18 @@
   position: relative;
 }
 
-/* === Logo Wrapper (overlapping) === */
+/* === Logo Wrapper (Perfectly Centered) === */
 .logoWrapper {
   position: absolute;
-  top: -30px; /* overlap above navbar */
-  bottom: -30px;
+  top: -35px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
 }
 
 .logo img {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
   border: 3px solid #00A0FF;
   object-fit: cover;
@@ -60,7 +61,7 @@
 }
 
 .logo img:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 /* === Left and Right Nav Links === */
@@ -79,9 +80,9 @@
   justify-content: flex-start;
 }
 
-/* === Nav Link Styling for Dark Text === */
+/* === Nav Link Styling === */
 .navLink {
-  color: #1a1a1a; /* dark text for light theme */
+  color: #1a1a1a;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
@@ -97,7 +98,7 @@
   height: 2px;
   bottom: -4px;
   left: 0;
-  background-color: #00A0FF; /* Accent underline */
+  background-color: #00A0FF;
   transition: width 0.3s ease;
 }
 
@@ -122,7 +123,7 @@
   display: block;
   height: 3px;
   width: 100%;
-  background: #1a1a1a; /* dark bars for light theme */
+  background: #1a1a1a;
   border-radius: 2px;
   transition: all 0.3s ease;
 }
@@ -139,8 +140,8 @@
   border-radius: 20px;
   margin-top: 0.5rem;
   overflow: hidden;
-  width: 20%;
-  max-width: 100px;
+  width: 85%;
+  max-width: 350px;
   margin-left: auto;
   margin-right: auto;
   padding: 1rem 0;
@@ -149,7 +150,7 @@
 .mobileNavLink {
   padding: 0.8rem 1.5rem;
   text-decoration: none;
-  color: #1a1a1a; /* dark text */
+  color: #1a1a1a;
   font-weight: 500;
   font-size: 1rem;
   transition: background 0.3s ease, transform 0.2s ease;
@@ -164,19 +165,83 @@
   transform: scale(1.05);
 }
 
-/* === Responsive === */
+/* === Responsive Mobile View === */
+@media (max-width: 1024px) {
+  .navbar {
+    width: 95%;
+  }
+
+  .logo img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
 @media (max-width: 768px) {
+  .navbar {
+    top: 0;
+    left: 0;
+    transform: none;
+    width: 100%;
+    border-radius: 0;
+    padding: 0.8rem 1rem;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+  }
+
+  .navContainer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Keep logo centered */
+  .logoWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-bottom: 0.5rem;
+  }
+
+  .logo img {
+    width: 70px;
+    height: 70px;
+  }
+
+  /* Hide left and right nav links */
   .navLinksLeft,
   .navLinksRight {
     display: none;
   }
-  .logoWrapper {
-    display: none; /* Hide logo on mobile */
-  }
+
+  /* Show mobile hamburger */
   .mobileMenuBtn {
     display: flex;
+    margin-top: 0.5rem;
   }
+
+  /* Simple centered dropdown */
   .mobileMenu {
     display: flex;
+    width: 90%;
+    border-radius: 12px;
+    margin: 0.5rem auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .navbar {
+    padding: 0.6rem;
+  }
+
+  .mobileNavLink {
+    font-size: 0.9rem;
   }
 }
