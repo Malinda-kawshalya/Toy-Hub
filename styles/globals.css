@@ -4,6 +4,20 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
+  --brand-primary-color: #00A0FF; /* Bright Sky Blue */
+  --brand-secondary-color: #FF008E; /* Vivid Pink Magenta */
+
+  /* Muted Colors for Splash Backgrounds (Used by the component) */
+  --splash-1: #fbe6e3;   /* Muted Pink */
+  --splash-2: #e8f0e5;   /* Muted Green */
+  --splash-3: #e6e6f0;   /* Muted Lavender */
+  --splash-4: #f9f4e2;   /* Muted Yellow */
+
+  /* Card Text Colors (Using brand colors for contrast and identity) */
+  --text-color-1: var(--brand-secondary-color);
+  --text-color-2: var(--brand-primary-color);
+  --text-color-3: var(--brand-secondary-color);
+  --text-color-4: var(--brand-primary-color);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);

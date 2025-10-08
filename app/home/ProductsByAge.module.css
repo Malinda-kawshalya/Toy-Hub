@@ -1,79 +1,152 @@
-.section {
-  padding: 6rem 0;
-  background: #f8f9fa;
+/* ProductsByAge.module.css - Revised for Modern Look, Better Spacing, and Hover */
+
+.shopByAgeSection {
+    padding: 80px 40px; /* Increased vertical and horizontal padding for better spacing */
+    text-align: center;
+    background-color: #ffffff;
+    font-family: var(--font-quicksand), 'Quicksand', system-ui, -apple-system, sans-serif;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.sectionTitle {
+    font-size: 36px; /* Slightly larger title */
+    font-weight: 700;
+    margin-bottom: 60px; /* More space below the title */
+    color: var(--initial-text-color);
 }
 
-.title {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
-  color: #333;
+.ageCardsContainer {
+    display: flex;
+    justify-content: center;
+    gap: 40px; /* Increased gap between cards for better spacing */
+    flex-wrap: wrap;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+/* --- Age Card Link/Container Styling (Clean and Modern) --- */
+
+.ageCardLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 220px; /* Slightly larger cards */
+    height: 220px;
+    text-decoration: none;
+    position: relative;
+    border: 1px solid #eee; /* Subtle initial border */
+    border-radius: 12px; /* Smoother rounded corners */
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle initial shadow */
+    cursor: pointer;
+    overflow: hidden;
+    transition: 
+        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
+        box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+        border-color 0.4s;
+    will-change: transform, box-shadow;
 }
 
-.ageCard {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  transition: transform 0.3s ease;
+/* --- Subtle Brush Mark Texture (::before) --- */
+/* We'll use the age bg.webp as a subtle background layer inside the white card */
+.ageCardLink::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Use your brush mark image as a subtle background texture */
+    background-image: url('/age bg.webp'); 
+    background-size: cover;
+    background-position: center;
+    opacity: 0.15; /* Highly reduced opacity for a very subtle texture */
+    mix-blend-mode: multiply; /* Keeps the subtle look */
+    border-radius: 12px;
+    transition: opacity 0.4s;
 }
 
-.ageCard:hover {
-  transform: translateY(-5px);
+/* --- Color Overlay (::after) - Removed for a cleaner look, use hover for color change --- */
+
+/* --- Card Content Styling --- */
+.ageCardContent {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: var(--initial-text-color); /* Start with a dark text color */
+    transition: color 0.4s; /* Transition the text color */
 }
 
-.imageWrapper {
-  height: 200px;
-  overflow: hidden;
+.ageNumber {
+    font-size: 44px; /* Larger numbers for impact */
+    font-weight: 900; /* Extra bold */
+    line-height: 1.1;
+    margin-bottom: 5px;
 }
 
-.image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.ageText {
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: lowercase;
 }
 
-.content {
-  padding: 2rem;
+/* --- Hover Animation (Lift, Shadow, and **Color Change**) --- */
+
+.ageCardLink:hover {
+    transform: translateY(-8px); /* More noticeable lift */
+    /* Stronger, branded shadow using both colors */
+    border-color: var(--brand-primary-color);
+    box-shadow: 
+        0 15px 30px rgba(0, 160, 255, 0.25), /* Blue for depth */
+        0 5px 15px rgba(255, 0, 142, 0.15); /* Pink for accent */
 }
 
-.ageTitle {
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #333;
+/* **Hover Color Change:** Change text color to the brand color on hover */
+.ageCardLink:hover .ageCardContent {
+    color: var(--brand-primary-color); /* Use the primary blue for all text on hover */
 }
 
-.description {
-  color: #666;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+/* OPTIONAL: Alternate the hover color for a more dynamic feel */
+.card2:hover .ageCardContent,
+.card4:hover .ageCardContent {
+    color: var(--brand-secondary-color); /* Use pink for cards 2 and 4 on hover */
 }
 
-.shopButton {
-  background: #ff6b6b;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 25px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.ageCardLink:hover::before {
+    opacity: 0.05; /* Dim the background texture slightly on hover */
 }
 
-.shopButton:hover {
-  background: #ff5252;
+
+/* --- Responsiveness --- */
+
+@media (max-width: 1200px) {
+    .ageCardsContainer { gap: 30px; }
+    .ageCardLink { width: 200px; height: 200px; }
+}
+
+@media (max-width: 992px) {
+    .ageCardsContainer { gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .sectionTitle { margin-bottom: 40px; }
+    .ageCardsContainer {
+        gap: 25px;
+        /* Cards stack 2x2 */
+    }
+    .ageCardLink {
+        width: 45%;
+        max-width: 200px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+    .ageNumber { font-size: 36px; }
+    .ageText { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+    .ageCardsContainer { flex-direction: column; align-items: center; }
+    .ageCardLink { width: 90%; max-width: 250px; }
 }

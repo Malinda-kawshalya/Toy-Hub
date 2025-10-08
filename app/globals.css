@@ -116,6 +116,7 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    font-family: var(--font-quicksand), "Quicksand", system-ui, -apple-system, sans-serif;
   }
   body {
     @apply bg-background text-foreground;
@@ -129,7 +130,7 @@
 }
 
 body {
-  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  font-family: var(--font-quicksand), "Quicksand", system-ui, -apple-system, sans-serif;
   overflow-x: hidden;
   background: var(--color-background);
   color: var(--color-foreground);

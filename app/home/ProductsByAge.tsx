@@ -1,45 +1,44 @@
-"use client"
+// ShopByAgeSection.tsx
 
-import styles from "./ProductsByAge.module.css"
+import React from 'react';
+import styles from './ProductsByAge.module.css'; 
 
-const ageGroups = [
-  {
-    title: "0-2 Years",
-    description: "Safe and engaging toys for babies and toddlers",
-    image: "/plush-toys-and-stuffed-animals-display.jpg"
-  },
-  {
-    title: "3-5 Years",
-    description: "Educational and creative toys for preschoolers",
-    image: "/kids-playing-with-building-blocks-and-puzzles.jpg"
-  },
-  {
-    title: "6-12 Years",
-    description: "Interactive and challenging toys for school age",
-    image: "/colorful-toy-display-shelves-with-educational-toys.jpg"
-  }
-]
+// Define the structure for an age group card
+interface AgeGroup {
+  id: number;
+  ageRange: string;
+  link: string;
+  colorClass: keyof typeof styles; 
+  timeUnit: string;
+}
 
-export default function ProductsByAge() {
+const ageGroups: AgeGroup[] = [
+  { id: 1, ageRange: '0 - 12', link: '/shop/age/0-12m', colorClass: 'card1', timeUnit: 'months' },
+  { id: 2, ageRange: '1 - 2', link: '/shop/age/1-2y', colorClass: 'card2', timeUnit: 'years' },
+  { id: 3, ageRange: '3+', link: '/shop/age/3plus', colorClass: 'card3', timeUnit: 'years' },
+  { id: 4, ageRange: '5+', link: '/shop/age/5plus', colorClass: 'card4', timeUnit: 'years' },
+];
+
+const ShopByAgeSection: React.FC = () => {
   return (
-    <section className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>Shop by Age</h2>
-        <div className={styles.grid}>
-          {ageGroups.map((group, index) => (
-            <div key={group.title} className={styles.ageCard}>
-              <div className={styles.imageWrapper}>
-                <img src={group.image} alt={group.title} className={styles.image} />
-              </div>
-              <div className={styles.content}>
-                <h3 className={styles.ageTitle}>{group.title}</h3>
-                <p className={styles.description}>{group.description}</p>
-                <button className={styles.shopButton}>Shop Now</button>
-              </div>
+    <section className={styles.shopByAgeSection}>
+      <h2 className={styles.sectionTitle}>Shop By Age</h2>
+      <div className={styles.ageCardsContainer}>
+        {ageGroups.map((group) => (
+          <a
+            key={group.id}
+            href={group.link}
+            className={`${styles.ageCardLink} ${styles[group.colorClass]}`}
+          >
+            <div className={styles.ageCardContent}>
+              <span className={styles.ageNumber}>{group.ageRange}</span>
+              <span className={styles.ageText}>{group.timeUnit}</span>
             </div>
-          ))}
-        </div>
+          </a>
+        ))}
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default ShopByAgeSection;
