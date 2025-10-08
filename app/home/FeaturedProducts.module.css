@@ -1,94 +1,166 @@
 .section {
-  padding: 6rem 0;
-  background: white;
+  padding: 6rem 1rem;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 2rem;
+  text-align: center;
 }
 
 .title {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #555;
   margin-bottom: 3rem;
-  color: #333;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
-}
-
-.productCard {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+/* ===== Slider Animation ===== */
+.slider {
+  width: 100%;
   overflow: hidden;
+  position: relative;
+}
+
+.sliderTrack {
+  display: flex;
+  width: calc(250px * 12);
+  animation: scroll 25s linear infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== Product Cards ===== */
+.card {
+  width: 220px;
+  background: #fff;
+  border-radius: 16px;
+  margin: 0 1rem;
+  flex-shrink: 0;
+  padding: 1.5rem 1rem;
+  border: 2px dashed rgba(0, 160, 255, 0.25);
   transition: all 0.3s ease;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
 }
 
-.productCard:hover {
+.card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #00a0ff;
+  box-shadow: 0 12px 35px rgba(0, 160, 255, 0.2);
 }
 
+/* ===== Product Image ===== */
 .imageWrapper {
-  height: 250px;
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  margin-bottom: 1rem;
 }
 
 .image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+  object-fit: contain;
+  transition: transform 0.4s ease;
 }
 
-.productCard:hover .image {
+.card:hover .image {
   transform: scale(1.1);
 }
 
-.content {
-  padding: 1.5rem;
-}
-
+/* ===== Product Info ===== */
 .productName {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #333;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 0.4rem;
 }
 
 .price {
-  font-size: 1.25rem;
-  color: #ff6b6b;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #ff008e;
+  font-weight: 600;
 }
 
-.rating {
-  color: #ffd700;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+/* ===== Gradient Border Animation ===== */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  padding: 2px;
+  background: linear-gradient(45deg, #00a0ff, #ff008e);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
-.addToCart {
-  width: 100%;
-  padding: 1rem;
-  background: #667eea;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.card:hover::before {
+  opacity: 1;
 }
 
-.addToCart:hover {
-  background: #5a6fd8;
+/* ===== Responsive Design ===== */
+@media (max-width: 1024px) {
+  .sliderTrack {
+    animation: scroll 35s linear infinite;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .card {
+    width: 180px;
+    margin: 0 0.8rem;
+    padding: 1rem;
+  }
+
+  .imageWrapper {
+    height: 160px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    width: 150px;
+  }
+
+  .imageWrapper {
+    height: 130px;
+  }
+
+  .productName {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 0.9rem;
+  }
 }

@@ -43,7 +43,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Welcome to <span className={styles.gradient}>ToyLand</span>
+          Welcome to <span className={styles.gradient}>Kids Dreams</span>
           <br />
           Where Fun Begins!
         </motion.h1>
@@ -54,7 +54,7 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          Your one-stop shop for fun, learning, and imagination!
+          Your one-stop shop for fun, learning, and imagination
         </motion.p>
 
         <motion.div
@@ -63,7 +63,7 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <Link href="/visit">
-            <button className={styles.ctaButton}>Visit Us Today! 🎉</button>
+            <button className={styles.ctaButton}>Visit Us Today</button>
           </Link>
         </motion.div>
       </div>

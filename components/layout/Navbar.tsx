@@ -34,41 +34,25 @@ export default function Navbar() {
       transition={{ duration: 0.5 }}
     >
       <div className={styles.navContainer}>
-        {/* Left Links */}
-        <ul className={styles.navLinksLeft}>
-          {navLinks.slice(0, Math.ceil(navLinks.length / 2)).map((link, index) => (
-            <motion.li
-              key={link.name}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1 }}
-            >
-              <Link href={link.href} className={styles.navLink}>
-                {link.name}
-              </Link>
-            </motion.li>
-          ))}
-        </ul>
-
-        {/* Center Logo */}
+        {/* Logo - Always visible, positioned left on mobile, center on desktop */}
         <div className={styles.logoWrapper}>
-            <Link href="/" className={styles.logo}>
+          <Link href="/" className={styles.logo}>
             <motion.img
-              src="/Kidz Dreams Logo png.png"
+              src="/Kidz Dreams Logo without background.png"
               alt="Kidz Dreams Logo"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             />
-            </Link>
+          </Link>
         </div>
 
-        {/* Right Links */}
-        <ul className={styles.navLinksRight}>
-          {navLinks.slice(Math.ceil(navLinks.length / 2)).map((link, index) => (
+        {/* Desktop Navigation Links - All on the right side */}
+        <ul className={styles.navLinks}>
+          {navLinks.map((link, index) => (
             <motion.li
               key={link.name}
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
               <Link href={link.href} className={styles.navLink}>
@@ -78,7 +62,11 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Keep old structure hidden for backward compatibility */}
+        <ul className={styles.navLinksLeft} style={{ display: 'none' }}></ul>
+        <ul className={styles.navLinksRight} style={{ display: 'none' }}></ul>
+
+        {/* Mobile Menu Button - Visible on mobile/tablet, hidden on desktop */}
         <button
           className={styles.mobileMenuBtn}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}

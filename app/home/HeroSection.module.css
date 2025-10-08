@@ -38,6 +38,7 @@
   color: #333;
   margin-bottom: 20px;
   line-height: 1.2;
+  align-items: left;
 }
 
 .gradient {
@@ -52,6 +53,7 @@
   color: #555;
   margin-bottom: 40px;
   font-weight: 500;
+  font-style: italic;
 }
 
 .ctaButton {
