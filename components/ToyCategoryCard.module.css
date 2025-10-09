@@ -1,3 +1,9 @@
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
 .card {
   background: white;
   border-radius: 24px;

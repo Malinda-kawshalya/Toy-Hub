@@ -1,0 +1,100 @@
+.main {
+  min-height: 100vh;
+  padding: 0;
+  background: linear-gradient(135deg, #fef7ff 0%, #f8faff 100%);
+}
+
+.header {
+  padding: 150px 24px 80px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  margin-bottom: 40px;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0 0 20px;
+  background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #666;
+  margin: 0;
+  font-weight: 500;
+}
+
+.toysSection {
+  padding: 40px 24px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.toysGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 100px 16px 60px;
+    margin-bottom: 20px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    margin-bottom: 16px;
+  }
+  
+  .subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .toysSection {
+    padding: 30px 16px 60px;
+  }
+  
+  .toysGrid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 80px 16px 50px;
+    margin-bottom: 15px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+  
+  .subtitle {
+    font-size: 1rem;
+  }
+  
+  .toysSection {
+    padding: 20px 16px 50px;
+  }
+  
+  .toysGrid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+  }
+}
