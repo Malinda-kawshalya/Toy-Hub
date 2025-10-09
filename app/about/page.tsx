@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import styles from "./about.module.css"
+import { motion } from "framer-motion";
+import { Instagram, Mail } from "lucide-react";
+import styles from "./AboutPage.module.css";
 
 export default function AboutPage() {
   const features = [
@@ -25,12 +26,20 @@ export default function AboutPage() {
       title: "Quality Guaranteed",
       description: "Only the best toys make it to our shelves",
     },
-  ]
+  ];
+
+  const instagramPosts = [
+    { id: 1, img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop" },
+    { id: 2, img: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=400&h=400&fit=crop" },
+    { id: 3, img: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=400&fit=crop" },
+    { id: 4, img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop" },
+    { id: 5, img: "https://images.unsplash.com/photo-1587035881087-c0091accef38?w=400&h=400&fit=crop" },
+  ];
 
   return (
     <main className={styles.main}>
-      {/* Hero Banner */}
-      <section className={styles.hero}>
+      {/* Hero Section */}
+      <section className={styles.heroSection}>
         <motion.div
           className={styles.heroContent}
           initial={{ opacity: 0, y: 50 }}
@@ -38,114 +47,169 @@ export default function AboutPage() {
           transition={{ duration: 0.8 }}
         >
           <h1 className={styles.heroTitle}>
-            About <span className={styles.gradient}>ToyLand</span>
+            About <span className={styles.gradientText}>ToyLand</span>
           </h1>
-          <p className={styles.heroSubtext}>Where every toy tells a story and every child finds magic</p>
+          <p className={styles.heroSubtitle}>
+            Where every toy tells a story and every child finds magic
+          </p>
         </motion.div>
+
+        <div className={`${styles.heroEmoji} ${styles.heroEmoji1}`}>🎈</div>
+        <div className={`${styles.heroEmoji} ${styles.heroEmoji2}`}>🧸</div>
       </section>
 
       {/* Our Story */}
-      <section className={styles.section}>
+      <section className={styles.storySection}>
         <div className={styles.storyGrid}>
           <motion.div
-            className={styles.storyImage}
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className={styles.imagePlaceholder}>
-              <img src="/colorful-toy-shop-interior-with-happy-children-pla.jpg" alt="ToyLand Shop" />
+            <div className={styles.storyImageWrapper}>
+              <img src="/colorful-toy-shop-interior-with-happy-children-pla.jpg" alt="ToyLand Shop" className={styles.storyImage} />
             </div>
           </motion.div>
 
           <motion.div
-            className={styles.storyContent}
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className={styles.storyText}
           >
-            <h2 className={styles.sectionTitle}>Our Story</h2>
-            <p className={styles.text}>
-              ToyLand was born from a simple dream: to create a magical place where children's imaginations could run
-              wild. Founded in 2020 by parents who understood the power of play, we've grown into a beloved community
-              hub.
+            <h2>Our Story</h2>
+            <p>
+              ToyLand was born from a simple dream: to create a magical place where children's imaginations could run wild...
             </p>
-            <p className={styles.text}>
-              Every toy in our shop is handpicked with love, ensuring it meets our high standards for quality, safety,
-              and fun. We believe that the right toy can spark creativity, build confidence, and create memories that
-              last a lifetime.
+            <p>
+              Every toy in our shop is handpicked with love, ensuring it meets our high standards for quality, safety, and fun.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className={styles.section}>
-        <div className={styles.missionVision}>
+      <section className={styles.missionSection}>
+        <div className={styles.missionGrid}>
           <motion.div
-            className={styles.missionCard}
+            whileHover={{ y: -8 }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            whileHover={{ scale: 1.03 }}
+            className={styles.missionCardPink}
           >
-            <div className={styles.cardIcon}>🎯</div>
-            <h3 className={styles.cardTitle}>Our Mission</h3>
-            <p className={styles.cardText}>
-              To spark creativity and joy in every child through carefully curated toys that inspire learning,
-              imagination, and endless fun.
+            <div className={styles.missionIcon}>🎯</div>
+            <h3>Our Mission</h3>
+            <p>
+              To spark creativity and joy in every child through carefully curated toys that inspire learning and imagination.
             </p>
           </motion.div>
 
           <motion.div
-            className={styles.visionCard}
+            whileHover={{ y: -8 }}
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            whileHover={{ scale: 1.03 }}
+            className={styles.missionCardOrange}
           >
-            <div className={styles.cardIcon}>🌟</div>
-            <h3 className={styles.cardTitle}>Our Vision</h3>
-            <p className={styles.cardText}>
-              To be the happiest toy shop in town, where families create magical memories and children discover the joy
-              of play.
+            <div className={styles.missionIcon}>🌟</div>
+            <h3>Our Vision</h3>
+            <p>
+              To be the happiest toy shop in town, where families create magical memories and children discover the joy of play.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className={styles.section}>
+      <section className={styles.whyChooseSection}>
         <motion.h2
-          className={styles.sectionTitle}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Why Choose <span className={styles.gradient}>ToyLand</span>?
+          Why Choose <span className={styles.gradientText}>ToyLand</span>?
         </motion.h2>
 
-        <div className={styles.featuresGrid}>
-          {features.map((feature, index) => (
+        <div className={styles.featureGrid}>
+          {features.map((f, i) => (
             <motion.div
-              key={feature.title}
+              key={f.title}
               className={styles.featureCard}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8 }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -12 }}
             >
-              <div className={styles.featureIcon}>{feature.icon}</div>
-              <h3 className={styles.featureTitle}>{feature.title}</h3>
-              <p className={styles.featureText}>{feature.description}</p>
+              <div className={styles.featureIcon}>{f.icon}</div>
+              <h3>{f.title}</h3>
+              <p>{f.description}</p>
             </motion.div>
           ))}
         </div>
       </section>
+
+      {/* Instagram Section */}
+      <section className={styles.instagramSection}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.instagramHeader}
+        >
+          <Instagram className={styles.instagramIcon} />
+          <h2>Follow Us on Instagram</h2>
+          <p>@toyland_official</p>
+        </motion.div>
+
+        <div className={styles.instagramGrid}>
+          {instagramPosts.map((post, index) => (
+            <motion.div
+              key={post.id}
+              className={styles.instagramCard}
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.05 }}
+            >
+              <img src={post.img} alt={`Instagram post ${post.id}`} />
+              <div className={styles.instagramOverlay}>
+                <Instagram className={styles.overlayIcon} />
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className={styles.newsletterSection}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className={styles.newsletterHeader}
+        >
+          <Mail className={styles.mailIcon} />
+          <h2>Stay Ahead with Our Style Predictions</h2>
+          <p>Get the latest toy trends, exclusive offers, and magical surprises delivered to your inbox!</p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className={styles.newsletterForm}
+        >
+          <input type="email" placeholder="Enter your email here" />
+          <button>Subscribe</button>
+        </motion.div>
+      </section>
     </main>
-  )
+  );
 }
