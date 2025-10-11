@@ -47,7 +47,7 @@ export default function Navbar() {
         <div className={styles.logoWrapper}>
           <Link href="/" className={styles.logo}>
             <motion.img
-              src="/Kidz Dreams Logo without background.png"
+              src="/Kidz Dreams Logo wb.png"
               alt="Kidz Dreams Logo"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

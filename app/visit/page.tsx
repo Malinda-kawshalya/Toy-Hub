@@ -27,11 +27,11 @@ export default function VisitPage() {
             <div className={styles.icon}>📍</div>
             <h3 className={styles.cardTitle}>Location</h3>
             <p className={styles.cardText}>
-              123 Toy Street
+              No. 746/2
               <br />
-              Fun City, FC 12345
+              Thalahena Rd
               <br />
-              United States
+              Malabe
             </p>
           </motion.div>
 
@@ -50,7 +50,7 @@ export default function VisitPage() {
               <br />
               Saturday: 10 AM - 8 PM
               <br />
-              Sunday: 11 AM - 6 PM
+              Sunday: 10 AM - 8 PM
             </p>
           </motion.div>
 
@@ -65,9 +65,11 @@ export default function VisitPage() {
             <div className={styles.icon}>📞</div>
             <h3 className={styles.cardTitle}>Contact</h3>
             <p className={styles.cardText}>
-              Phone: (555) 123-4567
+              0112 075 995 
               <br />
-              Email: hello@toyland.com
+              0716 207 888
+              <br />
+              kidzdreamsofficial@gmail.com
               <br />
               Follow us on social media!
             </p>

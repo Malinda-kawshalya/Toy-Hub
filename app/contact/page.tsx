@@ -99,7 +99,7 @@ export default function ContactPage() {
               <div className={styles.infoIcon}>📍</div>
               <div>
                 <h4>Visit Us</h4>
-                <p>123 Toy Street, Fun City, FC 12345</p>
+                <p>No. 746/2, Thalahena Rd, Malabe</p>
               </div>
             </div>
 
@@ -107,7 +107,8 @@ export default function ContactPage() {
               <div className={styles.infoIcon}>📞</div>
               <div>
                 <h4>Call Us</h4>
-                <p>(555) 123-4567</p>
+                <p>(+94) 112 075 995 <br /> 
+                   (+94) 716 207 888</p>
               </div>
             </div>
 
@@ -115,7 +116,7 @@ export default function ContactPage() {
               <div className={styles.infoIcon}>📧</div>
               <div>
                 <h4>Email Us</h4>
-                <p>hello@toyland.com</p>
+                <p>kidzdreamsofficial@gmail.com</p>
               </div>
             </div>
 
@@ -128,7 +129,7 @@ export default function ContactPage() {
                   <br />
                   Sat: 10 AM - 8 PM
                   <br />
-                  Sun: 11 AM - 6 PM
+                  Sun: 10 AM - 8 PM
                 </p>
               </div>
             </div>
