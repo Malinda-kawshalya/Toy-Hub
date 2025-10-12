@@ -296,3 +296,115 @@ p {
     font-size: 1rem;
   }
 }
+
+/* Global animation styles for smooth performance */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Modern scroll-triggered animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100px) rotateY(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px) rotateY(15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) rotateY(0deg);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotateZ(-5deg);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotateZ(0deg);
+    filter: blur(0px);
+  }
+}
+
+/* Floating animation for decorative elements */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  66% {
+    transform: translateY(5px) rotate(-1deg);
+  }
+}
+
+/* Pulse effect for interactive elements */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0.4);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(66, 153, 225, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(66, 153, 225, 0);
+  }
+}
+
+/* Utility classes for animations */
+.animate-in {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.animate-scale {
+  animation: scaleIn 0.8s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}

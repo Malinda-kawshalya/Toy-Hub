@@ -15,10 +15,11 @@
   justify-content: center;
   align-items: center;
   z-index: 9997;
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  height: 85px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 65px;
   border-radius: 0 0 40px 40px;
   overflow: visible;
+  will-change: transform, opacity;
 }
 
 /* Dynamic gradient overlay with subtle animation */
@@ -45,8 +46,23 @@
   backdrop-filter: blur(45px) saturate(260%) brightness(1.15);
   -webkit-backdrop-filter: blur(45px) saturate(260%) brightness(1.15);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  height: 75px;
+  height: 50px;
   border-radius: 0 0 30px 30px;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Smooth show/hide animation */
+.navbar:not(.hidden) {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
 }
 
 /* === Container === */
@@ -97,8 +113,8 @@
   position: relative;
   text-decoration: none;
   color: #111827;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 500;
+  font-size: 1.0rem;
   padding: 0.6rem 1rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: 0.03em;
@@ -161,6 +177,14 @@
   border: 1px solid rgba(255, 255, 255, 0.4);
   min-width: 220px;
   z-index: 9999;
+  will-change: transform, opacity;
+}
+
+/* Hide dropdown when navbar is hidden */
+.navbar.hidden .dropdownMenu {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
 .dropdownMenu::before {
@@ -252,7 +276,7 @@
 /* === Mobile Menu === */
 .mobileMenu {
   position: fixed;
-  top: 85px;
+  top: 65px;
   left: 0;
   right: 0;
   display: flex;
@@ -264,12 +288,15 @@
   box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
   padding: 1.5rem 0;
   border-radius: 0 0 25px 25px;
+  opacity: 0;
   transform: translateY(-100%);
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   visibility: hidden;
+  z-index: 9996;
 }
 
 .mobileMenu.active {
+  opacity: 1;
   transform: translateY(0);
   visibility: visible;
 }
@@ -366,11 +393,25 @@
   }
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.5rem;
+    height: 65px;
+  }
+  .mobileMenu {
+    top: 65px;
+  }
+}
+
 @media (max-width: 575px) {
   .navbar {
     padding: 0.8rem 1.5rem;
     height: 60px;
     border-radius: 0 0 25px 25px;
+  }
+  .navbar.scrolled {
+    height: 50px;
+    border-radius: 0 0 20px 20px;
   }
   .logo img {
     width: 50px;
@@ -378,6 +419,30 @@
   }
   .mobileMenu {
     top: 60px;
+  }
+  .navbar.scrolled + .mobileMenu {
+    top: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.6rem 1rem;
+    height: 55px;
+  }
+  .navbar.scrolled {
+    height: 45px;
+  }
+  .logo img {
+    width: 45px;
+    height: 45px;
+  }
+  .mobileMenu {
+    top: 55px;
+    padding: 1rem 0;
+  }
+  .navbar.scrolled + .mobileMenu {
+    top: 45px;
   }
 }
 

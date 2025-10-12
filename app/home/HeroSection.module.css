@@ -3,10 +3,10 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 50%, #fff9c4 100%);
   overflow: hidden;
-  padding: 100px 20px 80px;
+  padding: 100px 40px 80px 40px;
 }
 
 .floatingToys {
@@ -28,17 +28,18 @@
 .heroContent {
   position: relative;
   z-index: 2;
-  text-align: center;
+  text-align: left;
   max-width: 800px;
+  margin-left: 0;
+  padding-left: 40px;
 }
 
 .heroTitle {
-  font-size: 4rem;
+  font-size: 3.5rem;
   font-weight: 800;
   color: #333;
   margin-bottom: 20px;
   line-height: 1.2;
-  align-items: left;
 }
 
 .gradient {
@@ -49,7 +50,7 @@
 }
 
 .heroSubtext {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #555;
   margin-bottom: 40px;
   font-weight: 500;
@@ -59,10 +60,10 @@
 .ctaButton {
   background: linear-gradient(135deg, #00a0ff 0%, #0080cc 100%);
   color: white;
-  padding: 18px 40px;
+  padding: 14px 32px;
   border-radius: 50px;
   border: none;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -91,6 +92,14 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 100px 20px 80px 20px;
+  }
+
+  .heroContent {
+    padding-left: 20px;
+  }
+
   .heroTitle {
     font-size: 2.5rem;
   }
