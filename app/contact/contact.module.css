@@ -1,12 +1,26 @@
 .main {
   min-height: 100vh;
   padding-top: 80px;
+  background-color: #f9fafb;
 }
 
 .hero {
   background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
   padding: 100px 20px 80px;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+  z-index: 0;
 }
 
 .heroTitle {
@@ -14,6 +28,8 @@
   font-weight: 800;
   color: #333;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
 }
 
 .gradient {
@@ -26,6 +42,8 @@
 .heroSubtext {
   font-size: 1.4rem;
   color: #555;
+  position: relative;
+  z-index: 1;
 }
 
 .section {
@@ -104,6 +122,7 @@
 
 .submitBtn:hover {
   box-shadow: 0 6px 25px rgba(0, 160, 255, 0.5);
+  background: linear-gradient(135deg, #0080cc 0%, #00a0ff 100%);
 }
 
 .infoContainer {
@@ -127,6 +146,11 @@
   background: white;
   border-radius: 16px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.infoItem:hover {
+  transform: translateY(-5px);
 }
 
 .infoIcon {
@@ -146,9 +170,101 @@
   line-height: 1.6;
 }
 
+.socialLinks a {
+  color: #00a0ff;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+.socialLinks a:hover {
+  text-decoration: underline;
+}
+
+.faqContainer {
+  background: white;
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+}
+
+.faqItem {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.faqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #333;
+  cursor: pointer;
+  text-align: left;
+  transition: color 0.3s ease;
+}
+
+.faqQuestion:hover {
+  color: #00a0ff;
+}
+
+.faqToggle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00a0ff;
+}
+
+.faqAnswer {
+  overflow: hidden;
+  color: #666;
+  line-height: 1.6;
+  padding: 0 15px;
+}
+
+.faqAnswer p {
+  margin: 10px 0;
+}
+
+.footer {
+  background: #333;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footerText {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footerLink {
+  color: #00a0ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footerLink:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 768px) {
   .heroTitle {
     font-size: 2.5rem;
+  }
+
+  .heroSubtext {
+    font-size: 1.2rem;
   }
 
   .contactGrid {
@@ -158,5 +274,18 @@
 
   .formContainer {
     padding: 30px 20px;
+  }
+
+  .faqContainer {
+    padding: 30px 20px;
+  }
+
+  .footerLinks {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .faqQuestion {
+    font-size: 1.1rem;
   }
 }
