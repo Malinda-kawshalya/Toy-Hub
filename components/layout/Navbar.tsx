@@ -18,9 +18,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const navLinks = [
+  const navLinksBeforeToys = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
+  ]
+
+  const navLinksAfterToys = [
     { name: "Gallery", href: "/gallery" },
     { name: "Visit Us", href: "/visit" },
     { name: "Contact", href: "/contact" },
@@ -57,7 +60,8 @@ export default function Navbar() {
 
         {/* Desktop Navigation Links - All on the right side */}
         <ul className={styles.navLinks}>
-          {navLinks.map((link, index) => (
+          {/* Links before Our Toys */}
+          {navLinksBeforeToys.map((link, index) => (
             <motion.li
               key={link.name}
               initial={{ opacity: 0, y: -10 }}
@@ -75,7 +79,7 @@ export default function Navbar() {
             className={styles.dropdown}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: navLinks.length * 0.1 }}
+            transition={{ delay: navLinksBeforeToys.length * 0.1 }}
             onMouseEnter={() => setToysDropdownOpen(true)}
             onMouseLeave={() => setToysDropdownOpen(false)}
           >
@@ -117,6 +121,20 @@ export default function Navbar() {
               ))}
             </motion.div>
           </motion.li>
+
+          {/* Links after Our Toys */}
+          {navLinksAfterToys.map((link, index) => (
+            <motion.li
+              key={link.name}
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: (navLinksBeforeToys.length + 1 + index) * 0.1 }}
+            >
+              <Link href={link.href} className={styles.navLink}>
+                {link.name}
+              </Link>
+            </motion.li>
+          ))}
         </ul>
 
         {/* Keep old structure hidden for backward compatibility */}
@@ -143,7 +161,8 @@ export default function Navbar() {
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
         >
-          {navLinks.map((link) => (
+          {/* Links before Our Toys */}
+          {navLinksBeforeToys.map((link) => (
             <Link
               key={link.name}
               href={link.href}
@@ -177,6 +196,18 @@ export default function Navbar() {
               ))}
             </div>
           </div>
+
+          {/* Links after Our Toys */}
+          {navLinksAfterToys.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={styles.mobileNavLink}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
         </motion.div>
       )}
     </motion.nav>
