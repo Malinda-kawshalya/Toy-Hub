@@ -1,6 +1,8 @@
 // CategoriesSection.jsx
+"use client"
 import styles from './CategoriesSection.module.css';
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const CategoriesSection = () => {
   const categories = [
@@ -34,6 +36,13 @@ const CategoriesSection = () => {
       image: '/images/dinosaur.jpg',
       bgColor: '#E5F5E8'
     }
+    ,
+    {
+      id: 6,
+      name: 'Squeaky Toys',
+      image: '/images/dinosaur.jpg',
+      bgColor: '#E5F5E8'
+    }
   ];
 
   const promos = [
@@ -63,14 +72,49 @@ const CategoriesSection = () => {
   return (
     <section className={styles.categoriesSection}>
       <div className={styles.container}>
-        <h2 className={styles.sectionTitle}>Shop By Category</h2>
+        <motion.h2 
+          className={styles.sectionTitle}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Shop By Category
+        </motion.h2>
         
-        <div className={styles.categoriesGrid}>
-          {categories.map((category) => (
-            <div key={category.id} className={styles.categoryCard}>
-              <div 
+        <motion.div 
+          className={styles.categoriesGrid}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          {categories.map((category, index) => (
+            <motion.div 
+              key={category.id} 
+              className={styles.categoryCard}
+              initial={{ opacity: 0, y: 60, scale: 0.8 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ 
+                duration: 0.6, 
+                delay: index * 0.1,
+                ease: "easeOut"
+              }}
+              whileHover={{ 
+                scale: 1.05,
+                y: -10,
+                transition: { duration: 0.3 }
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.div 
                 className={styles.categoryImage}
                 style={{ backgroundColor: category.bgColor }}
+                whileHover={{ 
+                  rotate: 5,
+                  transition: { duration: 0.3 }
+                }}
               >
                 <Image 
                   src={category.image} 
@@ -79,11 +123,19 @@ const CategoriesSection = () => {
                   height={200}
                   className={styles.image}
                 />
-              </div>
-              <h3 className={styles.categoryName}>{category.name}</h3>
-            </div>
+              </motion.div>
+              <motion.h3 
+                className={styles.categoryName}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+              >
+                {category.name}
+              </motion.h3>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <div className={styles.dotsIndicator}>
           <span className={styles.dot}></span>
@@ -92,19 +144,65 @@ const CategoriesSection = () => {
           <span className={styles.dot}></span>
         </div>
 
-        <div className={styles.promosGrid}>
-          {promos.map((promo) => (
-            <div 
+        <motion.div 
+          className={styles.promosGrid}
+          initial={{ opacity: 0, y: 80 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          {promos.map((promo, index) => (
+            <motion.div 
               key={promo.id} 
               className={styles.promoCard}
               style={{ backgroundColor: promo.bgColor }}
+              initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.2,
+                ease: "easeOut"
+              }}
+              whileHover={{ 
+                scale: 1.01,
+                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                transition: { duration: 0.3 }
+              }}
             >
-              <div className={styles.promoContent}>
+              <motion.div 
+                className={styles.promoContent}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 + 0.4, duration: 0.6 }}
+              >
                 <h3 className={styles.promoTitle}>{promo.title}</h3>
                 <p className={styles.promoDescription}>{promo.description}</p>
-                <button className={styles.shopButton}>Shop now</button>
-              </div>
-              <div className={styles.promoImage}>
+                <motion.button 
+                  className={styles.shopButton}
+                  whileHover={{ 
+                    scale: 1.05,
+                    backgroundColor: "#ff6b6b"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Shop now
+                </motion.button>
+              </motion.div>
+              <motion.div 
+                className={styles.promoImage}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 + 0.6, duration: 0.6 }}
+                whileHover={{ 
+                  scale: 1.1,
+                  rotate: 2,
+                  transition: { duration: 0.3 }
+                }}
+              >
                 <Image 
                   src={promo.image} 
                   alt={promo.title}
@@ -112,10 +210,10 @@ const CategoriesSection = () => {
                   height={300}
                   className={styles.image}
                 />
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

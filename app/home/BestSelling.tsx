@@ -1,6 +1,7 @@
 "use client"
 
 import Image from "next/image"
+import { motion } from "framer-motion"
 import styles from "./BestSelling.module.css"
 
 const bestSellers = [
@@ -31,15 +32,68 @@ export default function BestSelling() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Best Selling Toys</h2>
-        <p className={styles.subtitle}>Our most popular toys loved by children everywhere</p>
+        <motion.h2 
+          className={styles.title}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          Best Selling Toys
+        </motion.h2>
+        <motion.p 
+          className={styles.subtitle}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          Our most popular toys loved by children everywhere
+        </motion.p>
         
-        <div className={styles.productGrid}>
+        <motion.div 
+          className={styles.productGrid}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           {bestSellers.map((product, index) => (
-            <div key={product.name} className={styles.productCard}>
-              <div className={styles.badge}>#{index + 1} Best Seller</div>
+            <motion.div 
+              key={product.name} 
+              className={styles.productCard}
+              initial={{ opacity: 0, y: 80, rotateX: -20 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ 
+                duration: 0.8, 
+                delay: index * 0.2,
+                ease: "easeOut"
+              }}
+              whileHover={{ 
+                y: -15,
+                scale: 1.03,
+                rotateX: 5,
+                boxShadow: "0 20px 40px rgba(0,0,0,0.1)",
+                transition: { duration: 0.3 }
+              }}
+            >
+              <motion.div 
+                className={styles.badge}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 + 0.5, duration: 0.5 }}
+                whileHover={{ scale: 1.1 }}
+              >
+                #{index + 1} Best Seller
+              </motion.div>
               
-              <div className={styles.imageContainer}>
+              <motion.div 
+                className={styles.imageContainer}
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.3 }}
+              >
                 <Image
                   src={product.image}
                   alt={product.alt}
@@ -47,17 +101,48 @@ export default function BestSelling() {
                   height={200}
                   className={styles.productImage}
                 />
-              </div>
+              </motion.div>
               
-              <div className={styles.productInfo}>
-                <h3 className={styles.productName}>{product.name}</h3>
-                <p className={styles.price}>{product.price}</p>
+              <motion.div 
+                className={styles.productInfo}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.2 + 0.7, duration: 0.6 }}
+              >
+                <motion.h3 
+                  className={styles.productName}
+                  whileHover={{ color: "#4299e1" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {product.name}
+                </motion.h3>
+                <motion.p 
+                  className={styles.price}
+                  initial={{ scale: 0.8 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.2 + 0.9, duration: 0.4 }}
+                >
+                  {product.price}
+                </motion.p>
                 <p className={styles.sales}>{product.sales}</p>
-                <button className={styles.buyButton}>Buy Now</button>
-              </div>
-            </div>
+                <motion.button 
+                  className={styles.buyButton}
+                  whileHover={{ 
+                    scale: 1.05,
+                    y: -2,
+                    boxShadow: "0 6px 20px rgba(66, 153, 225, 0.4)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  Buy Now
+                </motion.button>
+              </motion.div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

@@ -36,37 +36,78 @@ export default function HeroSection() {
         ))}
       </div>
 
-      <div className={styles.heroContent}>
+      <motion.div 
+        className={styles.heroContent}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.2 }}
+      >
         <motion.h1
           className={styles.heroTitle}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 80, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ 
+            duration: 1.2, 
+            ease: "easeOut",
+            delay: 0.3
+          }}
         >
-          Welcome to <span className={styles.gradient}>Kids Dreams</span>
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
+          >
+            Welcome to{" "}
+          </motion.span>
+          <motion.span 
+            className={styles.gradient}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 1, duration: 0.8, ease: "backOut" }}
+          >
+            Kids Dreams
+          </motion.span>
           <br />
-          Where Fun Begins!
+          <motion.span
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 1.3, duration: 0.6 }}
+          >
+            Where Fun Begins!
+          </motion.span>
         </motion.h1>
 
         <motion.p
           className={styles.heroSubtext}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          initial={{ opacity: 0, y: 40, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
         >
           Your one-stop shop for fun, learning, and imagination
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          initial={{ opacity: 0, y: 50, scale: 0.8 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 2, ease: "backOut" }}
+          whileHover={{ 
+            scale: 1.05,
+            transition: { duration: 0.2 }
+          }}
+          whileTap={{ scale: 0.95 }}
         >
           <Link href="/visit">
-            <button className={styles.ctaButton}>Visit Us Today</button>
+            <motion.button 
+              className={styles.ctaButton}
+              whileHover={{ 
+                boxShadow: "0 10px 30px rgba(0, 170, 255, 0.4)" 
+              }}
+            >
+              Visit Us Today
+            </motion.button>
           </Link>
         </motion.div>
-      </div>
+      </motion.div>
 
       {/* Decorative Wave */}
       <div className={styles.wave}>

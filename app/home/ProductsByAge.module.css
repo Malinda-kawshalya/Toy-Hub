@@ -1,17 +1,16 @@
 /* ProductsByAge.module.css - Revised for Modern Look, Better Spacing, and Hover */
 
 .shopByAgeSection {
-    padding: 80px 40px; /* Increased vertical and horizontal padding for better spacing */
+    padding: 80px 20px;
     text-align: center;
     background-color: #ffffff;
-    font-family: var(--font-quicksand), 'Quicksand', system-ui, -apple-system, sans-serif;
 }
 
 .sectionTitle {
-    font-size: 36px; /* Slightly larger title */
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 60px; /* More space below the title */
-    color: var(--initial-text-color);
+    margin-bottom: 60px;
+    color: #1a1a1a;
 }
 
 .ageCardsContainer {
@@ -21,46 +20,53 @@
     flex-wrap: wrap;
 }
 
-/* --- Age Card Link/Container Styling (Clean and Modern) --- */
+/* --- Age Card Link/Container Styling (Matching Categories Style) --- */
 
 .ageCardLink {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 220px; /* Slightly larger cards */
+    width: 220px;
     height: 220px;
     text-decoration: none;
     position: relative;
-    border: 1px solid #eee; /* Subtle initial border */
-    border-radius: 12px; /* Smoother rounded corners */
+    border: 2px dashed #d0d0d0; /* Dotted border matching categories */
+    border-radius: 20px; /* More rounded for modern look */
     background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Subtle initial shadow */
     cursor: pointer;
-    overflow: hidden;
+    overflow: visible; /* Allow border animation to show */
     transition: 
-        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), 
-        box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        border-color 0.4s;
-    will-change: transform, box-shadow;
+        transform 0.3s ease, 
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+    will-change: transform, border-color;
+    /* Animated border dash pattern */
+    background-image: 
+        linear-gradient(45deg, transparent 40%, rgba(255, 138, 128, 0.1) 40%, rgba(255, 138, 128, 0.1) 60%, transparent 60%);
+    background-size: 20px 20px;
+    background-position: 0 0;
+    animation: borderMove 3s linear infinite paused;
 }
 
-/* --- Subtle Brush Mark Texture (::before) --- */
-/* We'll use the age bg.webp as a subtle background layer inside the white card */
+/* Keyframes for moving dotted border animation */
+@keyframes borderMove {
+    0% { background-position: 0 0; }
+    100% { background-position: 20px 20px; }
+}
+
+/* --- Subtle Background Texture --- */
 .ageCardLink::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* Use your brush mark image as a subtle background texture */
-    background-image: url('/age bg.webp'); 
-    background-size: cover;
-    background-position: center;
-    opacity: 0.15; /* Highly reduced opacity for a very subtle texture */
-    mix-blend-mode: multiply; /* Keeps the subtle look */
-    border-radius: 12px;
-    transition: opacity 0.4s;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.8) 100%);
+    border-radius: 18px; /* Slightly smaller radius than container */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+    z-index: 1;
 }
 
 /* --- Color Overlay (::after) - Removed for a cleaner look, use hover for color change --- */
@@ -68,15 +74,15 @@
 /* --- Card Content Styling --- */
 .ageCardContent {
     position: relative;
-    z-index: 2;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: 20px;
-    color: var(--initial-text-color); /* Start with a dark text color */
-    transition: color 0.4s; /* Transition the text color */
+    color: #1a1a1a; /* Dark text color matching categories */
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
 .ageNumber {
@@ -92,26 +98,35 @@
     text-transform: lowercase;
 }
 
-/* --- Hover Animation (Lift, Shadow, and **Color Change**) --- */
+/* --- Hover Animation (Matching Categories Style) --- */
 
 .ageCardLink:hover {
-    transform: translateY(-8px); /* More noticeable lift */
-    /* Stronger, branded shadow using both colors */
-    border-color: var(--brand-primary-color);
-    box-shadow: 
-        0 15px 30px rgba(0, 160, 255, 0.25), /* Blue for depth */
-        0 5px 15px rgba(255, 0, 142, 0.15); /* Pink for accent */
+    transform: translateY(-10px); /* Lift effect matching categories */
+    border-color: #ff8a80; /* Pink border matching categories */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    animation-play-state: running; /* Start the moving border animation */
 }
 
-/* **Hover Color Change:** Change text color to the brand color on hover */
+/* **Hover Color Change:** Change text color to match border */
 .ageCardLink:hover .ageCardContent {
-    color: var(--brand-primary-color); /* Use the primary blue for all text on hover */
+    color: #ff8a80; /* Pink text matching border */
 }
 
-/* OPTIONAL: Alternate the hover color for a more dynamic feel */
-.card2:hover .ageCardContent,
-.card4:hover .ageCardContent {
-    color: var(--brand-secondary-color); /* Use pink for cards 2 and 4 on hover */
+/* Individual card background colors on hover */
+.card1:hover {
+    background-color: rgba(232, 232, 232, 0.3); /* Light gray */
+}
+
+.card2:hover {
+    background-color: rgba(255, 229, 224, 0.3); /* Light pink */
+}
+
+.card3:hover {
+    background-color: rgba(229, 229, 240, 0.3); /* Light blue */
+}
+
+.card4:hover {
+    background-color: rgba(229, 245, 232, 0.3); /* Light green */
 }
 
 .ageCardLink:hover::before {
@@ -119,34 +134,68 @@
 }
 
 
-/* --- Responsiveness --- */
+/* --- Responsive Design --- */
 
 @media (max-width: 1200px) {
-    .ageCardsContainer { gap: 30px; }
-    .ageCardLink { width: 200px; height: 200px; }
+    .ageCardsContainer { 
+        gap: 30px; 
+    }
+    .ageCardLink { 
+        width: 200px; 
+        height: 200px; 
+    }
 }
 
 @media (max-width: 992px) {
-    .ageCardsContainer { gap: 20px; }
+    .ageCardsContainer { 
+        gap: 25px; 
+    }
+    .ageCardLink { 
+        width: 180px; 
+        height: 180px; 
+    }
 }
 
 @media (max-width: 768px) {
-    .sectionTitle { margin-bottom: 40px; }
-    .ageCardsContainer {
-        gap: 25px;
-        /* Cards stack 2x2 */
+    .shopByAgeSection {
+        padding: 60px 15px;
     }
+    
+    .sectionTitle { 
+        font-size: 2rem;
+        margin-bottom: 40px; 
+    }
+    
+    .ageCardsContainer {
+        gap: 20px;
+    }
+    
     .ageCardLink {
         width: 45%;
-        max-width: 200px;
-        height: auto;
-        aspect-ratio: 1 / 1;
+        max-width: 160px;
+        height: 160px;
+        border-width: 1.5px;
     }
-    .ageNumber { font-size: 36px; }
-    .ageText { font-size: 16px; }
+    
+    .ageNumber { 
+        font-size: 32px; 
+    }
+    
+    .ageText { 
+        font-size: 14px; 
+    }
 }
 
 @media (max-width: 480px) {
-    .ageCardsContainer { flex-direction: column; align-items: center; }
-    .ageCardLink { width: 90%; max-width: 250px; }
+    .ageCardsContainer { 
+        flex-direction: column; 
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .ageCardLink { 
+        width: 80%; 
+        max-width: 200px;
+        height: 200px;
+    }
 }

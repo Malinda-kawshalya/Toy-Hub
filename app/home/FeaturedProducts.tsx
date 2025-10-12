@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import styles from "./FeaturedProducts.module.css";
 import Image from "next/image";
 
@@ -44,18 +45,73 @@ const featuredProducts = [
 
 export default function FeaturedProducts() {
   return (
-    <section className={styles.section}>
+    <motion.section 
+      className={styles.section}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8 }}
+    >
       <div className={styles.container}>
-        <h2 className={styles.title}>New Arrivals</h2>
-        <p className={styles.subtitle}>
+        <motion.h2 
+          className={styles.title}
+          initial={{ opacity: 0, y: 50, scale: 0.9 }}
+          whileInView={{ opacity: 1, y: 0, scale: 1 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          New Arrivals
+        </motion.h2>
+        <motion.p 
+          className={styles.subtitle}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           Cras Dictum Metus In Uam Vulpu Commodo.
-        </p>
+        </motion.p>
 
-        <div className={styles.slider}>
-          <div className={styles.sliderTrack}>
+        <motion.div 
+          className={styles.slider}
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.1 }}
+          transition={{ duration: 1, delay: 0.4, ease: "easeOut" }}
+        >
+          <motion.div 
+            className={styles.sliderTrack}
+            initial={{ x: -50 }}
+            whileInView={{ x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+          >
             {[...featuredProducts, ...featuredProducts].map((product, index) => (
-              <div key={index} className={styles.card}>
-                <div className={styles.imageWrapper}>
+              <motion.div 
+                key={index} 
+                className={styles.card}
+                initial={{ opacity: 0, y: 60, rotateY: -20 }}
+                whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  duration: 0.8, 
+                  delay: (index % featuredProducts.length) * 0.1,
+                  ease: "easeOut"
+                }}
+                whileHover={{ 
+                  y: -10,
+                  scale: 1.05,
+                  rotateY: 5,
+                  boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
+                  transition: { duration: 0.3 }
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <motion.div 
+                  className={styles.imageWrapper}
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <Image
                     src={product.image}
                     alt={product.name}
@@ -63,14 +119,31 @@ export default function FeaturedProducts() {
                     height={200}
                     className={styles.image}
                   />
-                </div>
-                <h3 className={styles.productName}>{product.name}</h3>
-                <p className={styles.price}>{product.price}</p>
-              </div>
+                </motion.div>
+                <motion.h3 
+                  className={styles.productName}
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (index % featuredProducts.length) * 0.1 + 0.5, duration: 0.5 }}
+                  whileHover={{ color: "#4299e1" }}
+                >
+                  {product.name}
+                </motion.h3>
+                <motion.p 
+                  className={styles.price}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: (index % featuredProducts.length) * 0.1 + 0.7, duration: 0.4 }}
+                >
+                  {product.price}
+                </motion.p>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
