@@ -47,7 +47,7 @@ export default function AboutPage() {
           transition={{ duration: 0.8 }}
         >
           <h1 className={styles.heroTitle}>
-            About <span className={styles.gradientText}>ToyLand</span>
+            About <span className={styles.gradient}>KIDZ DREAMS</span>
           </h1>
           <p className={styles.heroSubtitle}>
             Where every toy tells a story and every child finds magic
