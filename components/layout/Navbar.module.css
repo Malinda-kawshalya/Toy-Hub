@@ -114,8 +114,8 @@
   text-decoration: none;
   color: #111827;
   font-weight: 500;
-  font-size: 1.0rem;
-  padding: 0.6rem 1rem;
+  font-size: 0.875rem;
+  padding: 0.5rem 0.8rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   letter-spacing: 0.03em;
   border-radius: 12px;

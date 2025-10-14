@@ -1,14 +1,16 @@
 .section {
-  padding: 6rem 1rem;
+  padding: 8rem 1rem;
   background: #fff;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
+  min-height: 80vh;
 }
 
 .container {
   max-width: 1400px;
   margin: 0 auto;
   text-align: center;
+  padding: 2rem 0;
 }
 
 .title {
@@ -27,14 +29,19 @@
 /* ===== Slider Animation ===== */
 .slider {
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
+  padding: 2rem 0;
 }
 
 .sliderTrack {
   display: flex;
   width: calc(250px * 12);
   animation: scroll 25s linear infinite;
+}
+
+.sliderTrack:hover {
+  animation-play-state: paused;
 }
 
 @keyframes scroll {
@@ -51,7 +58,7 @@
   width: 220px;
   background: #fff;
   border-radius: 16px;
-  margin: 0 1rem;
+  margin: 2rem 1rem;
   flex-shrink: 0;
   padding: 1.5rem 1rem;
   border: 2px dashed rgba(0, 160, 255, 0.25);
@@ -60,9 +67,14 @@
 }
 
 .card:hover {
-  transform: translateY(-10px);
-  border-color: #00a0ff;
-  box-shadow: 0 12px 35px rgba(0, 160, 255, 0.2);
+  transform: translateY(0);
+  border-color: rgba(0, 160, 255, 0.25);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover ~ * .sliderTrack,
+.slider:has(.card:hover) .sliderTrack {
+  animation-play-state: paused;
 }
 
 /* ===== Product Image ===== */
@@ -84,7 +96,7 @@
 }
 
 .card:hover .image {
-  transform: scale(1.1);
+  transform: scale(1);
 }
 
 /* ===== Product Info ===== */
@@ -138,7 +150,7 @@
 
   .card {
     width: 180px;
-    margin: 0 0.8rem;
+    margin: 1.5rem 0.8rem;
     padding: 1rem;
   }
 
@@ -148,8 +160,13 @@
 }
 
 @media (max-width: 480px) {
+  .section {
+    padding: 6rem 1rem;
+  }
+  
   .card {
     width: 150px;
+    margin: 1rem 0.5rem;
   }
 
   .imageWrapper {

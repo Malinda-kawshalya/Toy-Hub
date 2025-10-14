@@ -7,7 +7,8 @@
 
 .container {
   max-width: 1300px;
-  margin: 0 0;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 .sectionTitle {
@@ -177,6 +178,10 @@
 }
 
 @media (max-width: 1200px) {
+  .container {
+    padding: 0 15px;
+  }
+  
   .categoriesGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
@@ -186,11 +191,15 @@
     gap: 20px;
     max-width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
   }
 }
 
 @media (max-width: 768px) {
+  .container {
+    padding: 0 15px;
+  }
+  
   .sectionTitle {
     font-size: 2rem;
     margin-bottom: 40px;
@@ -216,7 +225,7 @@
     gap: 20px;
     max-width: 600px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0;
   }
   
   .promoCard {
@@ -236,7 +245,11 @@
 
 @media (max-width: 480px) {
   .categoriesSection {
-    padding: 40px 15px;
+    padding: 40px 10px;
+  }
+  
+  .container {
+    padding: 0 10px;
   }
   
   .sectionTitle {

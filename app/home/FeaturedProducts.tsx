@@ -99,9 +99,9 @@ export default function FeaturedProducts() {
                   ease: "easeOut"
                 }}
                 whileHover={{ 
-                  y: -10,
-                  scale: 1.05,
-                  rotateY: 5,
+                  y: 0,
+                  scale: 1,
+                  rotateY: 0,
                   boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
                   transition: { duration: 0.3 }
                 }}
@@ -109,7 +109,7 @@ export default function FeaturedProducts() {
               >
                 <motion.div 
                   className={styles.imageWrapper}
-                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  whileHover={{ scale: 1, rotate: 0 }}
                   transition={{ duration: 0.3 }}
                 >
                   <Image

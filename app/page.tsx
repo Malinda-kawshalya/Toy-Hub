@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion"
 import HeroSection from "./home/HeroSection"
 import CategoriesSection from "./home/CategoriesSection"
 import FeaturedProducts from "./home/FeaturedProducts"
-import ProductsByAge from "./home/ProductsByAge"
 import CharacterShop from "./home/CharacterShop"
 import BrandLogos from "./home/BrandLogos"
 import BestSelling from "./home/BestSelling"
@@ -117,16 +116,6 @@ export default function HomePage() {
           transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
         >
           <FeaturedProducts />
-        </motion.div>
-
-        <motion.div 
-          variants={fadeUpVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
-        >
-          <ProductsByAge />
         </motion.div>
 
         <motion.div 
