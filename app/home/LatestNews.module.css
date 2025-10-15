@@ -1,21 +1,19 @@
 .section {
-  padding: 10rem 2rem; /* Much more top padding to prevent cutoff */
+  padding: 6rem 0;
   background-color: white;
-  overflow: visible; /* Prevent clipping of hover effects */
-  min-height: 120vh; /* Increased height for better spacing */
+  overflow: visible;
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 3rem; /* More horizontal padding */
-  overflow: visible; /* Ensure hover effects are not clipped */
+  padding: 0 2rem;
+  overflow: visible;
 }
 
 .header {
   text-align: center; 
-  margin-bottom: 2.5rem;
-  padding-left: 0.5rem; 
+  margin-bottom: 4rem;
 }
 
 .title {
@@ -36,32 +34,27 @@
 }
 
 .newsGrid {
-  /* Standard 3-column grid */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 3rem; /* Much larger gap for hover space */
-  padding: 4rem 1rem; /* Much more padding for hover effects */
-  margin: 2rem 0; /* More margin for breathing room */
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 
 .newsCard {
   background: white;
-  border-radius: 10px; /* Subtle rounded corners for the whole card */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Subtle shadow */
-  overflow: hidden; /* Crucial to clip the image's top corners */
-  transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0.3s ease;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
-  margin: 3rem 0.5rem; /* Much more vertical margin to prevent cutoff */
-  position: relative; /* Enable z-index stacking */
+  position: relative;
 }
 
 .newsCard:hover {
-  transform: none !important;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15) !important;
-  z-index: 10;
-  overflow: visible;
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .imageWrapper {
@@ -72,18 +65,18 @@
 
 .newsImage {
   width: 100%;
-  height: auto;
-  min-height: 200px; /* Ensure a consistent image height */
-  display: block;
-  /* Apply border-radius only to the top corners of the image */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  height: 220px;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.newsCard:hover .newsImage {
+  transform: scale(1.05);
 }
 
 .content {
-  padding: 1rem 1.25rem 1.5rem; /* Padding for the text content */
-  flex-grow: 1; /* Allows content to push footer down */
+  padding: 1.5rem;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }

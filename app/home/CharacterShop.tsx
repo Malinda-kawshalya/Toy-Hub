@@ -6,8 +6,9 @@ import { FaBaby, FaCube, FaGift } from "react-icons/fa";
 
 export default function UniqueAppeal() {
   return (
-    <section className={styles.container}>
-      <div className={styles.imageSection}>
+    <section className={styles.section}>
+      <div className={styles.container}>
+        <div className={styles.imageSection}>
         <div className={styles.imageWrapper}>
           <Image
             src="/images/girl-toy.jpg"
@@ -64,6 +65,7 @@ export default function UniqueAppeal() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

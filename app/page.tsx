@@ -28,13 +28,11 @@ export default function HomePage() {
   const sectionVariants = {
     hidden: {
       opacity: 0,
-      y: 100,
-      scale: 0.8
+      y: 60
     },
     visible: {
       opacity: 1,
-      y: 0,
-      scale: 1
+      y: 0
     }
   }
 
@@ -43,33 +41,9 @@ export default function HomePage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
-    }
-  }
-
-  const slideVariants = {
-    hidden: {
-      opacity: 0,
-      x: -100,
-      rotateY: -15
-    },
-    visible: {
-      opacity: 1,
-      x: 0,
-      rotateY: 0
-    }
-  }
-
-  const fadeUpVariants = {
-    hidden: {
-      opacity: 0,
-      y: 60
-    },
-    visible: {
-      opacity: 1,
-      y: 0
     }
   }
 
@@ -102,18 +76,18 @@ export default function HomePage() {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <CategoriesSection />
         </motion.div>
 
         <motion.div 
-          variants={slideVariants}
+          variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <FeaturedProducts />
         </motion.div>
@@ -122,19 +96,18 @@ export default function HomePage() {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          whileHover={{ scale: 1.02 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <CharacterShop />
         </motion.div>
 
         <motion.div 
-          variants={slideVariants}
+          variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <BrandLogos />
         </motion.div>
@@ -143,18 +116,18 @@ export default function HomePage() {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <BestSelling />
         </motion.div>
 
         <motion.div 
-          variants={fadeUpVariants}
+          variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <ImageGallery />
         </motion.div>
@@ -163,8 +136,8 @@ export default function HomePage() {
           variants={sectionVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <LatestNews />
         </motion.div>

@@ -3,10 +3,10 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 50%, #fff9c4 100%);
   overflow: hidden;
-  padding: 100px 40px 80px 40px;
+  padding: 6rem 2rem;
 }
 
 .floatingToys {
@@ -28,17 +28,17 @@
 .heroContent {
   position: relative;
   z-index: 2;
-  text-align: left;
-  max-width: 800px;
-  margin-left: 0;
-  padding-left: 40px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .heroTitle {
   font-size: 3.5rem;
-  font-weight: 800;
+  font-weight: 700;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 

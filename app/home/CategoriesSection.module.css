@@ -1,21 +1,21 @@
 /* CategoriesSection.module.css */
 
 .categoriesSection {
-  padding: 80px 20px;
+  padding: 6rem 0;
   background-color: #ffffff;
 }
 
 .container {
-  max-width: 1300px;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 2rem;
 }
 
 .sectionTitle {
   font-size: 2.5rem;
   font-weight: 700;
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 4rem;
   color: #1a1a1a;
 }
 
@@ -23,8 +23,8 @@
 .categoriesGrid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 30px;
-  margin-bottom: 40px;
+  gap: 2rem;
+  margin-bottom: 3rem;
 }
 
 .categoryCard {
@@ -73,8 +73,8 @@
 .dotsIndicator {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 60px;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
 }
 
 .dot {
@@ -95,7 +95,7 @@
 .promosGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 2rem;
   max-width: 1100px;
   margin: 0 auto;
 }

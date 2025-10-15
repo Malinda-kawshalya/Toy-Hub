@@ -1,41 +1,124 @@
+/* Base section styling (unchanged) */
 .section {
-  padding: 6rem 0;
-  background: #f8f9fa;
+  padding: 8rem 0;
+  background: linear-gradient(135deg, #f9fafb 0%, #edf2f7 100%);
+  overflow: hidden;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
+  text-align: center;
   padding: 0 2rem;
 }
 
 .title {
-  text-align: center;
-  font-size: 3rem;
-  font-weight: bold;
-  margin-bottom: 3rem;
-  color: #333;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #111827;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  margin-bottom: 3.5rem;
 }
 
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  perspective: 1200px;
+  height: 450px;
 }
 
+/* Base card style */
 .imageCard {
-  border-radius: 15px;
+  position: absolute;
+  width: 300px;
+  height: 420px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  transition: 
+    transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1),
+    box-shadow 0.6s ease,
+    z-index 0.3s ease;
+  cursor: pointer;
 }
 
-.imageCard:hover {
-  transform: scale(1.05);
-}
+/* Smooth, elegant pop-up effect on hover */
 
+
+/* Image inside card */
 .image {
   width: 100%;
-  height: 250px;
+  height: 100%;
   object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.6s ease;
+}
+
+.imageCard:hover .image {
+  transform: scale(1.03);
+}
+
+/* Card positioning for depth effect */
+.pos1 {
+  transform: translateX(-480px) scale(0.9) rotateY(10deg);
+  z-index: 1;
+}
+
+.pos2 {
+  transform: translateX(-240px) scale(0.95) rotateY(5deg);
+  z-index: 2;
+}
+
+.pos3 {
+  transform: translateX(0) scale(1) rotateY(0deg);
+  z-index: 3;
+}
+
+.pos4 {
+  transform: translateX(240px) scale(0.95) rotateY(-5deg);
+  z-index: 2;
+}
+
+.pos5 {
+  transform: translateX(480px) scale(0.9) rotateY(-10deg);
+  z-index: 1;
+}
+
+/* Responsive layout */
+@media (max-width: 992px) {
+  .gallery {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .imageCard {
+    position: relative;
+    transform: none !important;
+    width: 240px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 576px) {
+  .imageCard {
+    width: 160px;
+    height: 240px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
 }
