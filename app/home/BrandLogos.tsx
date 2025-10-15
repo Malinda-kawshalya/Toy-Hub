@@ -2,7 +2,7 @@
 
 import styles from "./BrandLogos.module.css"
 
-const brands = ["LEGO", "Mattel", "Hasbro", "Fisher-Price", "Playmobil", "Melissa & Doug"]
+const brands = ["LEGO", "Mattel", "Hasbro", "Fisher-Price", "Playmobil"]
 
 export default function BrandLogos() {
   return (

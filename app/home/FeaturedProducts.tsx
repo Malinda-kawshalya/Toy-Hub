@@ -99,18 +99,31 @@ export default function FeaturedProducts() {
                   ease: "easeOut"
                 }}
                 whileHover={{ 
-                  y: 0,
-                  scale: 1,
+                  y: -12,
+                  scale: 1.03,
                   rotateY: 0,
-                  boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
-                  transition: { duration: 0.3 }
+                  rotateX: 5,
+                  boxShadow: "0 25px 50px rgba(0,160,255,0.15), 0 15px 30px rgba(0,0,0,0.1)",
+                  transition: { 
+                    type: "spring",
+                    stiffness: 300,
+                    damping: 20
+                  }
                 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div 
                   className={styles.imageWrapper}
-                  whileHover={{ scale: 1, rotate: 0 }}
-                  transition={{ duration: 0.3 }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    rotate: 1,
+                    background: "linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%)"
+                  }}
+                  transition={{ 
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 25
+                  }}
                 >
                   <Image
                     src={product.image}
@@ -126,7 +139,11 @@ export default function FeaturedProducts() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: (index % featuredProducts.length) * 0.1 + 0.5, duration: 0.5 }}
-                  whileHover={{ color: "#4299e1" }}
+                  whileHover={{ 
+                    color: "#0066cc", 
+                    y: -2,
+                    transition: { type: "spring", stiffness: 300 }
+                  }}
                 >
                   {product.name}
                 </motion.h3>
@@ -136,6 +153,11 @@ export default function FeaturedProducts() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: (index % featuredProducts.length) * 0.1 + 0.7, duration: 0.4 }}
+                  whileHover={{
+                    scale: 1.05,
+                    textShadow: "0 2px 8px rgba(255, 0, 142, 0.3)",
+                    transition: { type: "spring", stiffness: 300 }
+                  }}
                 >
                   {product.price}
                 </motion.p>

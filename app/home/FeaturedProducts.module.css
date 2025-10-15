@@ -36,8 +36,8 @@
 
 .sliderTrack {
   display: flex;
-  width: calc(250px * 12);
-  animation: scroll 25s linear infinite;
+  width: calc(320px * 12);
+  animation: scroll 30s linear infinite;
 }
 
 .sliderTrack:hover {
@@ -55,21 +55,23 @@
 
 /* ===== Product Cards ===== */
 .card {
-  width: 220px;
+  width: 280px;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 20px;
   margin: 2rem 1rem;
   flex-shrink: 0;
-  padding: 1.5rem 1rem;
+  padding: 2rem 1.5rem;
   border: 2px dashed rgba(0, 160, 255, 0.25);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
 }
 
 .card:hover {
-  transform: translateY(0);
-  border-color: rgba(0, 160, 255, 0.25);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.1);
+  transform: translateY(-12px) scale(1.03);
+  border-color: rgba(0, 160, 255, 0.6);
+  box-shadow: 0 25px 50px rgba(0, 160, 255, 0.15), 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card:hover ~ * .sliderTrack,
@@ -80,37 +82,57 @@
 /* ===== Product Image ===== */
 .imageWrapper {
   width: 100%;
-  height: 200px;
+  height: 240px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .image {
   width: 100%;
   height: 100%;
   object-fit: contain;
-  transition: transform 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card:hover .image {
-  transform: scale(1);
+  transform: scale(1.1) rotate(2deg);
+}
+
+.card:hover .imageWrapper {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  box-shadow: inset 0 2px 10px rgba(0, 160, 255, 0.1);
 }
 
 /* ===== Product Info ===== */
 .productName {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #222;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+  transition: all 0.3s ease;
 }
 
 .price {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #ff008e;
-  font-weight: 600;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.card:hover .productName {
+  color: #0066cc;
+  transform: translateY(-2px);
+}
+
+.card:hover .price {
+  transform: scale(1.05);
+  text-shadow: 0 2px 8px rgba(255, 0, 142, 0.3);
 }
 
 /* ===== Gradient Border Animation ===== */
@@ -118,24 +140,55 @@
   content: "";
   position: absolute;
   inset: 0;
-  border-radius: 16px;
+  border-radius: 20px;
   padding: 2px;
-  background: linear-gradient(45deg, #00a0ff, #ff008e);
+  background: linear-gradient(45deg, #00a0ff, #ff008e, #00a0ff);
+  background-size: 300% 300%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask-composite: exclude;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.4s ease;
+  animation: borderFlow 3s ease-in-out infinite;
 }
 
 .card:hover::before {
   opacity: 1;
 }
 
+.card::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 30px;
+  background: radial-gradient(circle, rgba(0, 160, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+@keyframes borderFlow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
 /* ===== Responsive Design ===== */
 @media (max-width: 1024px) {
   .sliderTrack {
-    animation: scroll 35s linear infinite;
+    animation: scroll 40s linear infinite;
+  }
+
+  .card {
+    width: 240px;
   }
 }
 
@@ -149,13 +202,21 @@
   }
 
   .card {
-    width: 180px;
+    width: 200px;
     margin: 1.5rem 0.8rem;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
   }
 
   .imageWrapper {
-    height: 160px;
+    height: 180px;
+  }
+
+  .productName {
+    font-size: 1.1rem;
+  }
+
+  .price {
+    font-size: 1rem;
   }
 }
 
@@ -165,19 +226,24 @@
   }
   
   .card {
-    width: 150px;
+    width: 170px;
     margin: 1rem 0.5rem;
+    padding: 1.2rem 1rem;
   }
 
   .imageWrapper {
-    height: 130px;
+    height: 150px;
   }
 
   .productName {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .price {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+  }
+
+  .card:hover {
+    transform: translateY(-8px) scale(1.02);
   }
 }
