@@ -3,78 +3,117 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import styles from "./HeroSection.module.css"
+import { useEffect, useState } from "react"
+import useResponsiveLayout from "@/hooks/useResponsiveLayout"
 
 export default function HeroSection() {
-  const floatingToys = ["🧸", "🚂", "🎨", "⚽", "🎮", "🪀", "🎪", "🎯"]
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+  const { isMobile, isTablet, isDesktop } = useResponsiveLayout()
+  
+  const heroImages = [
+    '/home/hero1.png',
+    '/home/hero2.png',
+    '/home/hero3.png'
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length)
+    }, 3000)
+    
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <section className={styles.hero}>
-      {/* Floating Toys Background */}
-      <div className={styles.floatingToys}>
-        {floatingToys.map((toy, index) => (
-          <motion.div
-            key={index}
-            className={styles.floatingToy}
-            initial={{ y: -100, opacity: 0 }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 0.7, 0.3],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 3 + index,
-              repeat: Number.POSITIVE_INFINITY,
-              delay: index * 0.2,
-            }}
-            style={{
-              left: `${10 + index * 12}%`,
-              top: `${20 + (index % 3) * 20}%`,
-            }}
-          >
-            {toy}
-          </motion.div>
-        ))}
-      </div>
-
+    <section className={styles.hero} style={{
+      padding: isMobile ? '4rem 1rem' : isTablet ? '5rem 2rem' : '6rem 3.5rem',
+      justifyContent: isMobile ? 'center' : 'flex-start'
+    }}>
+      {/* Rotating Background Images */}
+      {heroImages.map((image, index) => (
+        <div
+          key={index}
+          className={styles.heroBackground}
+          style={{
+            backgroundImage: `url(${image})`,
+            opacity: currentImageIndex === index ? 1 : 0
+          }}
+        />
+      ))}
+      
       <motion.div 
         className={styles.heroContent}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 0.2 }}
+        style={{
+          maxWidth: isMobile ? '95%' : isTablet ? '90%' : '600px',
+          padding: isMobile ? '1.5rem 2rem' : isTablet ? '2rem 2.5rem' : '2.5rem 3.5rem',
+          margin: isMobile ? '0 auto' : isTablet ? '0 0 0 40px' : '0 0 0 80px'
+        }}
       >
         <motion.h1
           className={styles.heroTitle}
-          initial={{ opacity: 0, y: 80, scale: 0.8 }}
+          initial={{ opacity: 0, y: isMobile ? 40 : 80, scale: 0.8 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ 
-            duration: 1.2, 
+            duration: isMobile ? 0.8 : 1.2, 
             ease: "easeOut",
             delay: 0.3
           }}
+          style={{
+            fontSize: isMobile ? '2rem' : '3.5rem'
+          }}
         >
-          <motion.span
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8, duration: 0.5 }}
-          >
-            Welcome to{" "}
-          </motion.span>
-          <motion.span 
-            className={styles.gradient}
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1, duration: 0.8, ease: "backOut" }}
-          >
-            Kids Dreams
-          </motion.span>
-          <br />
-          <motion.span
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 1.3, duration: 0.6 }}
-          >
-            Where Fun Begins!
-          </motion.span>
+          <motion.div className={styles.textLine}>
+            <motion.span
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.5 }}
+            >
+              Welcome to
+            </motion.span>
+          </motion.div>
+
+          <motion.div className={styles.textLine}>
+            <motion.span 
+              className={styles.gradient}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 1, duration: 0.8, ease: "backOut" }}
+              style={{ 
+                fontSize: isMobile ? '2.2rem' : isTablet ? '3.2rem' : '3.8rem',
+              }}
+            >
+              Kids Dreams
+            </motion.span>
+          </motion.div>
+
+          <motion.div className={styles.textLine}>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.3, duration: 0.6 }}
+              style={{ 
+                fontSize: isMobile ? '1.8rem' : isTablet ? '2.5rem' : '3.5rem',
+              }}
+            >
+              Where Fun
+            </motion.span>
+          </motion.div>
+
+          <motion.div className={styles.textLine}>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.5, duration: 0.6 }}
+              style={{ 
+                fontSize: isMobile ? '1.8rem' : isTablet ? '2.5rem' : '3.5rem',
+              }}
+            >
+              Begins..!
+            </motion.span>
+          </motion.div>
         </motion.h1>
 
         <motion.p
@@ -108,16 +147,6 @@ export default function HeroSection() {
           </Link>
         </motion.div>
       </motion.div>
-
-      {/* Decorative Wave */}
-      <div className={styles.wave}>
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path
-            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
-            fill="#ffffff"
-          ></path>
-        </svg>
-      </div>
     </section>
   )
 }

@@ -8,40 +8,39 @@ const CategoriesSection = () => {
   const categories = [
     {
       id: 1,
-      name: 'Melody Mates',
-      image: '/images/drum.jpg',
+      name: 'Educational Toys',
+      image: '/Category/edu.png',
       bgColor: '#E8E8E8'
     },
     {
       id: 2,
-      name: 'Travel Treasures',
-      image: '/images/train.jpg',
+      name: 'Dolls & Plush ',
+      image: '/Category/doll.png',
       bgColor: '#FFE5E0'
     },
     {
       id: 3,
-      name: 'Wooden Wonders',
-      image: '/images/horse.jpg',
+      name: 'Action Figures',
+      image: '/space-astronaut-action-figure-toy.jpg',
       bgColor: '#E8E8E8'
     },
     {
       id: 4,
-      name: 'Pull Toys',
-      image: '/images/dog.jpg',
+      name: 'Outdoor Toys',
+      image: '/colorful-building-blocks.png',
       bgColor: '#E5E5F0'
     },
     {
       id: 5,
-      name: 'Squeaky Toys',
-      image: '/images/dinosaur.jpg',
+      name: 'Creative Kits',
+      image: '/kids-playing-with-building-blocks-and-puzzles.jpg',
       bgColor: '#E5F5E8'
-    }
-    ,
+    },
     {
       id: 6,
-      name: 'Squeaky Toys',
-      image: '/images/dinosaur.jpg',
-      bgColor: '#E5F5E8'
+      name: 'Games & Puzzles',
+      image: '/colorful-toy-display-shelves-with-educational-toys.jpg',
+      bgColor: '#e7ecd2ff'
     }
   ];
 
@@ -49,22 +48,22 @@ const CategoriesSection = () => {
     {
       id: 1,
       title: 'Wood toys for your kids',
-      description: 'Get 20% flate your first purchase',
-      image: '/images/promo1.jpg',
+      description: 'Get 20% off your first purchase',
+      image: '/colorful-toy-shop-interior-with-happy-children-pla.jpg',
       bgColor: '#FFD4C4'
     },
     {
       id: 2,
       title: 'Early black friday specials',
-      description: 'Big discount 50% off on all order',
-      image: '/images/promo2.jpg',
+      description: 'Big discount 50% off on all orders',
+      image: '/toy-shop-storefront-with-bright-colors-and-balloon.jpg',
       bgColor: '#D4D4E8'
     },
     {
       id: 3,
       title: 'The best thing for kids',
       description: 'Special offer gift voucher',
-      image: '/images/promo3.jpg',
+      image: '/happy-children-playing-with-toys-in-colorful-toy-s.jpg',
       bgColor: '#D4E8D4'
     }
   ];
