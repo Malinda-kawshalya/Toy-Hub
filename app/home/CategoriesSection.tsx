@@ -10,37 +10,37 @@ const CategoriesSection = () => {
       id: 1,
       name: 'Educational Toys',
       image: '/Category/edu.png',
-      bgColor: '#E8E8E8'
+      bgColor: '#f5e4d3'
     },
     {
       id: 2,
       name: 'Dolls & Plush ',
       image: '/Category/doll.png',
-      bgColor: '#FFE5E0'
+      bgColor: '#fce4e0'
     },
     {
       id: 3,
       name: 'Action Figures',
-      image: '/space-astronaut-action-figure-toy.jpg',
-      bgColor: '#E8E8E8'
+      image: '/Category/action.png',
+      bgColor: '#d4e6f1'
     },
     {
       id: 4,
       name: 'Outdoor Toys',
-      image: '/colorful-building-blocks.png',
-      bgColor: '#E5E5F0'
+      image: '/Category/outdoor.png',
+      bgColor: '#e5eef7'
     },
     {
       id: 5,
       name: 'Creative Kits',
-      image: '/kids-playing-with-building-blocks-and-puzzles.jpg',
-      bgColor: '#E5F5E8'
+      image: '/Category/creative.png',
+      bgColor: '#e0f0e3'
     },
     {
       id: 6,
       name: 'Games & Puzzles',
-      image: '/colorful-toy-display-shelves-with-educational-toys.jpg',
-      bgColor: '#e7ecd2ff'
+      image: '/Category/puzzel.png',
+      bgColor: '#f9eac2'
     }
   ];
 
@@ -49,22 +49,22 @@ const CategoriesSection = () => {
       id: 1,
       title: 'Wood toys for your kids',
       description: 'Get 20% off your first purchase',
-      image: '/colorful-toy-shop-interior-with-happy-children-pla.jpg',
-      bgColor: '#FFD4C4'
+      image: '/home/wooden-toys.jpg',
+      bgColor: '#fce4e0'
     },
     {
       id: 2,
       title: 'Early black friday specials',
-      description: 'Big discount 50% off on all orders',
-      image: '/toy-shop-storefront-with-bright-colors-and-balloon.jpg',
-      bgColor: '#D4D4E8'
+      description: 'Big discount 50% off on all order',
+      image: '/home/plush-toy.jpg',
+      bgColor: '#e5eef7'
     },
     {
       id: 3,
       title: 'The best thing for kids',
       description: 'Special offer gift voucher',
-      image: '/happy-children-playing-with-toys-in-colorful-toy-s.jpg',
-      bgColor: '#D4E8D4'
+      image: '/home/toy-ball.jpg',
+      bgColor: '#e0f0e3'
     }
   ];
 
@@ -155,8 +155,8 @@ const CategoriesSection = () => {
               key={promo.id} 
               className={styles.promoCard}
               style={{ backgroundColor: promo.bgColor }}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -100 : 100 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.3 }}
               transition={{ 
                 duration: 0.8, 
@@ -164,7 +164,7 @@ const CategoriesSection = () => {
                 ease: "easeOut"
               }}
               whileHover={{ 
-                scale: 1.01,
+                scale: 1.02,
                 boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
                 transition: { duration: 0.3 }
               }}
@@ -195,19 +195,19 @@ const CategoriesSection = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 + 0.6, duration: 0.6 }}
+                transition={{ delay: index * 0.2 + 0.3, duration: 0.6 }}
                 whileHover={{ 
-                  scale: 1.1,
-                  rotate: 2,
+                  scale: 1.05,
                   transition: { duration: 0.3 }
                 }}
               >
                 <Image 
                   src={promo.image} 
                   alt={promo.title}
-                  width={300}
-                  height={300}
+                  width={200}
+                  height={200}
                   className={styles.image}
+                  priority
                 />
               </motion.div>
             </motion.div>

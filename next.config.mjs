@@ -9,6 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  output: 'export',  // Generates static HTML/CSS/JS files
+  distDir: 'out',    // Output directory for the build
 }
 
 export default nextConfig

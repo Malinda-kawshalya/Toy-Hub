@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import HeroSection from "./home/HeroSection"
 import CategoriesSection from "./home/CategoriesSection"
-import FeaturedProducts from "./home/FeaturedProducts"
+import NewArrivals from "./home/NewArrivals"
 import CharacterShop from "./home/CharacterShop"
 import BrandLogos from "./home/BrandLogos"
 import BestSelling from "./home/BestSelling"
@@ -89,7 +89,7 @@ export default function HomePage() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <FeaturedProducts />
+          <NewArrivals />
         </motion.div>
 
         <motion.div 
