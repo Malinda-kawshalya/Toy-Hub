@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "toy-hub-webapp"
-  }
+    "default": "kids-dreams-ce4d9",
+    "kids-dream": "kids-dreams-ce4d9"
+  },
+  "targets": {},
+  "etags": {}
 }
