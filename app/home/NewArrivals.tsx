@@ -3,46 +3,59 @@
 import { motion } from "framer-motion";
 import styles from "./NewArrivals.module.css";
 import Image from "next/image";
+import { useState } from "react";
 
 const newArrivals = [
   {
     id: 1,
-    name: "Deer Doll",
-    price: "Rs. 352.00",
-    image: "/deer-doll.jpg",
-    bgColor: "#f0f5fe"
+    name: "Cuddly Monkey",
+    price: "Rs. 657.00",
+    image: "/new arrivals/3.png",
+    bgColor: "transparent"
   },
   {
     id: 2,
-    name: "Cuddly Monkey",
-    price: "Rs. 657.00",
-    image: "/cuddly-monkey.jpg",
-    bgColor: "#f0f5fe"
+    name: "Soft Bear",
+    price: "Rs. 450.00",
+    image: "/new arrivals/5.png",
+    bgColor: "transparent"
   },
   {
     id: 3,
-    name: "Brown Teddy",
-    price: "Rs. 521.00",
-    image: "/brown-teddy.jpg",
-    bgColor: "#f0f5fe"
+    name: "Baby Rabbit",
+    price: "Rs. 105.00",
+    image: "/new arrivals/9.png",
+    bgColor: "transparent"
   },
   {
     id: 4,
-    name: "Bear Soft Toy",
-    price: "Rs. 450.00",
-    image: "/bear-soft-toy.jpg",
-    bgColor: "#f0f5fe"
+    name: "Deer Doll",
+    price: "Rs. 352.00",
+    image: "/new arrivals/19.png",
+    bgColor: "transparent"
   },
   {
     id: 5,
-    name: "Baby Rabbit",
-    price: "Rs. 105.00",
-    image: "/baby-rabbit.jpg",
-    bgColor: "#f0f5fe"
+    name: "Brown Teddy",
+    price: "Rs. 521.00",
+    image: "/new arrivals/33.png",
+    bgColor: "transparent"
+  },
+  {
+    id: 6,
+    name: "Plush Toy",
+    price: "Rs. 395.00",
+    image: "/new arrivals/66.png",
+    bgColor: "transparent"
   }
 ];
 
+// Duplicate the array to create seamless loop
+const duplicatedArrivals = [...newArrivals, ...newArrivals];
+
 export default function NewArrivals() {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <motion.section 
       className={styles.section}
@@ -71,73 +84,77 @@ export default function NewArrivals() {
           Check out our latest toy collection
         </motion.p>
 
-        <motion.div 
-          className={styles.productsGrid}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          {newArrivals.map((product, index) => (
-            <motion.div 
-              key={product.id} 
-              className={styles.card}
-              style={{ borderColor: index === 0 ? "#FF4E8D" : "#ddd" }}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ 
-                duration: 0.7, 
-                delay: index * 0.1,
-                ease: "easeOut"
-              }}
-              whileHover={{ 
-                y: -8,
-                boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
-                transition: { duration: 0.3 }
-              }}
-            >
+        {/* Scrolling Container */}
+        <div className={styles.scrollContainer}>
+          <motion.div 
+            className={styles.scrollingWrapper}
+            animate={{ 
+              x: isHovered ? undefined : [0, -50 + "%"] 
+            }}
+            transition={{
+              x: {
+                repeat: isHovered ? 0 : Infinity,
+                repeatType: "loop",
+                duration: 35,
+                ease: "linear"
+              }
+            }}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            {duplicatedArrivals.map((product, index) => (
               <motion.div 
-                className={styles.imageWrapper}
-                style={{ backgroundColor: product.bgColor }}
-                whileHover={{ scale: 1.03 }}
+                key={`${product.id}-${index}`} 
+                className={styles.card}
+                style={{ borderColor: (index % newArrivals.length) === 0 ? "#FF4E8D" : "#ddd" }}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ 
+                  duration: 0.7, 
+                  delay: (index % newArrivals.length) * 0.1,
+                  ease: "easeOut"
+                }}
+                whileHover={{ 
+                  y: -10,
+                  scale: 1.05,
+                  boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
+                  zIndex: 10,
+                  transition: { duration: 0.3 }
+                }}
               >
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={280}
-                  height={280}
-                  className={styles.image}
-                />
-              </motion.div>
-              <motion.div className={styles.productInfo}>
-                <motion.h3 
-                  className={styles.productName}
-                  style={{ color: index === 0 ? "#0075FF" : "#333" }}
+                <motion.div 
+                  className={styles.imageWrapper}
+                  style={{ backgroundColor: product.bgColor }}
+                  whileHover={{ scale: 1.1 }}
                 >
-                  {product.name}
-                </motion.h3>
-                <motion.p 
-                  className={styles.price}
-                  style={{ color: index === 0 ? "#FF4E8D" : "#FF4E8D" }}
-                >
-                  {product.price}
-                </motion.p>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={280}
+                    height={280}
+                    className={styles.image}
+                    priority={index < 3}
+                  />
+                </motion.div>
+                <motion.div className={styles.productInfo}>
+                  <motion.h3 
+                    className={styles.productName}
+                    style={{ color: (index % newArrivals.length) === 0 ? "#0075FF" : "#333" }}
+                  >
+                    {product.name}
+                  </motion.h3>
+                  <motion.p 
+                    className={styles.price}
+                    style={{ color: "#FF4E8D" }}
+                  >
+                    {product.price}
+                  </motion.p>
+                </motion.div>
               </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.button 
-          className={styles.viewAllButton}
-          whileHover={{ 
-            scale: 1.05,
-            backgroundColor: "#0062cc"
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          View All Products
-        </motion.button>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </motion.section>
   );

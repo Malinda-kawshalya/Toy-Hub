@@ -6,7 +6,7 @@
 
 .hero {
   background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
-  padding: 100px 20px 80px;
+  padding: 0;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -42,6 +42,25 @@
 .heroSubtext {
   font-size: 1.4rem;
   color: #555;
+  position: relative;
+  z-index: 1;
+}
+
+.heroImage {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.heroImageFull {
+  width: 100%;
+  height: auto;
+  display: block;
   position: relative;
   z-index: 1;
 }
@@ -196,6 +215,10 @@
 
   .heroSubtext {
     font-size: 1.2rem;
+  }
+
+  .heroImageFull {
+    width: 100%;
   }
 
   .infoGrid {

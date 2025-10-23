@@ -21,11 +21,12 @@ export default function VisitPage() {
   return (
     <main className={styles.main}>
       <section className={styles.hero}>
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <h1 className={styles.heroTitle}>
-            Come <span className={styles.gradient}>Visit Us</span>!
-          </h1>
-          <p className={styles.heroSubtext}>Find us easily and experience the magic of play.</p>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <img 
+            src="/visit us.png" 
+            alt="Visit Us" 
+            className={styles.heroImageFull}
+          />
         </motion.div>
       </section>
 

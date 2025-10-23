@@ -68,7 +68,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
           >
             <div className={styles.storyImageWrapper}>
-              <img src="/colorful-toy-shop-interior-with-happy-children-pla.jpg" alt="ToyLand Shop" className={styles.storyImage} />
+              <img src="/colorful-toy-shop-interior-with-happy-children-pla.jpg" alt="Kids Dreams Shop" className={styles.storyImage} />
             </div>
           </motion.div>
 
@@ -81,7 +81,7 @@ export default function AboutPage() {
           >
             <h2>Our Story</h2>
             <p>
-              ToyLand was born from a simple dream: to create a magical place where children's imaginations could run wild...
+              Kids Dreams was born from a simple dream: to create a magical place where children's imaginations could run wild...
             </p>
             <p>
               Every toy in our shop is handpicked with love, ensuring it meets our high standards for quality, safety, and fun.
@@ -131,7 +131,7 @@ export default function AboutPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          Why Choose <span className={styles.gradientText}>ToyLand</span>?
+          Why Choose <span className={styles.gradientText}>Kids Dreams</span>?
         </motion.h2>
 
         <div className={styles.featureGrid}>
@@ -163,7 +163,7 @@ export default function AboutPage() {
         >
           <Instagram className={styles.instagramIcon} />
           <h2>Follow Us on Instagram</h2>
-          <p>@toyland_official</p>
+          <p>@kidsdreams_official</p>
         </motion.div>
 
         <div className={styles.instagramGrid}>

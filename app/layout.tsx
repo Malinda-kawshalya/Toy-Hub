@@ -12,7 +12,7 @@ const quicksand = Quicksand({
 })
 
 export const metadata: Metadata = {
-  title: "ToyLand - Where Fun Begins!",
+  title: "Kids Dreams - Where Fun Begins!",
   description: "Your one-stop shop for fun, learning, and imagination. Discover amazing toys for kids of all ages.",
   generator: 'v0.app',
   viewport: {
