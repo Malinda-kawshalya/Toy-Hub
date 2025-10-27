@@ -44,30 +44,6 @@ const CategoriesSection = () => {
     }
   ];
 
-  const promos = [
-    {
-      id: 1,
-      title: 'Wood toys for your kids',
-      description: 'Get 20% off your first purchase',
-      image: '/home/wooden-toys.jpg',
-      bgColor: '#fce4e0'
-    },
-    {
-      id: 2,
-      title: 'Early black friday specials',
-      description: 'Big discount 50% off on all order',
-      image: '/home/plush-toy.jpg',
-      bgColor: '#e5eef7'
-    },
-    {
-      id: 3,
-      title: 'The best thing for kids',
-      description: 'Special offer gift voucher',
-      image: '/home/toy-ball.jpg',
-      bgColor: '#e0f0e3'
-    }
-  ];
-
   return (
     <section className={styles.categoriesSection}>
       <div className={styles.container}>
@@ -143,76 +119,7 @@ const CategoriesSection = () => {
           <span className={styles.dot}></span>
         </div>
 
-        <motion.div 
-          className={styles.promosGrid}
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-        >
-          {promos.map((promo, index) => (
-            <motion.div 
-              key={promo.id} 
-              className={styles.promoCard}
-              style={{ backgroundColor: promo.bgColor }}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ 
-                duration: 0.8, 
-                delay: index * 0.2,
-                ease: "easeOut"
-              }}
-              whileHover={{ 
-                scale: 1.02,
-                boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
-                transition: { duration: 0.3 }
-              }}
-            >
-              <motion.div 
-                className={styles.promoContent}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 + 0.4, duration: 0.6 }}
-              >
-                <h3 className={styles.promoTitle}>{promo.title}</h3>
-                <p className={styles.promoDescription}>{promo.description}</p>
-                <motion.button 
-                  className={styles.shopButton}
-                  whileHover={{ 
-                    scale: 1.05,
-                    backgroundColor: "#ff6b6b"
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Shop now
-                </motion.button>
-              </motion.div>
-              <motion.div 
-                className={styles.promoImage}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.2 + 0.3, duration: 0.6 }}
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <Image 
-                  src={promo.image} 
-                  alt={promo.title}
-                  width={200}
-                  height={200}
-                  className={styles.image}
-                  priority
-                />
-              </motion.div>
-            </motion.div>
-          ))}
-        </motion.div>
+
       </div>
     </section>
   );

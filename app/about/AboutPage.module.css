@@ -5,49 +5,17 @@
   overflow-x: hidden;
 }
 
-/* === Hero Section === */
-.heroSection {
-  background: linear-gradient(135deg, #FFE5E5 0%, #FFF5E5 50%, #E5F5FF 100%);
-  padding: 140px 20px 100px;
-  text-align: center;
-  position: relative;
+/* === Banner Section === */
+.bannerSection {
+  width: 100%;
+  overflow: hidden;
 }
 
-.heroTitle {
-  font-size: 4rem;
-  font-weight: 800;
-  color: #2d3748;
-  margin-bottom: 24px;
-}
-
-.gradientText {
-  background: linear-gradient(135deg, #FF6B9D 0%, #FFA06B 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.heroSubtitle {
-  font-size: 1.5rem;
-  color: #718096;
-  font-weight: 600;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.heroEmoji {
-  position: absolute;
-  font-size: 3rem;
-  opacity: 0.3;
-}
-
-.heroEmoji1 {
-  top: 20px;
-  left: 10%;
-}
-
-.heroEmoji2 {
-  bottom: 30px;
-  right: 15%;
+.bannerImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 /* === Story Section === */

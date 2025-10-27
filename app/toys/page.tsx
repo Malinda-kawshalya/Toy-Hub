@@ -64,45 +64,16 @@ export default function ToysPage() {
 
   return (
     <main className={styles.main}>
-      {/* Hero Section */}
-      <section className={styles.hero}>
-        <motion.div
-          className={styles.heroContent}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className={styles.heroTitle}>
-            Our Amazing <span className={styles.gradient}>Toy Collection</span>
-          </h1>
-          <p className={styles.heroSubtext}>Discover toys that inspire, educate, and bring endless joy!</p>
-        </motion.div>
-
-        {/* Confetti Animation */}
-        <div className={styles.confetti}>
-          {[...Array(20)].map((_, i) => (
-            <motion.div
-              key={i}
-              className={styles.confettiPiece}
-              initial={{ y: -100, opacity: 1 }}
-              animate={{
-                y: 1000,
-                rotate: 720,
-                opacity: 0,
-              }}
-              transition={{
-                duration: 3 + Math.random() * 2,
-                repeat: Number.POSITIVE_INFINITY,
-                delay: Math.random() * 2,
-              }}
-              style={{
-                left: `${Math.random() * 100}%`,
-                background: ["#00A0FF", "#FF008E", "#FFF176", "#4CAF50"][Math.floor(Math.random() * 4)],
-              }}
-            />
-          ))}
-        </div>
+      {/* Banner Section */}
+      <section className={styles.bannerSection}>
+        <img 
+          src="/toy collec.png" 
+          alt="Our Amazing Toy Collection" 
+          className={styles.bannerImage} 
+        />
       </section>
+
+
 
       {/* Categories */}
       <section className={styles.section}>
@@ -131,7 +102,7 @@ export default function ToysPage() {
       </section>
 
       {/* Featured Toys */}
-      <section className={styles.section}>
+      <section className={`${styles.section} ${styles.featuredSection}`}>
         <motion.h2
           className={styles.sectionTitle}
           initial={{ opacity: 0, y: 30 }}

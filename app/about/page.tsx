@@ -38,24 +38,13 @@ export default function AboutPage() {
 
   return (
     <main className={styles.main}>
-      {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <motion.div
-          className={styles.heroContent}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <h1 className={styles.heroTitle}>
-            About <span className={styles.gradient}>KIDZ DREAMS</span>
-          </h1>
-          <p className={styles.heroSubtitle}>
-            Where every toy tells a story and every child finds magic
-          </p>
-        </motion.div>
-
-        <div className={`${styles.heroEmoji} ${styles.heroEmoji1}`}>🎈</div>
-        <div className={`${styles.heroEmoji} ${styles.heroEmoji2}`}>🧸</div>
+      {/* About Banner */}
+      <section className={styles.bannerSection}>
+        <img 
+          src="/about.png" 
+          alt="About Kidz Dreams" 
+          className={styles.bannerImage} 
+        />
       </section>
 
       {/* Our Story */}
