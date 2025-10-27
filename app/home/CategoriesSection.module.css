@@ -6,9 +6,13 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .sectionTitle {
@@ -23,8 +27,11 @@
 .categoriesGrid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 2rem;
-  margin-bottom: 3rem;
+  gap: 3rem;
+  margin-bottom: 6rem;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
 }
 
 .categoryCard {
@@ -40,8 +47,8 @@
 }
 
 .categoryImage {
-  width: 160px;
-  height: 160px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   border: 2px dashed #d0d0d0;
   display: flex;
@@ -95,9 +102,12 @@
 .promosGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  max-width: 1200px;
+  gap: 3rem;
+  max-width: 1400px;
   margin: 0 auto;
+  justify-items: center;
+  align-items: center;
+  width: 100%;
 }
 
 .promoCard {
@@ -110,6 +120,8 @@
   position: relative;
   overflow: hidden;
   transition: transform 0.4s ease, box-shadow 0.3s ease;
+  align-items: center;
+  justify-content: center;
 }
 
 .promoCard:hover {
@@ -192,6 +204,7 @@
   .categoriesGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    justify-items: center;
   }
   
   .promosGrid {
@@ -199,6 +212,7 @@
     max-width: 100%;
     margin: 0 auto;
     padding: 0;
+    justify-items: center;
   }
 }
 
@@ -215,6 +229,7 @@
   .categoriesGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
+    justify-items: center;
   }
   
   .categoryImage {

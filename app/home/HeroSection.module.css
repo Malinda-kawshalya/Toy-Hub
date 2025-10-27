@@ -33,57 +33,22 @@
   width: 100%;
   margin: 0 0 0 80px; 
   padding: 2.5rem 3.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 8px 32px 0 rgba(31, 38, 135, 0.15),
-    0 4px 8px 0 rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
   position: relative;
   overflow: visible;
   box-sizing: border-box;
 }
 
-.heroContent::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -150%;
-  width: 150%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.3),
-    transparent
-  );
-  transform: skewX(-25deg);
-  animation: shine 6s infinite;
-  z-index: -1;
-}
 
-@keyframes shine {
-  0% {
-    left: -150%;
-  }
-  50% {
-    left: 100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
 
 .heroTitle {
   font-size: 3.5rem;
   font-weight: 800;
-  color: #333;
+  color: #ffffff;
   margin-bottom: 1.5rem;
   line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 8px rgba(255, 255, 255, 0.6);
 }
 
 .textLine {
@@ -93,12 +58,13 @@
 }
 
 .gradient {
-  background: linear-gradient(135deg, #00a0ff 0%, #8a2be2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #ffffff;
   font-weight: 900;
-  filter: drop-shadow(0px 2px 2px rgba(0, 0, 0, 0.25));
+  text-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(138, 43, 226, 0.6),
+    0 0 30px rgba(0, 160, 255, 0.4);
   font-size: 3.8rem;
 }
 
@@ -121,10 +87,13 @@
 
 .heroSubtext {
   font-size: 1.2rem;
-  color: #444;
+  color: #ffffff;
   margin-bottom: 40px;
   font-weight: 500;
   font-style: italic;
+  text-shadow: 
+    1px 1px 3px rgba(0, 0, 0, 0.7),
+    0 0 6px rgba(255, 255, 255, 0.4);
 }
 
 

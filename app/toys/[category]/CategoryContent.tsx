@@ -7,7 +7,6 @@ import styles from "./category.module.css"
 interface Toy {
   id: string
   name: string
-  price: number
   image: string
   category: string
 }

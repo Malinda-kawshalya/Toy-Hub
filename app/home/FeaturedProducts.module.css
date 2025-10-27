@@ -114,25 +114,14 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: #222;
-  margin-bottom: 0.6rem;
+  margin: 0;
   transition: all 0.3s ease;
-}
-
-.price {
-  font-size: 1.1rem;
-  color: #ff008e;
-  font-weight: 700;
-  transition: all 0.3s ease;
+  text-align: center;
 }
 
 .card:hover .productName {
   color: #0066cc;
   transform: translateY(-2px);
-}
-
-.card:hover .price {
-  transform: scale(1.05);
-  text-shadow: 0 2px 8px rgba(255, 0, 142, 0.3);
 }
 
 /* ===== Gradient Border Animation ===== */
@@ -214,10 +203,6 @@
   .productName {
     font-size: 1.1rem;
   }
-
-  .price {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -237,10 +222,6 @@
 
   .productName {
     font-size: 1rem;
-  }
-
-  .price {
-    font-size: 0.95rem;
   }
 
   .card:hover {

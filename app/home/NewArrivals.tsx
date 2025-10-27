@@ -9,42 +9,36 @@ const newArrivals = [
   {
     id: 1,
     name: "Cuddly Monkey",
-    price: "Rs. 657.00",
     image: "/new arrivals/3.png",
     bgColor: "transparent"
   },
   {
     id: 2,
     name: "Soft Bear",
-    price: "Rs. 450.00",
     image: "/new arrivals/5.png",
     bgColor: "transparent"
   },
   {
     id: 3,
     name: "Baby Rabbit",
-    price: "Rs. 105.00",
     image: "/new arrivals/9.png",
     bgColor: "transparent"
   },
   {
     id: 4,
     name: "Deer Doll",
-    price: "Rs. 352.00",
     image: "/new arrivals/19.png",
     bgColor: "transparent"
   },
   {
     id: 5,
     name: "Brown Teddy",
-    price: "Rs. 521.00",
     image: "/new arrivals/33.png",
     bgColor: "transparent"
   },
   {
     id: 6,
     name: "Plush Toy",
-    price: "Rs. 395.00",
     image: "/new arrivals/66.png",
     bgColor: "transparent"
   }
@@ -144,12 +138,6 @@ export default function NewArrivals() {
                   >
                     {product.name}
                   </motion.h3>
-                  <motion.p 
-                    className={styles.price}
-                    style={{ color: "#FF4E8D" }}
-                  >
-                    {product.price}
-                  </motion.p>
                 </motion.div>
               </motion.div>
             ))}

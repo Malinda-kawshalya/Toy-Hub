@@ -6,12 +6,11 @@ import styles from "./ToyCard.module.css"
 interface ToyCardProps {
   id: string
   name: string
-  price: number
   image: string
   category?: string
 }
 
-export default function ToyCard({ id, name, price, image, category }: ToyCardProps) {
+export default function ToyCard({ id, name, image, category }: ToyCardProps) {
   return (
     <motion.div
       className={styles.card}
@@ -32,7 +31,6 @@ export default function ToyCard({ id, name, price, image, category }: ToyCardPro
       
       <div className={styles.content}>
         <h3 className={styles.name}>{name}</h3>
-        <p className={styles.price}>${price.toFixed(2)}</p>
       </div>
     </motion.div>
   )

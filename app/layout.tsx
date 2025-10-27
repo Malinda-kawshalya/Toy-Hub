@@ -15,12 +15,13 @@ export const metadata: Metadata = {
   title: "Kids Dreams - Where Fun Begins!",
   description: "Your one-stop shop for fun, learning, and imagination. Discover amazing toys for kids of all ages.",
   generator: 'v0.app',
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 1,
-    userScalable: false
-  }
+}
+
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false
 }
 
 export default function RootLayout({

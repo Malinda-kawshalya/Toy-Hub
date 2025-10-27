@@ -7,6 +7,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "start": "next start",
+    "export": "next build",
     "firebase:emulate": "firebase emulators:start --only hosting",
     "firebase:deploy": "firebase deploy --only hosting",
     "predeploy": "npm run build",

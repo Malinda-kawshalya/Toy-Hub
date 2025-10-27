@@ -8,37 +8,31 @@ const featuredProducts = [
   {
     id: 1,
     name: "Deer Doll",
-    price: "Rs. 352.00",
     image: "/deer-doll.png",
   },
   {
     id: 2,
     name: "Cuddly Monkey",
-    price: "Rs. 657.00",
     image: "/cuddly-monkey.png",
   },
   {
     id: 3,
     name: "Brown Teddy",
-    price: "Rs. 521.00",
     image: "/brown-teddy.png",
   },
   {
     id: 4,
     name: "Bear Soft Toy",
-    price: "Rs. 450.00",
     image: "/bear-soft-toy.png",
   },
   {
     id: 5,
     name: "Baby Rabbit",
-    price: "Rs. 105.00",
     image: "/baby-rabbit.png",
   },
   {
     id: 6,
     name: "Baby Owl",
-    price: "Rs. 540.00",
     image: "/baby-owl.png",
   },
 ];
@@ -147,20 +141,6 @@ export default function FeaturedProducts() {
                 >
                   {product.name}
                 </motion.h3>
-                <motion.p 
-                  className={styles.price}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: (index % featuredProducts.length) * 0.1 + 0.7, duration: 0.4 }}
-                  whileHover={{
-                    scale: 1.05,
-                    textShadow: "0 2px 8px rgba(255, 0, 142, 0.3)",
-                    transition: { type: "spring", stiffness: 300 }
-                  }}
-                >
-                  {product.price}
-                </motion.p>
               </motion.div>
             ))}
           </motion.div>

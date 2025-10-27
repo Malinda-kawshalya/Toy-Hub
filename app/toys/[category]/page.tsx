@@ -4,7 +4,6 @@ import CategoryContent from "./CategoryContent"
 interface Toy {
   id: string
   name: string
-  price: number
   image: string
   category: string
 }
@@ -21,70 +20,60 @@ const toysData: Record<string, Toy[]> = {
     {
       id: "1",
       name: "Rainbow Building Blocks",
-      price: 29.99,
       image: "/product images/Educational Toys/Educational Toys/1.png",
       category: "Educational Toys"
     },
     {
       id: "2", 
       name: "Learning Puzzle Set",
-      price: 24.99,
       image: "/product images/Educational Toys/Educational Toys/2.png",
       category: "Educational Toys"
     },
     {
       id: "3",
       name: "STEM Activity Kit",
-      price: 39.99,
       image: "/product images/Educational Toys/Educational Toys/3.png",
       category: "Educational Toys"
     },
     {
       id: "4",
       name: "Alphabet Learning Toy",
-      price: 22.99,
       image: "/product images/Educational Toys/Educational Toys/4.png",
       category: "Educational Toys"
     },
     {
       id: "5",
       name: "Shape Sorting Cube",
-      price: 18.99,
       image: "/product images/Educational Toys/Educational Toys/5.png",
       category: "Educational Toys"
     },
     {
       id: "6",
       name: "Counting Bears Set",
-      price: 16.99,
       image: "/product images/Educational Toys/Educational Toys/6.png",
       category: "Educational Toys"
     },
     {
       id: "7",
       name: "Magnetic Letter Board",
-      price: 32.99,
       image: "/product images/Educational Toys/Educational Toys/7.png",
       category: "Educational Toys"
     },
     {
       id: "8",
       name: "Science Experiment Kit",
-      price: 45.99,
       image: "/product images/Educational Toys/Educational Toys/8.png",
       category: "Educational Toys"
     },
     {
       id: "9",
       name: "Musical Learning Toy",
-      price: 27.99,
       image: "/product images/Educational Toys/Educational Toys/9.png",
       category: "Educational Toys"
     },
     {
       id: "10",
       name: "Interactive Learning Tablet",
-      price: 34.99,
       image: "/product images/Educational Toys/Educational Toys/10.png",
       category: "Educational Toys"
     }

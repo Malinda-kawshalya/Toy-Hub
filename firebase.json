@@ -1,6 +1,7 @@
 {
   "hosting": {
-    "public": "public",
+    "site": "kids-dreams-ce4d9",
+    "public": "out",
     "ignore": [
       "firebase.json",
       "**/.*",

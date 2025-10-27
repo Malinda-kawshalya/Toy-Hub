@@ -1,7 +1,7 @@
 /* Base section styling (unchanged) */
 .section {
   padding: 8rem 0;
-  background: linear-gradient(135deg, #f9fafb 0%, #edf2f7 100%);
+  background: white;
   overflow: hidden;
 }
 

@@ -7,21 +7,18 @@ import styles from "./BestSelling.module.css"
 const bestSellers = [
   { 
     name: "Building Blocks Set", 
-    price: "$34.99", 
     sales: "1,234 sold",
     image: "/colorful-building-blocks.png",
     alt: "Building Blocks Set"
   },
   { 
     name: "Teddy Bear Collection", 
-    price: "$22.99", 
     sales: "987 sold",
     image: "/cute-teddy-bear-plush-toy.jpg",
     alt: "Teddy Bear Collection"
   },
   { 
     name: "Puzzle Adventure", 
-    price: "$18.99", 
     sales: "756 sold",
     image: "/kids-playing-with-building-blocks-and-puzzles.jpg",
     alt: "Puzzle Adventure"
@@ -117,15 +114,6 @@ export default function BestSelling() {
                 >
                   {product.name}
                 </motion.h3>
-                <motion.p 
-                  className={styles.price}
-                  initial={{ scale: 0.8 }}
-                  whileInView={{ scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.2 + 0.9, duration: 0.4 }}
-                >
-                  {product.price}
-                </motion.p>
                 <p className={styles.sales}>{product.sales}</p>
                 <motion.button 
                   className={styles.buyButton}

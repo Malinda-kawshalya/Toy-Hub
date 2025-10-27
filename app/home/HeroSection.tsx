@@ -11,9 +11,10 @@ export default function HeroSection() {
   const { isMobile, isTablet, isDesktop } = useResponsiveLayout()
   
   const heroImages = [
-    '/home/hero1.jpg',
-    '/home/hero2.jpg',
-    '/home/hero3.png'
+    '/home/hero1.png',
+    '/home/hero2.png',
+    '/home/hero3.png',
+    '/home/hero4.png'
   ]
 
   useEffect(() => {

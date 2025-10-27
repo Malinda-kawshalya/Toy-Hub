@@ -1,4 +1,4 @@
-/* NewArrivals.module.css */
+
 
 .section {
   padding: 6rem 0 8rem 0;
@@ -108,29 +108,21 @@
 .productInfo {
   padding: 1.5rem 1.2rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .productName {
   font-size: 1.3rem;
   font-weight: 500;
   color: #333;
-  margin-bottom: 0.8rem;
+  margin: 0;
   transition: color 0.3s ease;
-}
-
-.price {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: #FF4E8D;
-  transition: all 0.3s ease;
 }
 
 .card:hover .productName {
   color: #0075FF;
-}
-
-.card:hover .price {
-  transform: scale(1.05);
 }
 
 .card:hover {
@@ -206,10 +198,6 @@
   .productName {
     font-size: 1.2rem;
   }
-  
-  .price {
-    font-size: 1.3rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -245,11 +233,6 @@
   
   .productName {
     font-size: 1.1rem;
-    margin-bottom: 0.6rem;
-  }
-  
-  .price {
-    font-size: 1.2rem;
   }
   
   .viewAllButton {
