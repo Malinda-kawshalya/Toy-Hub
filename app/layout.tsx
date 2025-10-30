@@ -15,6 +15,9 @@ export const metadata: Metadata = {
   title: "Kids Dreams - Where Fun Begins!",
   description: "Your one-stop shop for fun, learning, and imagination. Discover amazing toys for kids of all ages.",
   generator: 'v0.app',
+  icons: {
+    icon: '/Kidz Dreams Logo png.png',
+  },
 }
 
 export const viewport = {

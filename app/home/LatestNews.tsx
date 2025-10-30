@@ -1,6 +1,7 @@
 "use client"
 
 import styles from "./LatestNews.module.css"
+import Link from "next/link"
 
 // A simple SVG placeholder for the news images
 const ImagePlaceholder = ({ width = "100%", height = "200px", index }) => (
@@ -30,11 +31,12 @@ const ImagePlaceholder = ({ width = "100%", height = "200px", index }) => (
 
 const newsItems = [
   {
-    imageSrc: "/path/to/image1.jpg",
-    author: "John Matthew",
-    date: "14 Feb 2024",
-    title: "Cherishing Your Kids Special Day With Their Ultimate Faves",
-    excerpt: "Ac turpis egestas sod turpis urna et pharetra. Ultrices tincidunt arcu non sodales. Lacus vestibulum...",
+    imageSrc: "/news/news01.webp",
+    author: "Kidz Dreams Team",
+    date: "30 Oct 2025",
+    title: "Join Our Team - We're Hiring!",
+    excerpt: "We're looking for passionate and dedicated individuals to join our growing team. If you love working with children and toys, we have exciting opportunities for you!",
+    linkTo: "/contact",
   },
   {
     imageSrc: "/path/to/image2.jpg",
@@ -42,6 +44,7 @@ const newsItems = [
     date: "14 Feb 2024",
     title: "What Are the Best Toys for Child Development",
     excerpt: "Aliquet risus feugiat in ante. Est pellentesque elit ullamcorper dignissim. Egestas integer eget aliquet nibh...",
+    linkTo: "#",
   },
   {
     imageSrc: "/path/to/image3.jpg",
@@ -49,6 +52,7 @@ const newsItems = [
     date: "14 Feb 2024",
     title: "How Do Toys Impact a Child's Learning",
     excerpt: "Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Tristique senectus et netus et malesuada...",
+    linkTo: "#",
   }
 ]
 
@@ -66,7 +70,11 @@ export default function LatestNews() {
             <div key={index} className={styles.newsCard}>
               {/* Image with rounded top corners */}
               <div className={styles.imageWrapper}>
-                 <ImagePlaceholder index={index} />
+                {index === 0 ? (
+                  <img src={item.imageSrc} alt={item.title} className={styles.newsImage} />
+                ) : (
+                  <ImagePlaceholder index={index} />
+                )}
               </div>
 
               {/* Text content section */}
@@ -82,7 +90,13 @@ export default function LatestNews() {
                 <p className={styles.excerpt}>{item.excerpt}</p>
                 
                 {/* The 'Read More' button is styled to match the pink button in the image */}
-                <button className={styles.readMore}>Read More</button>
+                {index === 0 ? (
+                  <Link href={item.linkTo}>
+                    <button className={styles.readMore}>Contact Us</button>
+                  </Link>
+                ) : (
+                  <button className={styles.readMore}>Read More</button>
+                )}
               </div>
             </div>
           ))}

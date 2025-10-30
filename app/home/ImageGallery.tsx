@@ -1,29 +1,29 @@
 "use client";
 import styles from "./ImageGallery.module.css";
 
-const galleryImages = [
-  "/happy-children-playing-with-toys-in-colorful-toy-s.jpg",
-  "/child-birthday-party-in-toy-store-with-balloons.jpg",
-  "/colorful-toy-shop-interior-with-happy-children-pla.jpg",
-  "/toy-shop-storefront-with-bright-colors-and-balloon.jpg",
-  "/happy-children-playing-with-toys-in-colorful-toy-s.jpg",
+const shopImages = [
+  "/shop/shop1.webp",
+  "/shop/shop2.webp",
+  "/shop/shop3.webp",
+  "/shop/shop5.webp",
+  "/shop/shop4.webp",
 ];
 
 export default function ImageGallery() {
   return (
     <section className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Our Happy Customers</h2>
+        <h2 className={styles.title}>Visit Our Amazing Store</h2>
         <p className={styles.subtitle}>
-          See the joy and excitement on our customers’ faces as they discover amazing toys
+          Step into a world of fun and imagination at our colorful toy shop, where every corner is filled with joy and excitement
         </p>
         <div className={styles.gallery}>
-          {galleryImages.map((img, index) => (
+          {shopImages.map((img, index) => (
             <div
               key={index}
               className={`${styles.imageCard} ${styles[`pos${index + 1}`]}`}
             >
-              <img src={img} alt={`Gallery image ${index + 1}`} className={styles.image} />
+              <img src={img} alt={`Shop interior ${index + 1}`} className={styles.image} />
             </div>
           ))}
         </div>
