@@ -9,8 +9,6 @@ export default function Footer() {
   const socialIcons = [
     { name: "Facebook", iconClass: "fab fa-facebook-f", href: "#" },
     { name: "Instagram", iconClass: "fab fa-instagram", href: "#" },
-    { name: "Twitter", iconClass: "fab fa-twitter", href: "#" },
-    { name: "YouTube", iconClass: "fab fa-youtube", href: "#" },
   ];
 
   // Restructure footer columns
@@ -20,8 +18,8 @@ export default function Footer() {
       links: [
         { name: "Home", href: "/" },
         { name: "Our Toys", href: "/toys" },
-        { name: "New Arrivals", href: "/toys/new" },
-        { name: "Sale Items", href: "/sale" },
+        { name: "New Arrivals", href: "/#new-arrivals" },
+        { name: "Category Items", href: "/#categories" },
       ],
     },
     {
@@ -29,17 +27,17 @@ export default function Footer() {
       links: [
         { name: "Our Story", href: "/about" },
         { name: "Contact Us", href: "/contact" },
-        { name: "Blog", href: "/blog" },
-        { name: "FAQs", href: "/faq" },
+        { name: "Blog", href: "/" },
+        { name: "FAQs", href: "/" },
       ],
     },
     {
       title: "LEGAL & SUPPORT",
       links: [
-        { name: "Privacy Policy", href: "/privacy" },
-        { name: "Terms of Service", href: "/terms" },
-        { name: "Shipping Info", href: "/shipping" },
-        { name: "Returns", href: "/returns" },
+        { name: "Privacy Policy", href: "/" },
+        { name: "Terms of Service", href: "/" },
+        { name: "Shipping Info", href: "/" },
+      
       ],
     },
   ]
