@@ -152,7 +152,7 @@ export default function AboutPage() {
         >
           <Instagram className={styles.instagramIcon} />
           <h2>Follow Us on Instagram</h2>
-          <p>@kidsdreams_official</p>
+          <p>@kidzdreamsofficial</p>
         </motion.div>
 
         <div className={styles.instagramGrid}>
