@@ -12,7 +12,7 @@ export default function GalleryPage() {
   const [activeImage, setActiveImage] = useState(0)
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [modalImage, setModalImage] = useState<{ src: string; alt: string } | null>(null)
-  const [formData, setFormData] = useState({ name: "", email: "", drawing: null as File | null })
+  //const [formData, setFormData] = useState({ name: "", email: "", drawing: null as File | null })
   const [likedPosts, setLikedPosts] = useState<{ [key: number]: { liked: boolean; count: number } }>({
     1: { liked: false, count: 120 },
     2: { liked: false, count: 85 },
@@ -26,17 +26,17 @@ export default function GalleryPage() {
   const carouselRef = useRef<HTMLDivElement>(null)
 
   const galleryImages = [
-    { id: 1, src: "/happy-children-playing-with-colorful-toys-in-toy-s.jpg", alt: "Children playing with toys", category: "Shop Photos" },
-    { id: 2, src: "/cute-plush-teddy-bears-on-display-shelf.jpg", alt: "Plush toys display", category: "Shop Photos" },
-    { id: 3, src: "/child-building-with-colorful-blocks-and-educationa.jpg", alt: "Educational toys", category: "Kids' Drawings" },
-    { id: 4, src: "/colorful-toy-cars-and-vehicles-collection.jpg", alt: "Toy vehicles", category: "Shop Photos" },
-    { id: 5, src: "/kids-birthday-party-with-toys-and-decorations.jpg", alt: "Birthday celebration", category: "Events" },
-    { id: 6, src: "/wooden-educational-toys-and-puzzles-display.jpg", alt: "Wooden toys", category: "Shop Photos" },
-    { id: 7, src: "/children-laughing-and-playing-in-toy-store.jpg", alt: "Happy kids", category: "Shop Photos" },
-    { id: 8, src: "/colorful-stuffed-animals-and-plush-toys.jpg", alt: "Stuffed animals", category: "Shop Photos" },
-    { id: 9, src: "/toy-store-interior-with-colorful-displays.jpg", alt: "Store interior", category: "Shop Photos" },
+    { id: 1, src: "/shop_1.jpg", alt: "Children playing with toys", category: "Shop Photos" },
+    { id: 2, src: "/shop_2.jpg", alt: "Plush toys display", category: "Shop Photos" },
+    { id: 3, src: "/kids-birthday-party_1.jpg", alt: "Birthday celebration1", category: "Events" },
+    { id: 4, src: "/shop_3.jpg", alt: "Toy vehicles", category: "Shop Photos" },
+    { id: 5, src: "/kids-birthday-party.webp", alt: "Birthday celebration", category: "Events" },
+    { id: 6, src: "/shop_4.jpg", alt: "Wooden toys", category: "Shop Photos" },
+    { id: 7, src: "/kids-birthday-party_2.jpg", alt: "Birthday celebration2", category: "Events" },
+    { id: 8, src: "/shop_5.jpg", alt: "Stuffed animals", category: "Shop Photos" },
+    { id: 9, src: "/shop_6.jpg", alt: "Store interior", category: "Shop Photos" },
   ]
-
+/*
   const kidsDrawings = [
     { id: 1, src: "/child-drawing-rocket.jpg", alt: "Child's rocket drawing", artist: "Amara, Age 6" },
     { id: 2, src: "/child-drawing-unicorn.jpg", alt: "Child's unicorn drawing", artist: "Liam, Age 5" },
@@ -76,8 +76,8 @@ export default function GalleryPage() {
       extendedProps: { description: "Board games and fun for all ages", type: "game-night" },
     },
   ]
-
-  const categories = ["All", "Shop Photos", "Events", "Kids' Drawings"]
+*/
+  const categories = ["All", "Shop Photos", "Events"]
 
   const filteredImages =
     selectedCategory === "All" ? galleryImages : galleryImages.filter((img) => img.category === selectedCategory)
@@ -114,11 +114,11 @@ export default function GalleryPage() {
     }))
   }
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  /*const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     alert("Thank you for submitting your child's drawing! We'll review it soon! 🎨")
     setFormData({ name: "", email: "", drawing: null })
-  }
+  }*/
 
   // Auto-play carousel
   useEffect(() => {
@@ -339,6 +339,7 @@ export default function GalleryPage() {
           className={styles.eventsContainer}
         >
           <h2 className={styles.sectionTitle}>Join Our Fun Activities Soon!</h2>
+          {/*
           <div className={styles.calendarContainer}>
             <FullCalendar
               ref={calendarRef}
@@ -371,94 +372,10 @@ export default function GalleryPage() {
               }}
               height="auto"
             />
-          </div>
+          </div> */}
         </motion.div>
       </section>
-
-      <section className={styles.section}>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className={styles.artistsContainer}
-        >
-          <h2 className={styles.sectionTitle}>Our Little Artists</h2>
-          <p className={styles.sectionSubtext}>Showcasing the creative masterpieces from our young visitors!</p>
-          <div className={styles.artistsGrid}>
-            {kidsDrawings.map((drawing, index) => (
-              <motion.div
-                key={drawing.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className={styles.artistItem}
-              >
-                <Image
-                  src={drawing.src}
-                  alt={drawing.alt}
-                  fill
-                  className={styles.artistImage}
-                  onClick={() => handleModalOpen(drawing)}
-                  loading="lazy"
-                />
-                <div className={styles.imageOverlay}>
-                  <p className={styles.imageCaption}>{drawing.alt}</p>
-                  <span className={styles.imageCategory}>{drawing.artist}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-          <div className={styles.formContainer}>
-            <h3 className={styles.formTitle}>Submit Your Child's Drawing</h3>
-            <form onSubmit={handleFormSubmit} className={styles.form}>
-              <div className={styles.formGroup}>
-                <label htmlFor="name">Parent's Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                  placeholder="Enter your name"
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="email">Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  placeholder="your@email.com"
-                />
-              </div>
-              <div className={styles.formGroup}>
-                <label htmlFor="drawing">Upload Drawing</label>
-                <input
-                  type="file"
-                  id="drawing"
-                  accept="image/*"
-                  onChange={(e) => setFormData({ ...formData, drawing: e.target.files ? e.target.files[0] : null })}
-                  required
-                />
-              </div>
-              <motion.button
-                type="submit"
-                className={styles.submitButton}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Submit Drawing 🎨
-              </motion.button>
-            </form>
-          </div>
-        </motion.div>
-      </section>
-
+      
       <section className={styles.section}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -508,13 +425,13 @@ export default function GalleryPage() {
             ))}
           </div>
           <a
-            href="https://instagram.com/kidzdreams"
+            href="https://www.instagram.com/kidzdreamsofficial?igsh=eGJuaTcybjF6Y2d6"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.instagramButton}
           >
             <Instagram className={styles.buttonIcon} />
-            Follow @KidzDreams
+            Follow @kidzdreamsofficial
           </a>
         </motion.div>
       </section>

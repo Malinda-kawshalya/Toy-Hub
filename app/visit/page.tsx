@@ -11,7 +11,7 @@ export default function VisitPage() {
     "/store-interior-toys.jpg",
     "/store-play-area.jpg",
     "/store-display-shelf.jpg",
-    "/store-front-entrance.jpg",
+    "/store-front-entrance.png",
   ]
 
   const handleImageClick = (index: number) => {
