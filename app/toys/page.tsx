@@ -7,21 +7,21 @@ import styles from "./toys.module.css"
 export default function ToysPage() {
   const categories = [
     {
-      icon: "🧩",
+      icon: "👶",
+      title: "Baby Toys",
+      description: "Safe and soft toys perfect for infants and toddlers",
+      color: "linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%)",
+    },
+    {
+      icon: "�",
       title: "Educational Toys",
       description: "STEM toys, puzzles, and learning games that make education fun",
       color: "linear-gradient(135deg, #FFF176 0%, #FFD54F 100%)",
     },
     {
-      icon: "🧸",
-      title: "Dolls & Plush",
-      description: "Soft companions and collectible dolls for imaginative play",
-      color: "linear-gradient(135deg, #FF008E 0%, #CC006F 100%)",
-    },
-    {
-      icon: "🦸",
-      title: "Action Figures",
-      description: "Superheroes, dinosaurs, and adventure characters",
+      icon: "🏎️",
+      title: "Model Cars",
+      description: "Die-cast cars, racing sets, and collectible vehicle models",
       color: "linear-gradient(135deg, #00A0FF 0%, #0080CC 100%)",
     },
     {
@@ -31,16 +31,22 @@ export default function ToysPage() {
       color: "linear-gradient(135deg, #4CAF50 0%, #388E3C 100%)",
     },
     {
-      icon: "🎨",
-      title: "Creative Kits",
-      description: "Art supplies, craft kits, and DIY projects",
-      color: "linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)",
+      icon: "🧩",
+      title: "Puzzles",
+      description: "Brain teasers, jigsaw puzzles, and logic games",
+      color: "linear-gradient(135deg, #FF5722 0%, #E64A19 100%)",
     },
     {
       icon: "🎮",
-      title: "Games & Puzzles",
-      description: "Board games, card games, and brain teasers",
-      color: "linear-gradient(135deg, #FF5722 0%, #E64A19 100%)",
+      title: "RC Items",
+      description: "Remote control cars, drones, and helicopters for endless fun",
+      color: "linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)",
+    },
+    {
+      icon: "🧸",
+      title: "Teddys",
+      description: "Cuddly teddy bears and soft plush companions",
+      color: "linear-gradient(135deg, #FF008E 0%, #CC006F 100%)",
     },
   ]
 
@@ -129,13 +135,6 @@ export default function ToysPage() {
               <div className={styles.featuredContent}>
                 <span className={styles.featuredCategory}>{toy.category}</span>
                 <h3 className={styles.featuredName}>{toy.name}</h3>
-                <motion.button
-                  className={styles.featuredButton}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Learn More
-                </motion.button>
               </div>
             </motion.div>
           ))}

@@ -52,12 +52,13 @@ export default function Navbar() {
   ]
 
   const toyCategories = [
-    { name: "Educational Toys", href: "/toys/educational-toys", icon: "🧩" },
-    { name: "Dolls & Plush", href: "/toys/dolls-plush", icon: "🧸" },
-    { name: "Action Figures", href: "/toys/action-figures", icon: "🦸" },
-    { name: "Outdoor Toys", href: "/toys/outdoor-toys", icon: "⚽" },
-    { name: "Creative Kits", href: "/toys/creative-kits", icon: "🎨" },
-    { name: "Games & Puzzles", href: "/toys/games-puzzles", icon: "🎮" },
+    { name: "Baby Toys", href: "/toys/baby-toys" },
+    { name: "Educational Toys", href: "/toys/educational-toys"},
+    { name: "Model Cars", href: "/toys/model-cars" },
+    { name: "Outdoor Toys", href: "/toys/outdoor-toys"},
+    { name: "Puzzles", href: "/toys/puzzles"},
+    { name: "RC Items", href: "/toys/rc-items"},
+    { name: "Teddys", href: "/toys/teddys" },
   ]
 
   return (
@@ -142,7 +143,7 @@ export default function Navbar() {
                   transition={{ delay: index * 0.05, duration: 0.2 }}
                 >
                   <Link href={category.href} className={styles.dropdownItem}>
-                    <span className={styles.categoryIcon}>{category.icon}</span>
+                    <span className={styles.categoryIcon}></span>
                     {category.name}
                   </Link>
                 </motion.div>
@@ -220,7 +221,7 @@ export default function Navbar() {
                   className={styles.mobileCategoryItem}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  <span className={styles.mobileCategoryIcon}>{category.icon}</span>
+                  <span className={styles.mobileCategoryIcon}></span>
                   {category.name}
                 </Link>
               ))}

@@ -115,18 +115,6 @@ export default function BestSelling() {
                   {product.name}
                 </motion.h3>
                 <p className={styles.sales}>{product.sales}</p>
-                <motion.button 
-                  className={styles.buyButton}
-                  whileHover={{ 
-                    scale: 1.05,
-                    y: -2,
-                    boxShadow: "0 6px 20px rgba(66, 153, 225, 0.4)"
-                  }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  Buy Now
-                </motion.button>
               </motion.div>
             </motion.div>
           ))}

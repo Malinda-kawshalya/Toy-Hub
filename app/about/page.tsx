@@ -29,11 +29,11 @@ export default function AboutPage() {
   ];
 
   const instagramPosts = [
-    { id: 1, img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop" },
+    { id: 1, img: "https://plus.unsplash.com/premium_photo-1664373233010-7c4abae40f78?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=688" },
     { id: 2, img: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=400&h=400&fit=crop" },
     { id: 3, img: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=400&h=400&fit=crop" },
     { id: 4, img: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&h=400&fit=crop" },
-    { id: 5, img: "https://images.unsplash.com/photo-1587035881087-c0091accef38?w=400&h=400&fit=crop" },
+    { id: 5, img: "https://images.unsplash.com/photo-1545558014-8692077e9b5c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170" },
   ];
 
   return (
@@ -57,7 +57,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
           >
             <div className={styles.storyImageWrapper}>
-              <img src="/colorful-toy-shop-interior-with-happy-children-pla.jpg" alt="Kids Dreams Shop" className={styles.storyImage} />
+              <img src="\about_img.png" alt="Kids Dreams Shop" className={styles.storyImage} />
             </div>
           </motion.div>
 

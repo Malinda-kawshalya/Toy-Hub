@@ -24,16 +24,16 @@
 }
 
 .heroTitle {
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 800;
-  color: #333;
   margin-bottom: 20px;
+  letter-spacing: -0.5px;
   position: relative;
   z-index: 1;
 }
 
 .gradient {
-  background: linear-gradient(135deg, #00a0ff 0%, #ff008e 100%);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -79,11 +79,15 @@
 }
 
 .sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
+  font-size: 3rem;
+  font-weight: 800;
   margin-bottom: 20px;
   text-align: center;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .sectionSubtext {
@@ -652,6 +656,10 @@
 @media (max-width: 768px) {
   .heroTitle {
     font-size: 2.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .heroSubtext {
@@ -660,6 +668,10 @@
 
   .sectionTitle {
     font-size: 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .carousel {

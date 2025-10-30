@@ -8,37 +8,37 @@ import { useState } from "react";
 const newArrivals = [
   {
     id: 1,
-    name: "Cuddly Monkey",
+    name: "Scrabble Original",
     image: "/new arrivals/3.png",
     bgColor: "transparent"
   },
   {
     id: 2,
-    name: "Soft Bear",
+    name: "Soft Elephant",
     image: "/new arrivals/5.png",
     bgColor: "transparent"
   },
   {
     id: 3,
-    name: "Baby Rabbit",
+    name: "RC Thunder Cruiser",
     image: "/new arrivals/9.png",
     bgColor: "transparent"
   },
   {
     id: 4,
-    name: "Deer Doll",
+    name: "Magnetic Activity Board",
     image: "/new arrivals/19.png",
     bgColor: "transparent"
   },
   {
     id: 5,
-    name: "Brown Teddy",
+    name: "Off-Road Jeep",
     image: "/new arrivals/33.png",
     bgColor: "transparent"
   },
   {
     id: 6,
-    name: "Plush Toy",
+    name: "Model Sports Car",
     image: "/new arrivals/66.png",
     bgColor: "transparent"
   }

@@ -6,7 +6,6 @@ import HeroSection from "./home/HeroSection"
 import CategoriesSection from "./home/CategoriesSection"
 import NewArrivals from "./home/NewArrivals"
 import CharacterShop from "./home/CharacterShop"
-import BrandLogos from "./home/BrandLogos"
 import BestSelling from "./home/BestSelling"
 import ImageGallery from "./home/ImageGallery"
 import Testimonials from "./home/Testimonials"
@@ -100,16 +99,6 @@ export default function HomePage() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <CharacterShop />
-        </motion.div>
-
-        <motion.div 
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <BrandLogos />
         </motion.div>
 
         <motion.div 

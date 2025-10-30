@@ -3,32 +3,6 @@
 import styles from "./LatestNews.module.css"
 import Link from "next/link"
 
-// A simple SVG placeholder for the news images
-const ImagePlaceholder = ({ width = "100%", height = "200px", index }) => (
-  <svg
-    className={styles.newsImage}
-    width={width}
-    height={height}
-    viewBox="0 0 300 200"
-    preserveAspectRatio="xMidYMid slice"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    {/* A simple background color change based on index for variety */}
-    <rect width="100%" height="100%" fill={index % 3 === 0 ? "#E0F7FA" : index % 3 === 1 ? "#FFFDE7" : "#FCE4EC"} />
-    <text
-      x="50%"
-      y="50%"
-      dominantBaseline="middle"
-      textAnchor="middle"
-      fontSize="20"
-      fontWeight="bold"
-      fill={index % 3 === 0 ? "#00ACC1" : index % 3 === 1 ? "#FFB300" : "#D81B60"}
-    >
-      Image {index + 1} Placeholder
-    </text>
-  </svg>
-)
-
 const newsItems = [
   {
     imageSrc: "/news/news01.webp",
@@ -39,19 +13,19 @@ const newsItems = [
     linkTo: "/contact",
   },
   {
-    imageSrc: "/path/to/image2.jpg",
-    author: "John Matthew",
-    date: "14 Feb 2024",
-    title: "What Are the Best Toys for Child Development",
-    excerpt: "Aliquet risus feugiat in ante. Est pellentesque elit ullamcorper dignissim. Egestas integer eget aliquet nibh...",
+    imageSrc: "/news/news02.webp",
+    author: "Kidz Dreams Team",
+    date: "01 Oct 2025",
+    title: "Children's Day Special Sale!",
+    excerpt: "Celebrate Children's Day with amazing discounts on your favorite toys! Don't miss our special sale with incredible offers on toys, games, and more.",
     linkTo: "#",
   },
   {
-    imageSrc: "/path/to/image3.jpg",
-    author: "John Matthew",
-    date: "14 Feb 2024",
-    title: "How Do Toys Impact a Child's Learning",
-    excerpt: "Sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Tristique senectus et netus et malesuada...",
+    imageSrc: "/news/news03.webp",
+    author: "Kidz Dreams Team",
+    date: "15 Oct 2025",
+    title: "New RC Items Just Arrived!",
+    excerpt: "Exciting new remote control toys are now in stock! From cars to drones, explore our latest collection of RC items that will bring endless fun and excitement.",
     linkTo: "#",
   }
 ]
@@ -62,7 +36,7 @@ export default function LatestNews() {
       <div className={styles.container}>
         <div className={styles.header}>
           <h2 className={styles.title}>Latest News</h2>
-          <p className={styles.subtitle}>Erat Velit Scelerisque in Dictum</p>
+          <p className={styles.subtitle}>Stay updated with our latest announcements, events, and exciting new arrivals</p>
         </div>
         <div className={styles.newsGrid}>
           {newsItems.map((item, index) => (
@@ -70,11 +44,7 @@ export default function LatestNews() {
             <div key={index} className={styles.newsCard}>
               {/* Image with rounded top corners */}
               <div className={styles.imageWrapper}>
-                {index === 0 ? (
-                  <img src={item.imageSrc} alt={item.title} className={styles.newsImage} />
-                ) : (
-                  <ImagePlaceholder index={index} />
-                )}
+                <img src={item.imageSrc} alt={item.title} className={styles.newsImage} />
               </div>
 
               {/* Text content section */}
