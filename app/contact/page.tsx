@@ -2,7 +2,9 @@
 
 import type React from "react"
 import { motion } from "framer-motion"
-import { useState } from "react"
+import { useState,  useRef } from "react"
+import emailjs from "@emailjs/browser"
+
 import styles from "./contact.module.css"
 
 export default function ContactPage() {
@@ -14,13 +16,53 @@ export default function ContactPage() {
   })
 
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const [loading , setLoading] = useState(false)
+  const form = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    alert("Thank you for your message! We'll get back to you soon! 🎉")
-    setFormData({ name: "", email: "", subject: "", message: "" })
-  }
 
+    //check if form.current is not null
+    if(!form.current) {
+      alert("Error: Form element not found.")
+      return
+    }
+
+    //check for environment variables
+    const serviceID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID
+    const templateID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+
+    if(!serviceID || !templateID || !publicKey) {
+      alert("Error: Email service is not configured properly.")
+      return
+    }
+
+    setLoading(true) // Start loading
+
+    emailjs
+      .sendForm(
+        serviceID,
+        templateID,
+        form.current,
+        publicKey
+      )
+      .then(
+        (result) => {
+          console.log(result.text)
+          alert("Thank you for your message! We'll get back to you soon! 🎉")
+          //Clear the form field
+          setFormData({ name: "", email: "", subject: "", message: "" })
+        },
+        (error) => {
+          console.log(error.text)
+          alert("An error occurred while sending your message. Please try again later.")
+        }
+      )
+      .finally(() => {
+        setLoading(false) //stop loading
+      })
+  }
   const toggleFaq = (index: number) => {
     setOpenFaq(openFaq === index ? null : index)
   }
@@ -42,12 +84,13 @@ export default function ContactPage() {
 
   return (
     <main className={styles.main}>
-      <section className={styles.hero}>
-        <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <h1 className={styles.heroTitle}>
-            Get in <span className={styles.gradient}>Touch</span>
-          </h1>
-          <p className={styles.heroSubtext}>We’d love to hear from you!</p>
+      <section className={styles.bannerSection}>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+          <img 
+            src="/contact.png" 
+            alt="Contact" 
+            className={styles.bannerImage}
+          />
         </motion.div>
       </section>
 
@@ -55,17 +98,19 @@ export default function ContactPage() {
         <div className={styles.contactGrid}>
           <motion.div
             className={styles.formContainer}
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
             <h2 className={styles.formTitle}>Send Us a Message</h2>
-            <form onSubmit={handleSubmit} className={styles.form}>
+
+            <form ref={form} onSubmit={handleSubmit} className={styles.form}>
               <div className={styles.formGroup}>
                 <label htmlFor="name">Your Name</label>
                 <input
                   type="text"
                   id="name"
+                  name="name"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
@@ -78,6 +123,7 @@ export default function ContactPage() {
                 <input
                   type="email"
                   id="email"
+                  name="email"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
@@ -90,6 +136,7 @@ export default function ContactPage() {
                 <input
                   type="text"
                   id="subject"
+                  name="subject"
                   value={formData.subject}
                   onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   required
@@ -101,6 +148,7 @@ export default function ContactPage() {
                 <label htmlFor="message">Message</label>
                 <textarea
                   id="message"
+                  name="message"
                   value={formData.message}
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
@@ -112,10 +160,11 @@ export default function ContactPage() {
               <motion.button
                 type="submit"
                 className={styles.submitBtn}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: loading ? 1 : 1.05 }}
+                whileTap={{ scale: loading ? 1 : 0.95 }}
+                disabled={loading}
               >
-                Send Message 🚀
+                {loading ? "Sending ..." :  "Send Message 🚀"}
               </motion.button>
             </form>
           </motion.div>

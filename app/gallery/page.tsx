@@ -182,12 +182,13 @@ export default function GalleryPage() {
 
   return (
     <main className={styles.main}>
-      <section className={styles.hero}>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
-          <h1 className={styles.heroTitle}>
-            Kids' <span className={styles.gradient}>Corner</span>
-          </h1>
-          <p className={styles.heroSubtext}>Explore moments of joy, laughter, and imagination from our toy wonderland.</p>
+      <section className={styles.bannerSection}>
+        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9 }}>
+          <img 
+            src="/gallery.png" 
+            alt="Gallery" 
+            className={styles.bannerImage}
+          />
         </motion.div>
         <motion.div
           animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
