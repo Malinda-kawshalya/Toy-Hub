@@ -9,6 +9,7 @@
 .bannerSection {
   width: 100%;
   overflow: hidden;
+  padding-top: 70px; /* Add padding to account for fixed navbar */
 }
 
 .bannerImage {
@@ -320,6 +321,10 @@
 
 /* === Responsive === */
 @media (max-width: 768px) {
+  .bannerSection {
+    padding-top: 65px; /* Adjust for smaller navbar on mobile */
+  }
+
   .storyGrid,
   .missionGrid {
     grid-template-columns: 1fr;
@@ -331,5 +336,33 @@
 
   .heroTitle {
     font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .bannerSection {
+    padding-top: 60px; /* Further adjust for very small screens */
+  }
+  
+  .storySection,
+  .missionSection,
+  .whyChooseSection,
+  .instagramSection,
+  .newsletterSection {
+    padding: 60px 15px;
+  }
+  
+  .storyText h2,
+  .missionSection h2,
+  .whyChooseSection h2,
+  .instagramHeader h2,
+  .newsletterHeader h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .bannerSection {
+    padding-top: 55px; /* Adjust for smallest mobile screens */
   }
 }

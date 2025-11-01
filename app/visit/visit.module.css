@@ -5,7 +5,7 @@
 
 .hero {
   background: linear-gradient(135deg, #e3f2fd 0%, #fce4ec 100%);
-  padding: 0;
+  padding: 70px 0 0 0; /* Add top padding to account for fixed navbar */
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -208,6 +208,10 @@
 }
 
 @media (max-width: 768px) {
+  .hero {
+    padding: 65px 0 0 0; /* Adjust for smaller navbar on mobile */
+  }
+
   .heroTitle {
     font-size: 2.5rem;
   }
@@ -236,5 +240,21 @@
   .footerLinks {
     flex-direction: column;
     gap: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 60px 0 0 0; /* Further adjust for very small screens */
+  }
+  
+  .section {
+    padding: 60px 15px;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero {
+    padding: 55px 0 0 0; /* Adjust for smallest mobile screens */
   }
 }

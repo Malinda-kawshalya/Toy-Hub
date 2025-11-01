@@ -142,53 +142,105 @@
 /* Tablets */
 @media (max-width: 768px) {
   .hero {
-    padding: 100px 20px 80px 20px;
+    padding: 120px 20px 80px 20px;
     justify-content: center;
+    min-height: 85vh;
   }
 
   .heroContent {
-    padding: 1.8rem 2.2rem;
-    margin: 0;
-    max-width: 90%;
+    padding: 2rem 2.5rem;
+    margin: 0 auto;
+    max-width: 85%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   }
 
   .heroTitle {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
+    margin-bottom: 1.8rem;
   }
   
   .gradient {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
   }
   
   .textLine:nth-child(3), .textLine:nth-child(4) {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   .heroSubtext {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
   }
 
   .ctaButton {
-    padding: 15px 30px;
-    font-size: 1rem;
+    padding: 16px 32px;
+    font-size: 1.05rem;
   }
 }
 
 /* Large mobile phones */
 @media (max-width: 576px) {
   .hero {
-    padding: 80px 15px 60px 15px;
+    padding: 100px 15px 60px 15px;
+    min-height: 80vh;
   }
 
   .heroContent {
-    padding: 1.5rem 2rem;
-    max-width: 95%;
+    padding: 2rem 2.2rem;
+    max-width: 92%;
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.25);
   }
 
   .heroTitle {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .gradient {
+    font-size: 2.5rem;
+  }
+  
+  .textLine:nth-child(3), .textLine:nth-child(4) {
+    font-size: 2.2rem;
+  }
+
+  .heroSubtext {
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+  }
+
+  .ctaButton {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+}
+
+/* Small mobile phones */
+@media (max-width: 375px) {
+  .hero {
+    padding: 90px 12px 50px 12px;
+    min-height: 75vh;
+  }
+
+  .heroContent {
+    padding: 1.8rem 1.8rem;
+    max-width: 95%;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+  }
+
+  .heroTitle {
+    font-size: 1.9rem;
+    margin-bottom: 1.2rem;
   }
   
   .gradient {
@@ -196,51 +248,18 @@
   }
   
   .textLine:nth-child(3), .textLine:nth-child(4) {
-    font-size: 2rem;
+    font-size: 1.9rem;
   }
 
   .heroSubtext {
-    font-size: 1.1rem;
-    margin-bottom: 25px;
-  }
-
-  .ctaButton {
-    padding: 12px 25px;
     font-size: 0.95rem;
-  }
-}
-
-/* Small mobile phones */
-@media (max-width: 375px) {
-  .hero {
-    padding: 70px 12px 50px 12px;
-  }
-
-  .heroContent {
-    padding: 1.2rem 1.5rem;
-    max-width: 100%;
-  }
-
-  .heroTitle {
-    font-size: 1.8rem;
-  }
-  
-  .gradient {
-    font-size: 2rem;
-  }
-  
-  .textLine:nth-child(3), .textLine:nth-child(4) {
-    font-size: 1.8rem;
-  }
-
-  .heroSubtext {
-    font-size: 1rem;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    line-height: 1.5;
   }
 
   .ctaButton {
-    padding: 10px 20px;
-    font-size: 0.9rem;
+    padding: 12px 24px;
+    font-size: 0.95rem;
     white-space: nowrap;
   }
 }

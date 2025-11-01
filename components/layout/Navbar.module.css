@@ -324,12 +324,55 @@
   border-top: 1px solid rgba(0, 170, 255, 0.2);
 }
 
+.mobileNavLinkWithIcon {
+  padding: 1.2rem 2rem;
+  color: #111827;
+  font-weight: 500;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.mobileNavLinkWithIcon:hover {
+  background: rgba(0, 170, 255, 0.1);
+  border-left-color: #00aaff;
+  color: #00aaff;
+}
+
+.mobileNavLinkWithIcon .dropdownArrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+  color: #111827;
+}
+
+.mobileNavLinkWithIcon:hover .dropdownArrow {
+  color: #00aaff;
+}
+
+.mobileNavLinkWithIcon .dropdownArrow.open {
+  transform: rotate(180deg);
+}
+
 .mobileToysGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
   padding: 0 2rem;
   margin-top: 12px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.mobileToysGrid.open {
+  max-height: 500px;
+  opacity: 1;
+  margin-bottom: 12px;
 }
 
 .mobileCategoryItem {

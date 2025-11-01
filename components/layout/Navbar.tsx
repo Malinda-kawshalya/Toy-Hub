@@ -9,6 +9,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [toysDropdownOpen, setToysDropdownOpen] = useState(false)
+  const [mobileCategoriesOpen, setMobileCategoriesOpen] = useState(false)
   const [navVisible, setNavVisible] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
 
@@ -206,20 +207,23 @@ export default function Navbar() {
           
           {/* Mobile Our Toys Section */}
           <div className={styles.mobileToysSection}>
-            <Link
-              href="/toys"
-              className={styles.mobileNavLink}
-              onClick={() => setMobileMenuOpen(false)}
+            <div 
+              className={styles.mobileNavLinkWithIcon}
+              onClick={() => setMobileCategoriesOpen(!mobileCategoriesOpen)}
             >
-              Our Toys - All Categories
-            </Link>
-            <div className={styles.mobileToysGrid}>
+              <span>Our Toys - All Categories</span>
+              <span className={`${styles.dropdownArrow} ${mobileCategoriesOpen ? styles.open : ''}`}>▼</span>
+            </div>
+            <div className={`${styles.mobileToysGrid} ${mobileCategoriesOpen ? styles.open : ''}`}>
               {toyCategories.map((category) => (
                 <Link
                   key={category.name}
                   href={category.href}
                   className={styles.mobileCategoryItem}
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false)
+                    setMobileCategoriesOpen(false)
+                  }}
                 >
                   <span className={styles.mobileCategoryIcon}></span>
                   {category.name}
