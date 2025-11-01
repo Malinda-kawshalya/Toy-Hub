@@ -4,6 +4,7 @@ import { Quicksand } from "next/font/google"
 import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import WhatsAppFloat from "@/components/layout/WhatsAppFloat"
 
 const quicksand = Quicksand({
   subsets: ["latin"],
@@ -37,7 +38,10 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
-        <Footer />
+        <div style={{ position: 'relative' }}>
+          <WhatsAppFloat />
+          <Footer />
+        </div>
       </body>
     </html>
   )

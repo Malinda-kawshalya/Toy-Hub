@@ -1,0 +1,123 @@
+.whatsappFloat {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.whatsappFloat.absolute {
+  position: absolute;
+  bottom: auto;
+  top: -120px; /* Position above footer */
+}
+
+.whatsappButton {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
+  pointer-events: all;
+  position: relative;
+}
+
+.whatsappButton::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.whatsappButton:hover::before {
+  opacity: 0.3;
+  animation: ripple 1.5s infinite;
+}
+
+.whatsappButton:hover {
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+}
+
+.whatsappButton:active {
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
+}
+
+.whatsappIcon {
+  width: 35px;
+  height: 35px;
+  color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .whatsappFloat {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .whatsappButton {
+    width: 55px;
+    height: 55px;
+  }
+
+  .whatsappIcon {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .whatsappFloat {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .whatsappButton {
+    width: 50px;
+    height: 50px;
+  }
+
+  .whatsappIcon {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+/* Animation for attention */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.whatsappButton {
+  animation: pulse 2s infinite ease-in-out;
+}
