@@ -1,49 +1,59 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Baby, GraduationCap, Car, Bike, Puzzle, Gamepad2, Heart } from "lucide-react"
 import ToyCategoryCard from "@/components/ToyCategoryCard"
 import styles from "./toys.module.css"
 
 export default function ToysPage() {
   const categories = [
     {
-      icon: "👶",
+      icon: <Baby size={48} strokeWidth={2} />,
       title: "Baby Toys",
       description: "Safe and soft toys perfect for infants and toddlers",
       color: "linear-gradient(135deg, #FFB6C1 0%, #FF69B4 100%)",
     },
     {
-      icon: "�",
+      icon: <GraduationCap size={48} strokeWidth={2} />,
       title: "Educational Toys",
       description: "STEM toys, puzzles, and learning games that make education fun",
       color: "linear-gradient(135deg, #FFF176 0%, #FFD54F 100%)",
     },
     {
-      icon: "🏎️",
+      icon: <Car size={48} strokeWidth={2} />,
       title: "Model Cars",
       description: "Die-cast cars, racing sets, and collectible vehicle models",
       color: "linear-gradient(135deg, #00A0FF 0%, #0080CC 100%)",
     },
     {
-      icon: "⚽",
+      icon: <Bike size={48} strokeWidth={2} />,
       title: "Outdoor Toys",
       description: "Sports equipment, bikes, and active play essentials",
       color: "linear-gradient(135deg, #4CAF50 0%, #388E3C 100%)",
     },
     {
-      icon: "🧩",
+      icon: <Puzzle size={48} strokeWidth={2} />,
       title: "Puzzles",
       description: "Brain teasers, jigsaw puzzles, and logic games",
       color: "linear-gradient(135deg, #FF5722 0%, #E64A19 100%)",
     },
     {
-      icon: "🎮",
+      icon: <Gamepad2 size={48} strokeWidth={2} />,
       title: "RC Items",
       description: "Remote control cars, drones, and helicopters for endless fun",
       color: "linear-gradient(135deg, #9C27B0 0%, #7B1FA2 100%)",
     },
     {
-      icon: "🧸",
+      icon: (
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <circle cx="7" cy="7" r="3"/>
+          <circle cx="17" cy="7" r="3"/>
+          <circle cx="7" cy="17" r="2"/>
+          <circle cx="17" cy="17" r="2"/>
+          <path d="M12 15c-1 0-2-.5-2-1.5s1-1.5 2-1.5 2 .5 2 1.5-1 1.5-2 1.5z"/>
+        </svg>
+      ),
       title: "Teddys",
       description: "Cuddly teddy bears and soft plush companions",
       color: "linear-gradient(135deg, #FF008E 0%, #CC006F 100%)",

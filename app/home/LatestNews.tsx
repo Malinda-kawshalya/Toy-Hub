@@ -59,14 +59,10 @@ export default function LatestNews() {
                 
                 <p className={styles.excerpt}>{item.excerpt}</p>
                 
-                {/* The 'Read More' button is styled to match the pink button in the image */}
-                {index === 0 ? (
-                  <Link href={item.linkTo}>
-                    <button className={styles.readMore}>Contact Us</button>
-                  </Link>
-                ) : (
-                  <button className={styles.readMore}>Read More</button>
-                )}
+                {/* Contact Us button linking to contact page */}
+                <Link href="/contact">
+                  <button className={styles.readMore}>Contact Us</button>
+                </Link>
               </div>
             </div>
           ))}

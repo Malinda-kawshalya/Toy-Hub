@@ -28,9 +28,6 @@ export default function CategoryContent({ toys, categoryTitle }: CategoryContent
           transition={{ duration: 0.6 }}
         >
           <h1 className={styles.title}>{categoryTitle}</h1>
-          <p className={styles.subtitle}>
-            Showing {toys.length} product{toys.length !== 1 ? 's' : ''}
-          </p>
         </motion.div>
       </section>
 

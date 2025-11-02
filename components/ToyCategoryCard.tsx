@@ -3,9 +3,10 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
 import styles from "./ToyCategoryCard.module.css"
+import { ReactNode } from "react"
 
 interface ToyCategoryCardProps {
-  icon: string
+  icon: ReactNode
   title: string
   description: string
   color: string
@@ -36,7 +37,7 @@ export default function ToyCategoryCard({ icon, title, description, color }: Toy
         transition={{ duration: 0.5 }}
       >
         <div className={styles.iconWrapper} style={{ background: color }}>
-          <span className={styles.icon}>{icon}</span>
+          <div className={styles.icon}>{icon}</div>
         </div>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{description}</p>
