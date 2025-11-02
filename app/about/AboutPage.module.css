@@ -281,28 +281,37 @@
 }
 
 .newsletterForm {
-  display: flex;
   max-width: 600px;
   margin: 0 auto;
+}
+
+.subscribeForm {
+  display: flex;
+  width: 100%;
   background: white;
   border-radius: 50px;
   padding: 8px;
-  border: 3px dashed #FFB5C5;
+  border: 3px dashed #FF6B9D;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-.newsletterForm input {
+.subscribeForm input {
   flex: 1;
   border: none;
   outline: none;
   padding: 18px 30px;
+  background: transparent;
   font-size: 1.05rem;
   border-radius: 50px;
   font-weight: 600;
   color: #2d3748;
 }
 
-.newsletterForm button {
+.subscribeForm input::placeholder {
+  color: #A0AEC0;
+}
+
+.subscribeForm button {
   background: linear-gradient(135deg, #FF6B9D 0%, #FFA06B 100%);
   color: white;
   border: none;
@@ -312,9 +321,10 @@
   font-weight: 800;
   cursor: pointer;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-.newsletterForm button:hover {
+.subscribeForm button:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(255, 107, 157, 0.4);
 }
@@ -336,6 +346,22 @@
 
   .heroTitle {
     font-size: 2.5rem;
+  }
+
+  .subscribeForm {
+    flex-direction: column;
+    gap: 0;
+    padding: 6px;
+  }
+
+  .subscribeForm input {
+    padding: 16px 20px;
+    margin-bottom: 6px;
+  }
+
+  .subscribeForm button {
+    width: 100%;
+    padding: 16px 30px;
   }
 }
 

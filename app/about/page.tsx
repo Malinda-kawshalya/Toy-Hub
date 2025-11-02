@@ -2,9 +2,22 @@
 
 import { motion } from "framer-motion";
 import { Instagram, Mail } from "lucide-react";
+import { useState } from "react";
+import CustomToast from "@/components/CustomToast";
 import styles from "./AboutPage.module.css";
 
 export default function AboutPage() {
+  const [email, setEmail] = useState("");
+  const [showToast, setShowToast] = useState(false);
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setShowToast(true);
+      setEmail(""); // Clear the input
+    }
+  };
+
   const features = [
     {
       icon: "✅",
@@ -195,10 +208,27 @@ export default function AboutPage() {
           transition={{ delay: 0.2 }}
           className={styles.newsletterForm}
         >
-          <input type="email" placeholder="Enter your email here" />
-          <button>Subscribe</button>
+          <form onSubmit={handleSubscribe} className={styles.subscribeForm}>
+            <input 
+              type="email" 
+              placeholder="Enter your email here" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <button type="submit">Subscribe</button>
+          </form>
         </motion.div>
       </section>
+
+      {/* Custom Toast Notification */}
+      <CustomToast
+        isVisible={showToast}
+        onClose={() => setShowToast(false)}
+        type="subscribe"
+        message="Welcome to the Magic! ✨"
+        subtitle="We're thrilled to have you! Get ready for amazing toy trends, exclusive offers, and magical surprises in your inbox! 🎁"
+      />
     </main>
   );
 }

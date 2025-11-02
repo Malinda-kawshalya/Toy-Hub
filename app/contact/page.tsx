@@ -4,6 +4,7 @@ import type React from "react"
 import { motion } from "framer-motion"
 import { useState,  useRef } from "react"
 import emailjs from "@emailjs/browser"
+import CustomToast from "@/components/CustomToast"
 
 import styles from "./contact.module.css"
 
@@ -17,6 +18,7 @@ export default function ContactPage() {
 
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [loading , setLoading] = useState(false)
+  const [showToast, setShowToast] = useState(false)
   const form = useRef<HTMLFormElement>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -49,14 +51,18 @@ export default function ContactPage() {
       )
       .then(
         (result) => {
-          console.log(result.text)
-          alert("Thank you for your message! We'll get back to you soon! 🎉")
+          console.log("EmailJS Success:", result)
+          console.log("Status:", result.status)
+          console.log("Text:", result.text)
+          setShowToast(true)
           //Clear the form field
           setFormData({ name: "", email: "", subject: "", message: "" })
         },
         (error) => {
-          console.log(error.text)
-          alert("An error occurred while sending your message. Please try again later.")
+          console.error("EmailJS Error:", error)
+          console.error("Error status:", error.status)
+          console.error("Error text:", error.text)
+          alert(`Error sending message: ${error.text || 'Please try again later.'}`)
         }
       )
       .finally(() => {
@@ -269,16 +275,15 @@ export default function ContactPage() {
         </motion.div>
       </section>
 
-      <footer className={styles.footer}>
-        <p className={styles.footerText}>© {new Date().getFullYear()} Kidz Dreams. All rights reserved.</p>
-        <div className={styles.footerLinks}>
-          <a href="/privacy" className={styles.footerLink}>Privacy Policy</a>
-          <span> | </span>
-          <a href="/terms" className={styles.footerLink}>Terms of Service</a>
-          <span> | </span>
-          <a href="/contact" className={styles.footerLink}>Contact Us</a>
-        </div>
-      </footer>
+      {/* Custom Toast Notification */}
+      <CustomToast
+        isVisible={showToast}
+        onClose={() => setShowToast(false)}
+        type="success"
+        message="Message Sent Successfully! 🎉"
+        subtitle="Thank you for reaching out! We're excited to connect with you and will get back to you very soon with all the magical details! 💫"
+        position="top"
+      />
     </main>
   )
 }

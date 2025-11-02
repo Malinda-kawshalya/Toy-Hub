@@ -1,7 +1,48 @@
 .main {
   min-height: 100vh;
-  padding-top: 80px;
   background-color: #f9fafb;
+  overflow-x: hidden;
+}
+
+/* === Banner Section === */
+.bannerSection {
+  width: 100%;
+  overflow: hidden;
+  padding-top: 70px; /* Add padding to account for fixed navbar */
+  position: relative;
+}
+
+.bannerImage {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.decorativeCircleTop {
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  width: 80px;
+  height: 80px;
+  background: #fff176;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(20px);
+  z-index: 10;
+}
+
+.decorativeCircleBottom {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  width: 120px;
+  height: 120px;
+  background: #ff008e;
+  border-radius: 50%;
+  opacity: 0.2;
+  filter: blur(20px);
+  z-index: 10;
 }
 
 .hero {
@@ -46,30 +87,6 @@
   z-index: 1;
   max-width: 600px;
   margin: 0 auto;
-}
-
-.decorativeCircleTop {
-  position: absolute;
-  top: 20px;
-  left: 10px;
-  width: 80px;
-  height: 80px;
-  background: #fff176;
-  border-radius: 50%;
-  opacity: 0.3;
-  filter: blur(20px);
-}
-
-.decorativeCircleBottom {
-  position: absolute;
-  bottom: 20px;
-  right: 10px;
-  width: 120px;
-  height: 120px;
-  background: #ff008e;
-  border-radius: 50%;
-  opacity: 0.2;
-  filter: blur(20px);
 }
 
 .section {

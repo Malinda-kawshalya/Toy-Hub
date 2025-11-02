@@ -2,13 +2,14 @@
 
 import Link from "next/link"
 import Image from "next/image" // Import Next.js Image component
+import { Facebook, Instagram } from "lucide-react"
 import styles from "./Footer.module.css"
 
 export default function Footer() {
-  // Define social icons with actual Font Awesome classes for better rendering if you link the library
+  // Define social icons with links
   const socialIcons = [
-    { name: "Facebook", iconClass: "fab fa-facebook-f", href: "#" },
-    { name: "Instagram", iconClass: "fab fa-instagram", href: "#" },
+    { name: "Facebook", icon: Facebook, href: "https://facebook.com/kidzdreamsofficial" },
+    { name: "Instagram", icon: Instagram, href: "https://instagram.com/kidzdreamsofficial" },
   ];
 
   // Restructure footer columns
@@ -94,18 +95,21 @@ export default function Footer() {
             
             {/* Social Icons */}
             <div className={styles.socialIcons}>
-              {socialIcons.map((social) => (
-                <Link
-                  key={social.name}
-                  href={social.href}
-                  className={styles.socialIcon}
-                  aria-label={social.name}
-                  // If using Font Awesome, directly render the icon class
-                >
-                  <i className={social.iconClass}></i> 
-                  {/* If not using Font Awesome, use emojis: {social.icon} */}
-                </Link>
-              ))}
+              {socialIcons.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <Link
+                    key={social.name}
+                    href={social.href}
+                    className={styles.socialIcon}
+                    aria-label={social.name}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <IconComponent size={20} />
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </div>
