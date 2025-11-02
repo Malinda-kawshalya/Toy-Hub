@@ -97,6 +97,7 @@ export default function BestSelling() {
                   width={280}
                   height={200}
                   className={styles.productImage}
+                  style={{ width: 'auto', height: 'auto' }}
                 />
               </motion.div>
               

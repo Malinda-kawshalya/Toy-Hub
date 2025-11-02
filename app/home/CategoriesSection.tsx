@@ -8,6 +8,7 @@ import { useRef, useState, useEffect } from 'react';
 
 const CategoriesSection = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const carouselWrapperRef = useRef<HTMLDivElement>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const x = useMotionValue(0);
@@ -101,13 +102,13 @@ const CategoriesSection = () => {
           Shop By Category
         </motion.h2>
         
-        <div className={styles.carouselWrapper}>
+        <div ref={carouselWrapperRef} className={styles.carouselWrapper}>
           <motion.div 
             ref={scrollContainerRef}
             className={styles.categoriesGrid}
             onScroll={handleScroll}
             drag="x"
-            dragConstraints={scrollContainerRef}
+            dragConstraints={carouselWrapperRef}
             dragElastic={0.1}
             onDragStart={() => setIsDragging(true)}
             onDragEnd={() => setIsDragging(false)}
@@ -151,6 +152,7 @@ const CategoriesSection = () => {
                         height={160}
                         className={styles.categoryIcon}
                         draggable={false}
+                        style={{ width: 'auto', height: 'auto' }}
                       />
                     </div>
                   </motion.div>

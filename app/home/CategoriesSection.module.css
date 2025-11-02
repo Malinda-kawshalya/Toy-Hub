@@ -46,6 +46,7 @@
 
 /* Categories Grid with Drag Support */
 .categoriesGrid {
+  position: relative;
   display: flex;
   flex-wrap: nowrap;
   gap: 2.5rem;

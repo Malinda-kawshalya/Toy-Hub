@@ -11,11 +11,12 @@ export default function UniqueAppeal() {
         <div className={styles.imageSection}>
         <div className={styles.imageWrapper}>
           <Image
-            src="/images/girl-toy.jpg"
+            src="/happy-children-playing-with-toys-in-colorful-toy-s.jpg"
             alt="Girl with toy"
             width={500}
             height={500}
             className={styles.image}
+            style={{ width: 'auto', height: 'auto' }}
           />
         </div>
       </div>

@@ -56,6 +56,7 @@ export default function Footer() {
                 height={60} // Adjust size as needed
                 className={styles.footerLogoImage}
                 priority
+                style={{ width: 'auto', height: 'auto' }}
               />
               <p className={styles.tagline}>Where every dream begins to play!</p>
             </div>
