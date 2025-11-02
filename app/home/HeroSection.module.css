@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  overflow: visible;
+  overflow: hidden;
   padding: 6rem 3.5rem;
   box-sizing: border-box;
   width: 100%;
@@ -34,7 +34,6 @@
   margin: 0 0 0 80px; 
   padding: 2.5rem 3.5rem;
   position: relative;
-  overflow: visible;
   box-sizing: border-box;
 }
 

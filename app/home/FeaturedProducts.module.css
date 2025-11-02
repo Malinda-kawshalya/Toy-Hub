@@ -1,8 +1,10 @@
 .section {
   padding: 6rem 0;
   background: linear-gradient(135deg, #fefcfc 0%, #fefbfb 50%, #f1e7e7 100%);
-  overflow: visible;
+  overflow: hidden;
   position: relative;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .container {
@@ -10,6 +12,7 @@
   margin: 0 auto;
   text-align: center;
   padding: 0 2rem;
+  width: 100%;
 }
 
 .title {
@@ -33,7 +36,7 @@
 /* ===== Slider Animation ===== */
 .slider {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
   padding: 2rem 0;
 }

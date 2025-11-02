@@ -51,9 +51,10 @@
 
 /* Scrolling Container */
 .scrollContainer {
-  overflow: visible;
+  overflow: hidden;
   margin-bottom: 3rem;
   width: 100%;
+  max-width: 100%;
   position: relative;
   padding: 2rem 0;
 }
@@ -73,7 +74,7 @@
   border-radius: 16px;
   background: #ffffff;
   border: 2px dashed #ddd;
-  overflow: visible;
+  overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
   padding-bottom: 1.5rem;

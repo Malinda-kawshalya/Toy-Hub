@@ -34,8 +34,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={quicksand.variable}>
-      <body>
+    <html lang="en" className={quicksand.variable} style={{ overflowX: 'hidden' }}>
+      <body style={{ overflowX: 'hidden', width: '100%', maxWidth: '100vw' }}>
         <Navbar />
         {children}
         <div style={{ position: 'relative' }}>
