@@ -1,0 +1,22 @@
+{
+  "name": "my-v0-project",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "lint": "next lint",
+    "start": "next start",
+    "export": "next build",
+    "firebase:emulate": "firebase emulators:start --only hosting",
+    "firebase:deploy": "firebase deploy --only hosting",
+    "predeploy": "npm run build",
+    "deploy": "firebase deploy --only hosting",
+    "analyze": "cross-env ANALYZE=true npm run build",
+    "perf": "npm run build && npm run start"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^15.2.4",
+    "cross-env": "^7.0.3"
+  }
+}

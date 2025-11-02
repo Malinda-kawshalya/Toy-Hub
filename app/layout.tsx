@@ -5,11 +5,15 @@ import "./globals.css"
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import WhatsAppFloat from "@/components/layout/WhatsAppFloat"
+import { WebVitals } from "@/components/WebVitals"
 
 const quicksand = Quicksand({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-quicksand",
+  display: 'swap', // Optimize font loading
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 })
 
 export const metadata: Metadata = {
@@ -36,6 +40,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={quicksand.variable} style={{ overflowX: 'hidden' }}>
       <body style={{ overflowX: 'hidden', width: '100%', maxWidth: '100vw' }}>
+        <WebVitals />
         <Navbar />
         {children}
         <div style={{ position: 'relative' }}>

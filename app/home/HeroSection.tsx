@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import Link from "next/link"
+import Image from "next/image"
 import styles from "./HeroSection.module.css"
 import { useEffect, useState } from "react"
 import useResponsiveLayout from "@/hooks/useResponsiveLayout"
@@ -29,17 +30,27 @@ export default function HeroSection() {
       padding: isMobile ? '4rem 1rem' : isTablet ? '5rem 2rem' : '6rem 3.5rem',
       justifyContent: isMobile ? 'center' : 'flex-start'
     }}>
-      {/* Rotating Background Images */}
+      {/* Rotating Background Images - Optimized with Next Image */}
       {heroImages.map((image, index) => (
         <div
           key={index}
           className={styles.heroBackground}
           style={{
-            backgroundImage: `url(${image})`,
             opacity: currentImageIndex === index ? 1 : 0
           }}
-        />
+        >
+          <Image
+            src={image}
+            alt={`Hero background ${index + 1}`}
+            fill
+            priority={index === 0}
+            quality={85}
+            sizes="100vw"
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
       ))}
+      
       
       <motion.div 
         className={styles.heroContent}

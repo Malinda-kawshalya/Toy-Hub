@@ -1,16 +1,38 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, Suspense, lazy } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import HeroSection from "./home/HeroSection"
-import CategoriesSection from "./home/CategoriesSection"
-import NewArrivals from "./home/NewArrivals"
-import CharacterShop from "./home/CharacterShop"
-import BestSelling from "./home/BestSelling"
-import ImageGallery from "./home/ImageGallery"
-import Testimonials from "./home/Testimonials"
-import LatestNews from "./home/LatestNews"
 import styles from "./page.module.css"
+
+// Lazy load heavy components that are below the fold
+const CategoriesSection = lazy(() => import("./home/CategoriesSection"))
+const NewArrivals = lazy(() => import("./home/NewArrivals"))
+const CharacterShop = lazy(() => import("./home/CharacterShop"))
+const BestSelling = lazy(() => import("./home/BestSelling"))
+const ImageGallery = lazy(() => import("./home/ImageGallery"))
+const Testimonials = lazy(() => import("./home/Testimonials"))
+const LatestNews = lazy(() => import("./home/LatestNews"))
+
+// Loading placeholder component
+const SectionLoader = () => (
+  <div style={{ 
+    minHeight: '400px', 
+    display: 'flex', 
+    alignItems: 'center', 
+    justifyContent: 'center',
+    padding: '2rem'
+  }}>
+    <div className="animate-pulse" style={{
+      width: '40px',
+      height: '40px',
+      border: '3px solid #f3f4f6',
+      borderTop: '3px solid #3b82f6',
+      borderRadius: '50%',
+      animation: 'spin 1s linear infinite'
+    }}/>
+  </div>
+)
 
 export default function HomePage() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -71,65 +93,77 @@ export default function HomePage() {
 
       {/* Animated Sections Container */}
       <motion.div variants={staggerVariants}>
-        <motion.div 
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <CategoriesSection />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div 
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <CategoriesSection />
+          </motion.div>
+        </Suspense>
 
-        <motion.div 
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <NewArrivals />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div 
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <NewArrivals />
+          </motion.div>
+        </Suspense>
 
-        <motion.div 
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <CharacterShop />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div 
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <CharacterShop />
+          </motion.div>
+        </Suspense>
 
-        <motion.div 
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <BestSelling />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div 
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <BestSelling />
+          </motion.div>
+        </Suspense>
 
-        <motion.div 
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <ImageGallery />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div 
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <ImageGallery />
+          </motion.div>
+        </Suspense>
 
-        <motion.div 
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-        >
-          <LatestNews />
-        </motion.div>
+        <Suspense fallback={<SectionLoader />}>
+          <motion.div 
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
+            <LatestNews />
+          </motion.div>
+        </Suspense>
       </motion.div>
     </motion.div>
   )
