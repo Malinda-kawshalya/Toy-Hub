@@ -340,6 +340,114 @@ const toysData: Record<string, Toy[]> = {
       name: "Sand & Beach Toys",
       image: "/product images/Outdoor Toys/10.png",
       category: "Outdoor Toys"
+    },
+    {
+      id: "11",
+      name: "Sand & Beach Toys-1",
+      image: "/product images/Outdoor Toys/OU(1).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "12",
+      name: "E-Scooter 1",
+      image: "/product images/Outdoor Toys/OU(2).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "13",
+      name: "E-Scooter 2",
+      image: "/product images/Outdoor Toys/OU(3).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "14",
+      name: "E-Scooter 3",
+      image: "/product images/Outdoor Toys/OU(4).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "15",
+      name: "E-Scooter 4",
+      image: "/product images/Outdoor Toys/OU(5).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "16",
+      name: "E-Scooter 5",
+      image: "/product images/Outdoor Toys/OU(6).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "17",
+      name: "E-Scooter 6",
+      image: "/product images/Outdoor Toys/OU(7).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "18",
+      name: "Tricycle 1",
+      image: "/product images/Outdoor Toys/OU(8).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "19",
+      name: "Tricycle(CXD-1213)",
+      image: "/product images/Outdoor Toys/OU(9).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "20",
+      name: "Paddaling Car(PC011)",
+      image: "/product images/Outdoor Toys/OU(10).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "21",
+      name: "PUSH TOLO CAR(BC3921P)",
+      image: "/product images/Outdoor Toys/OU(11).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "22",
+      name: "BABY ELECTRIC CRADLE(BS668)",
+      image: "/product images/Outdoor Toys/OU(12).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "23",
+      name: "BABY WARKER(662)",
+      image: "/product images/Outdoor Toys/OU(13).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "24",
+      name: "PUSH WARKER(668-167) ",
+      image: "/product images/Outdoor Toys/OU(14).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "25",
+      name: "2 IN 1 PUSH WARKER(CX6049)",
+      image: "/product images/Outdoor Toys/OU(15).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "26",
+      name: "PLAY PEN-30 BALLS(YBL-2099)",
+      image: "/product images/Outdoor Toys/OU(16).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "27",
+      name: "ROCKER",
+      image: "/product images/Outdoor Toys/OU(17).jpeg",
+      category: "Outdoor Toys"
+    },
+    {
+      id: "28",
+      name: "PLAYING TENT(PT69)",
+      image: "/product images/Outdoor Toys/OU(18).jpeg",
+      category: "Outdoor Toys"
     }
   ],
   "puzzles": [
@@ -464,6 +572,24 @@ const toysData: Record<string, Toy[]> = {
       name: "RC Tank",
       image: "/product images/Rc items/10.png",
       category: "RC Items"
+    },
+    {
+      id: "11",
+      name: "RC BIKE(JM3188)",
+      image: "/product images/Rc items/RC(1).jpeg",
+      category: "RC Items"
+    },
+    {
+      id: "12",
+      name: "RC BIKE(R15)",
+      image: "/product images/Rc items/RC(2).jpeg",
+      category: "RC Items"
+    },
+    {
+      id: "12",
+      name: "RC JEEP(BH-90E)",
+      image: "/product images/Rc items/RC(3).jpeg",
+      category: "RC Items"
     }
   ],
   "teddys": [
@@ -527,6 +653,152 @@ const toysData: Record<string, Toy[]> = {
       image: "/product images/Teddys/15.png",
       category: "Teddys"
     }
+  ],
+  "others": [
+    {
+      id: "1",
+      name: "Feeding Chair(HC401)",
+      image: "/product images/Others/OT(1).jpeg",
+      category: "Others"
+    },
+    {
+      id: "2",
+      name: "Feeding Chair(HC330)",
+      image: "/product images/Others/OT(2).jpeg",
+      category: "Others"
+    },
+    {
+      id: "3",
+      name: "Feeding Chair(HC360)",
+      image: "/product images/Others/OT(3).jpeg",
+      category: "Others"
+    },
+    {
+      id: "4",
+      name: "Feeding Chair(HC0202)",
+      image: "/product images/Others/OT(4).jpeg",
+      category: "Others"
+    },
+    {
+      id: "5",
+      name: "Feeding Chair(M500)",
+      image: "/product images/Others/OT(5).jpeg",
+      category: "Others"
+    },
+    {
+      id: "6",
+      name: "Feeding Chair(HW01)",
+      image: "/product images/Others/OT(6).jpeg",
+      category: "Others"
+    },
+    {
+      id: "7",
+      name: "Desk & Chair(DC333)",
+      image: "/product images/Others/OT(7).jpeg",
+      category: "Others"
+    },
+    {
+      id: "8",
+      name: "Stand Swing(BS37)",
+      image: "/product images/Others/OT(8).jpeg",
+      category: "Others"
+    },
+    {
+      id: "9",
+      name: "Bag - Baby Skyland",
+      image: "/product images/Others/OT(9).jpeg",
+      category: "Others"
+    },
+    {
+      id: "10",
+      name: "Twin Stroller",
+      image: "/product images/Others/OT(10).jpeg",
+      category: "Others"
+    },
+    {
+      id: "11",
+      name: "Wooden Cot",
+      image: "/product images/Others/OT(11).jpeg",
+      category: "Others"
+    },
+    {
+      id: "12",
+      name: "Music Sed Bell",
+      image: "/product images/Others/OT(12).jpeg",
+      category: "Others"
+    },
+    {
+      id: "13",
+      name: "Baby Swing",
+      image: "/product images/Others/OT(13).jpeg",
+      category: "Others"
+    },
+    {
+      id: "14",
+      name: "Music Tray Doll Net",
+      image: "/product images/Others/OT(14).jpeg",
+      category: "Others"
+    },
+    {
+      id: "15",
+      name: "Lightweight Baby Stroller",
+      image: "/product images/Others/OT(15).jpeg",
+      category: "Others"
+    },
+    {
+      id: "16",
+      name: "Baby Mobile Toy (Cute Bird)",
+      image: "/product images/Others/OT(16).jpeg",
+      category: "Others"
+    },
+    {
+      id: "17",
+      name: "Baby Car Seat",
+      image: "/product images/Others/OT(17).jpeg",
+      category: "Others"
+    },
+    {
+      id: "18",
+      name: "Baby Crib with Mobile",
+      image: "/product images/Others/OT(18).jpeg",
+      category: "Others"
+    },
+    {
+      id: "19",
+      name: "Baby Carrier (Ergonomic)",
+      image: "/product images/Others/OT(19).jpeg",
+      category: "Others"
+    },
+    {
+      id: "20",
+      name: "Baby Carrier (Alternative Design)",
+      image: "/product images/Others/OT(20).jpeg",
+      category: "Others"
+    },
+    {
+      id: "21",
+      name: "Kids Toddler Bed",
+      image: "/product images/Others/OT(21).jpeg",
+      category: "Others"  
+    },
+    {
+      id: "22",
+      name: "Portable Baby Bassinet",
+      image: "/product images/Others/OT(22).jpeg",
+      category: "Others"
+    },
+    {
+      id: "23",
+      name: "Diaper Bag Backpack",
+      image: "/product images/Others/OT(23).jpeg",
+      category: "Others"
+    },
+    {
+      id: "24",
+      name: "Luxury Baby Stroller (2-in-1)",
+      image: "/product images/Others/OT(24).jpeg",
+      category: "Others"
+    }
   ]
 }
 
@@ -537,7 +809,8 @@ const categoryTitles: Record<string, string> = {
   "outdoor-toys": "Outdoor Toys",
   "puzzles": "Puzzles",
   "rc-items": "RC Items",
-  "teddys": "Teddys"
+  "teddys": "Teddys",
+  "others": "Others",
 }
 
 export default function CategoryPage({ params }: CategoryPageProps) {
@@ -561,6 +834,7 @@ export function generateStaticParams() {
     { category: 'outdoor-toys' },
     { category: 'puzzles' },
     { category: 'rc-items' },
-    { category: 'teddys' }
+    { category: 'teddys' },
+    { category: 'others' },
   ]
 }

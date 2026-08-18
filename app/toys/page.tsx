@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Baby, GraduationCap, Car, Bike, Puzzle, Gamepad2, Heart } from "lucide-react"
+import { Baby, GraduationCap, Car, Bike, Puzzle, Gamepad2, Heart, Asterisk } from "lucide-react"
 import ToyCategoryCard from "@/components/ToyCategoryCard"
 import styles from "./toys.module.css"
 
@@ -58,6 +58,12 @@ export default function ToysPage() {
       description: "Cuddly teddy bears and soft plush companions",
       color: "linear-gradient(135deg, #FF008E 0%, #CC006F 100%)",
     },
+    {
+      icon: <Asterisk size={48} strokeWidth={2} />,
+      title: "Others",
+      description: "Other baby products and accessories",
+      color: "linear-gradient(135deg, #FF008E 0%, #CC006F 100%)",
+    }
   ]
 
   const featuredToys = [

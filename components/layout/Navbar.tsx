@@ -60,6 +60,7 @@ export default function Navbar() {
     { name: "Puzzles", href: "/toys/puzzles"},
     { name: "RC Items", href: "/toys/rc-items"},
     { name: "Teddys", href: "/toys/teddys" },
+    { name: "Others", href: "/toys/others" },
   ]
 
   return (
