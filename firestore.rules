@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null
+        && exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+        && get(/databases/$(database)/documents/admins/$(request.auth.uid)).data.enabled == true;
+    }
+    function validProduct() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['name', 'description', 'category', 'image', 'price', 'inStock', 'featured', 'newArrival', 'bestSeller', 'updatedAt'])
+        && data.keys().hasOnly(['name', 'description', 'category', 'image', 'price', 'inStock', 'featured', 'newArrival', 'bestSeller', 'updatedAt'])
+        && data.name is string && data.name.size() > 0 && data.name.size() <= 120
+        && data.description is string && data.description.size() <= 2000
+        && data.category in ['baby-toys', 'educational-toys', 'model-cars', 'outdoor-toys', 'puzzles', 'rc-items', 'teddys', 'others']
+        && data.image is string && data.image.size() > 0 && data.image.size() <= 2048
+        && (data.image.matches('https://[^\\s]+') || data.image.matches('/[^/].*')
+          || (request.auth.token.aud == 'demo-toy-hub' && data.image.matches('http://127[.]0[.]0[.]1:9199/[^\\s]+')))
+        && (data.price == null || (data.price is number && data.price >= 0 && data.price <= 10000000))
+        && data.inStock is bool && data.featured is bool && data.newArrival is bool && data.bestSeller is bool
+        && data.updatedAt == request.time;
+    }
+    match /products/{productId} {
+      allow read: if true;
+      allow create, update: if isAdmin() && validProduct();
+      allow delete: if isAdmin();
+    }
+    match /admins/{uid} {
+      allow get: if request.auth != null && request.auth.uid == uid;
+      // Admin roles must be provisioned by the project owner through the console.
+      allow list, create, update, delete: if false;
+    }
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

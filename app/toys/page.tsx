@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Baby, GraduationCap, Car, Bike, Puzzle, Gamepad2, Heart, Asterisk } from "lucide-react"
+import ProductCollection from "@/components/ProductCollection"
 import ToyCategoryCard from "@/components/ToyCategoryCard"
 import styles from "./toys.module.css"
 
@@ -66,23 +67,7 @@ export default function ToysPage() {
     }
   ]
 
-  const featuredToys = [
-    {
-      name: "Rainbow Building Blocks",
-      category: "Educational",
-      image: "/colorful-building-blocks.png",
-    },
-    {
-      name: "Cuddly Bear Collection",
-      category: "Plush",
-      image: "/cute-teddy-bear-plush-toy.jpg",
-    },
-    {
-      name: "Space Explorer Set",
-      category: "Action Figures",
-      image: "/space-astronaut-action-figure-toy.jpg",
-    },
-  ]
+
 
   return (
     <main className={styles.main}>
@@ -134,27 +119,12 @@ export default function ToysPage() {
           Featured <span className={styles.gradient}>Favorites</span>
         </motion.h2>
 
-        <div className={styles.featuredGrid}>
-          {featuredToys.map((toy, index) => (
-            <motion.div
-              key={toy.name}
-              className={styles.featuredCard}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15 }}
-              whileHover={{ y: -10 }}
-            >
-              <div className={styles.featuredImage}>
-                <img src={toy.image || "/placeholder.svg"} alt={toy.name} />
-              </div>
-              <div className={styles.featuredContent}>
-                <span className={styles.featuredCategory}>{toy.category}</span>
-                <h3 className={styles.featuredName}>{toy.name}</h3>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <ProductCollection placement="featured" limit={6} />
+      </section>
+
+      <section className={styles.section}>
+        <h2 className={styles.sectionTitle}>Shop <span className={styles.gradient}>All Toys</span></h2>
+        <ProductCollection />
       </section>
 
       {/* Safety Section */}

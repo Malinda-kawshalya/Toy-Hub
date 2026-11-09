@@ -3,9 +3,9 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import styles from "./WhatsAppFloat.module.css"
+import { whatsappLink } from "@/lib/whatsapp"
 
 export default function WhatsAppFloat() {
-  const whatsappNumber = "94716207888" // (+94) 716 207 888
   const message = "Hello! I'm interested in your toys." // Default message
   const [position, setPosition] = useState<'fixed' | 'absolute'>('fixed')
   
@@ -36,7 +36,7 @@ export default function WhatsAppFloat() {
   }, [])
   
   const handleWhatsAppClick = () => {
-    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`
+    const url = whatsappLink(message)
     window.open(url, "_blank", "noopener,noreferrer")
   }
 

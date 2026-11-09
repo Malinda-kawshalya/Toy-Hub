@@ -9,9 +9,13 @@
     "start": "next start",
     "export": "next build",
     "firebase:emulate": "firebase emulators:start --only hosting",
-    "firebase:deploy": "firebase deploy --only hosting",
+    "firebase:deploy": "firebase deploy --only firestore:rules,storage,hosting",
     "predeploy": "npm run build",
-    "deploy": "firebase deploy --only hosting"
+    "deploy": "firebase deploy --only firestore:rules,storage,hosting",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test tests/whatsapp.test.mjs tests/image-validation.test.mjs",
+    "test:rules": "firebase emulators:exec --project demo-toy-hub --only firestore,storage \"node --test --test-concurrency=1 tests/firestore.rules.test.mjs tests/storage.rules.test.mjs\"",
+    "test:e2e": "firebase emulators:exec --project demo-toy-hub --only auth,firestore,storage \"playwright test\""
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -54,6 +58,7 @@
     "cmdk": "1.0.4",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
+    "firebase": "^13.2.0",
     "framer-motion": "latest",
     "geist": "^1.3.1",
     "input-otp": "1.4.1",
@@ -75,13 +80,16 @@
     "zod": "3.25.67"
   },
   "devDependencies": {
+    "@firebase/rules-unit-testing": "^6.0.0",
     "@next/bundle-analyzer": "^16.0.1",
+    "@playwright/test": "^1.65.0",
     "@tailwindcss/postcss": "^4.1.9",
     "@types/node": "^22",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/react-icons": "^2.2.7",
     "cross-env": "^10.1.0",
+    "firebase-tools": "^15.35.0",
     "postcss": "^8.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",

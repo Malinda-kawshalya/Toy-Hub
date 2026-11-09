@@ -2,9 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Quicksand } from "next/font/google"
 import "./globals.css"
-import Navbar from "@/components/layout/Navbar"
-import Footer from "@/components/layout/Footer"
-import WhatsAppFloat from "@/components/layout/WhatsAppFloat"
+import AppShell from "@/components/layout/AppShell"
+import { ProductsProvider } from "@/components/ProductsProvider"
 import { WebVitals } from "@/components/WebVitals"
 
 const quicksand = Quicksand({
@@ -41,12 +40,7 @@ export default function RootLayout({
     <html lang="en" className={quicksand.variable} style={{ overflowX: 'hidden' }}>
       <body style={{ overflowX: 'hidden', width: '100%', maxWidth: '100vw' }}>
         <WebVitals />
-        <Navbar />
-        {children}
-        <div style={{ position: 'relative' }}>
-          <WhatsAppFloat />
-          <Footer />
-        </div>
+        <ProductsProvider><AppShell>{children}</AppShell></ProductsProvider>
       </body>
     </html>
   )
